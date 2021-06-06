@@ -1,2 +1,2 @@
 
-The SOTA algorithm in the field of Computer Vision has been published in June 2021 and after dominating the NLP research transformers are now set to revolutionize the computer vision field. 
+The SOTA algorithm in the field of Computer Vision has been published in June 2021 and after dominating the NLP research transformers are now set to revolutionize the computer vision field. In this article I am going to explain the the vision transformer paper as easily as I can. The [Vision Tranformer](https://arxiv.org/pdf/2010.11929v2.pdf) was published recently and it is all set to change the whole computer vision field.
