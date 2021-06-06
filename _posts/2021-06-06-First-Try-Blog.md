@@ -1,3 +1,3 @@
-# Vision Transformer
+### Vision Transformer
 ## Introduction-
 
