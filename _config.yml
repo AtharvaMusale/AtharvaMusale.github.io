@@ -28,7 +28,7 @@ twitter_username: AtharvaMusale
 github_username:  AtharvaMusale
 
 # Build settings
-theme: noir
+theme: minima
 plugins:
   - jekyll-feed
 
