@@ -32,6 +32,8 @@ theme: minima
 plugins:
   - jekyll-feed
 
+avatar: ![Atharva](https://user-images.githubusercontent.com/46114095/121130554-2d6b2b80-c84c-11eb-8ee4-e2bc72f0bbb4.jpeg)
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
