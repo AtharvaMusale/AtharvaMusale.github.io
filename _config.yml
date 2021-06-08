@@ -32,7 +32,7 @@ theme: minima
 plugins:
   - jekyll-feed
 
-avatar: https://drive.google.com/drive/u/0/search?q=type:image
+avatar: https://avatars.githubusercontent.com/AtharvaMusale
 
 # Exclude from processing.
 # The following items will not be processed, by default.
