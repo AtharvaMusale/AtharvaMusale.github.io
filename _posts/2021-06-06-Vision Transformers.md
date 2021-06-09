@@ -47,3 +47,4 @@ For fine-tuning we use SGD with momentum,batch size 512. **Metrics** used for th
 A common observation can be made that vision tranformer is outperforming the Resnet based baselines on all datasets and also taking less computational resources to pre-train.
 
 Another experiment was done based on the type of datasets available. The model was trained on three types of datasets Natural( Pets, CIFAR, etc.), Specialized(medical and satellite imagery) and Structured(tasks that require geometric understanding like localization). The results look like 
+<img width="919" alt="Screenshot 2021-06-09 at 5 09 07 PM" src="https://user-images.githubusercontent.com/46114095/121347988-6fc46380-c945-11eb-9cf5-cc6ac4244b8a.png">
