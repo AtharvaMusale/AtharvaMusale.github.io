@@ -14,3 +14,5 @@ The above image can be summarized in following steps -
 - Adding the extra learnable "classification token" to the sequence.
 
 
+# **Mathematical Explaination** - 
+- NLP transformers recieves the 1D sequence of token embeddings. To handle the 2D images, the images $x^(H * W * C)$
