@@ -36,7 +36,8 @@ Typically transformers are pre trained on a large dataset and fine tuned to down
 
 # **Experiments Done**-
 **Datasets.** For testing the model scalability model was trained on ILSVRC-2012 ,ImageNet-21k and JFT and then tested on CIFAR-10/100, Oxford-IIIT Pets, Oxford Flowers-102
-
 <img width="937" alt="Screenshot 2021-06-09 at 4 30 18 PM" src="https://user-images.githubusercontent.com/46114095/121343234-16a60100-c940-11eb-954d-df1a754a7f99.png">
+ViT-base and ViT-large are based on the BERT model architectures only. The larger ViT huge model is added ahead.
 
-ViT-base and ViT-large are based on the BERT model architectures only. The larger ViT huge model is added ahead. For the baseline CNNs Resnets are used but BatchNormalization are replaced by GroupNormalization(Refer this [blog](https://towardsdatascience.com/what-is-group-normalization-45fe27307be7)).
+**Training & Fine-tuning.**  For the baseline CNNs Resnets are used but BatchNormalization are replaced by [GroupNomalization](https://towardsdatascience.com/what-is-group-normalization-45fe27307be7).For training optimizer used was Adam with a β1 = 0.9, β2 = 0.999. a batch size of 4096 and apply a high weight decay of 0.1.
+For fine-tuning we use SGD with momentum,batch size 512. **Metrics** used for the downstream datsets is nothing but accuracy. Few shot accuracies are obtained by usign regularized least squared regression problem that maps subset of training images to {-1,1}^k target variables.
