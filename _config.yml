@@ -12,7 +12,7 @@ theme: minima
 plugins:
   - jekyll-feed
 
-avatar: https://avatars.githubusercontent.com/AtharvaMusale
+avatar: https://user-images.githubusercontent.com/46114095/121290381-230c6880-c904-11eb-9524-9b7fb05e7bea.jpeg
 
 
 markdown: kramdown
