@@ -39,3 +39,4 @@ Typically transformers are pre trained on a large dataset and fine tuned to down
 
 <img width="937" alt="Screenshot 2021-06-09 at 4 30 18 PM" src="https://user-images.githubusercontent.com/46114095/121343234-16a60100-c940-11eb-954d-df1a754a7f99.png">
 
+ViT-base and ViT-large are based on the BERT model architectures only. The larger ViT huge model is added ahead. For the baseline CNNs Resnets are used but BatchNormalization are replaced by GroupNormalization(Refer this [blog](https://towardsdatascience.com/what-is-group-normalization-45fe27307be7)).
