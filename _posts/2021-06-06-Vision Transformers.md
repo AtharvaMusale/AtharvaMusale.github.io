@@ -50,5 +50,6 @@ Another experiment was done based on the type of datasets available. The model w
 <img width="919" alt="Screenshot 2021-06-09 at 5 09 07 PM" src="https://user-images.githubusercontent.com/46114095/121347988-6fc46380-c945-11eb-9cf5-cc6ac4244b8a.png">
 As one can observe the ViT-H outperforms every other model on all tasks. 
 
-#**Conclusion**- 
+# **Conclusion**- 
 The main advantage of using transformers in image recognition tasks is that it doesnt include any image specific inductive bias since self attnetion heads work on global features, only MLPs and initial positional embeddings introduce a small bias in the transformers. Transformers are also computationally efficient and uses less computational resources. Still lots of other challenges remain like implementing vision transformers to image segmentation or detection.
+
