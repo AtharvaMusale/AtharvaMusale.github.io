@@ -15,4 +15,4 @@ The above image can be summarized in following steps -
 
 
 # **Mathematical Explaination** - 
-- NLP transformers recieves the 1D sequence of token embeddings. To handle the 2D images, the images $x^(H * W * C)$
+- NLP transformers recieves the 1D sequence of token embeddings. To handle the 2D images, the images of  x ∈ R^(H×W×C) are reshaped into a sequence of a flattened 2D patches xp ∈ R^(N×((P^2)*C)), where (H,W) is the resolution of the image, C is the number of channels, (P,P) is the resolution of each image patch.
