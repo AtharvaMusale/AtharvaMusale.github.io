@@ -37,3 +37,5 @@ Typically transformers are pre trained on a large dataset and fine tuned to down
 # **Experiments Done**-
 **Datasets.** For testing the model scalability model was trained on ILSVRC-2012 ,ImageNet-21k and JFT and then tested on CIFAR-10/100, Oxford-IIIT Pets, Oxford Flowers-102
 
+<img width="937" alt="Screenshot 2021-06-09 at 4 30 18 PM" src="https://user-images.githubusercontent.com/46114095/121343234-16a60100-c940-11eb-954d-df1a754a7f99.png">
+
