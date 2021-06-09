@@ -7,5 +7,5 @@ Transformers in the latest natural language processing research has become a def
 
 <img width="913" alt="VisionTransformer" src="https://user-images.githubusercontent.com/46114095/121113343-85e00000-c82f-11eb-800f-654a4f667c56.png">
 
-## Vision Transformer -
-  As shown is the figure above trasformers recieve the images in terms of small patches. So images of shape x ∈ R^(H×W×C) are reshaped into sequence of flattened 2D patches xp ∈ R^ (N×((P^2)·C)), where H and W are resolution of original image and P is the Patch size N is number of patches and C is the number of channels.
+# Vision Transformer -
+    As shown is the figure above trasformers recieve the images in terms of small patches. So images of shape x ∈ R^(H×W×C) are reshaped into sequence of flattened 2D patches xp ∈ R^ (N×((P^2)·C)), where H and W are resolution of original image and P is the Patch size N is number of patches and C is the number of channels.
