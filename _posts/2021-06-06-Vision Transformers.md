@@ -19,3 +19,6 @@ The above image can be summarized in following steps -
 - Similar to BERT a learnable embedding token is added before the sequence of embedded patches whose output will be used to represent the image. Adding a 2D aware positional embedding(11,12,13,14,21,22,23,24,31,....,44) didnt imrpove the performance so author tried to use the 1D positionla embedding only for the images(for eg. 1,2,3,...,16)
 - A typical structure of transformer encoder has alternating layers of self attention and MLP blocks and a layernorm is applied before each of these two blocks and a residual connection after each block.
 <img width="933" alt="Screenshot 2021-06-09 at 10 38 48 AM" src="https://user-images.githubusercontent.com/46114095/121296849-f447bf80-c90e-11eb-814c-44a63c564b5e.png">
+
+## Advantage of Transformers - 
+- **Inductive Bias** Vision transformers has much less inductive bias than the CNNs. This must be because traditional CNNs looks at the local features one by one and somehow tries to generalize it. This leads to translational equivariance is baked into each layer throughout the whole model. but in case of Vision Transformers only MLP are translationally equivariant while the self-attention is global. Two dimentional neighbourhood is not used. 
