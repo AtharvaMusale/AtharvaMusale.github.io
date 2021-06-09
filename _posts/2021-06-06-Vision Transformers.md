@@ -6,4 +6,9 @@ Transformers in the latest natural language processing research has become a def
 # **Method** - 
 
 <img width="913" alt="VisionTransformer" src="https://user-images.githubusercontent.com/46114095/121113343-85e00000-c82f-11eb-800f-654a4f667c56.png">
-
+The above image can be summarized in following steps - 
+- Splitting the image in fixed sized patches.
+- Linearly Embedding each of the patches.
+- Adding the positional embedding.
+- Feeding the resulting sequence o vector to the transformer encoder.
+- Adding the extra learnable "classification token" to the sequence.
