@@ -34,8 +34,7 @@ Try to refer the diagram of the Transformer Encoder block for better understandi
 - **Zl** is an output which is obtained by addition of output of the MSA block(Zl') and the linearly normalized MLP output of the output of the MSA block output (MLP(LN(Zl')))
 - **y** is the linear normalized output of the Zl_0 where Zl_0=xclass(Prepended BERT like embdedding).
 
-MLP uses the [GELU](https://datascience.stackexchange.com/questions/49522/what-is-gelu-activation) actiavtion function.
-
+MLP uses the [GELU](https://datascience.stackexchange.com/questions/49522/what-is-gelu-activation) actiavtion function. For better understanding of the MSA one should refer to [attention is all you need](https://arxiv.org/pdf/1706.03762.pdf) also this [blog](https://jalammar.github.io/illustrated-transformer/) by Jay Alammar.
 
 
 # **Advantage of Transformers** - 
