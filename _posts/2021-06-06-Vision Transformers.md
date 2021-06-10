@@ -30,10 +30,15 @@ A typical structure of transformer encoder has alternating layers of self attent
 
 Try to refer the diagram of the Transformer Encoder block for better understanding of equations shown above
 - In Eq(1), **xclass** represents the learnable embedding prepended just like in the case of BERT model. All other **xp_i** s represent the patches of the image where i indicates the 1D positional embedding. **E** is patch embedding projection so if we consider a patch size as 1 then it can be simply thought as flattened representation of the whole 2D image. **Epos** is the embedding with the shape of (N+1)*D where **N** is the number of pathces and **D** is the flattened map dimention of the patch(N for number of patches and one for the prepended xclass).
+
 - **Zl'** is an output which is obtained by adding the output of the last block (Zl-1) with the Multiheaded Self Attended linearly normalized output of the previous block(MSA(LN(Zl-1))) where **l=1,2,...,L**. So **Zl' will start from taking the Z0 and go till ZL-1**. 
+
 - **Zl** is an output which is obtained by addition of output of the MSA block(Zl') and the linearly normalized MLP output of the output of the MSA block output (MLP(LN(Zl')))
+
 - **y** is the linear normalized output of the Zl_0 where Zl_0=xclass(Prepended BERT like embdedding).
 
+## Headtype and Class Token
+In order to make the vision transformer as close as one can to the BERT model, a class token z0=xclass is taken which is taken as an image representation. the output from this token is passed from a small MLP network with tanh actiavtion to get the final class predictions
 MLP uses the [GELU](https://datascience.stackexchange.com/questions/49522/what-is-gelu-activation) actiavtion function. For better understanding of the MSA one should refer to [attention is all you need](https://arxiv.org/pdf/1706.03762.pdf) also this [blog](https://jalammar.github.io/illustrated-transformer/) by Jay Alammar.
 
 
