@@ -37,9 +37,21 @@ Try to refer the diagram of the Transformer Encoder block for better understandi
 
 - **y** is the linear normalized output of the Zl_0 where Zl_0=xclass(Prepended BERT like embdedding).
 
-## Headtype and Class Token
-In order to make the vision transformer as close as one can to the BERT model, a class token z0=xclass is taken which is taken as an image representation. the output from this token is passed from a small MLP network with tanh actiavtion to get the final class predictions
-MLP uses the [GELU](https://datascience.stackexchange.com/questions/49522/what-is-gelu-activation) actiavtion function. For better understanding of the MSA one should refer to [attention is all you need](https://arxiv.org/pdf/1706.03762.pdf) also this [blog](https://jalammar.github.io/illustrated-transformer/) by Jay Alammar.
+# Additional Mathematical Details -
+**SGD vs Adam for RESNETs**-
+In the typical experiments ResNets are normally trained with SGD as an optimizer but the experiments shown below shows that on an average Adam performs better in general on all dataset when the model is trained on JFT dataset.
+![image](https://user-images.githubusercontent.com/46114095/121460567-c32cc500-c9ca-11eb-8479-5e7da2ed2360.png)
+
+** Transformer Shape**-
+![image](https://user-images.githubusercontent.com/46114095/121460919-709fd880-c9cb-11eb-81b0-e5a28fdb9357.png)
+The above figure shows the experiments with the tranformers done and it was found that the changing the depths shows maxmimum improvement and changing the width had least improvement. Decreasing the patch size and improving the effective sequence length shows surprising improvements without adding any parameters. Overall the conclusion from this figure was depth variation should be preferred over width of the network. Scaling all the dimentions will be the best robust imrpovement for the model
+
+**Headtype and Class Token-**
+In order to make the vision transformer as close as one can to the BERT model, a class token z0=xclass is taken which is taken as an image representation. the output from this token is passed from a small MLP network with tanh actiavtion to get the final class predictions. There was another attempt made by using GlobalAveragePooling but both almost performed similarly. But both class token method and GlobalAverage pooling required different learning rates. Finally class token method was chosen.
+![image](https://user-images.githubusercontent.com/46114095/121461696-fa03da80-c9cc-11eb-8882-54957de876b8.png)
+
+
+
 
 
 # **Advantage of Transformers** - 
