@@ -60,7 +60,15 @@ For positional embedding several experiments were done -
 We can see that there is a significant difference between no positional embeddings and positional embeddings but there is not a significant difference between what kind of positional embedding is used. Since transformers work on patch level inputs and not on pixel level inputs positional embeddings is no of much importance so 1D positional embedding is used. 
 
 **Axial Attention**-
-Axial atten
+Axial attention is also a simple yet effective method to apply on large inputs sizes that are arranged as a multidimentional tensors. Genrally axial attention is performs multiple attention operations each along single axis. Instead of applying on the 1D tensor, each attention mixes information along particular axis and keep sinformation along other axis independent.
+![image](https://user-images.githubusercontent.com/46114095/121464455-84e6d400-c9d1-11eb-9004-4a09c0467deb.png)
+As we can see that in terms of computes AxialResNet50 works well and consumes less compute resources. But the inference time is extremely slow. So this method is not used for ViT.
+
+**Attention Distance**-
+![image](https://user-images.githubusercontent.com/46114095/121464785-29691600-c9d2-11eb-81d1-418021e84cd8.png)
+To understand how attention in ViT works refer the above figure. Attention span in the ViT can be thought of just like CNNs receptive field. Average attention distance is highly variable in lower heads like some attention heads are actually attending too much field in an image and some of the attention heads are attending very small area in an image near query location. As the depth increases the attention distance increases for all heads.
+** Attention Maps**-
+To get the attention maps, attention rollouts are used. Averaging the attention weights of ViT-L/16 across all the heads and then recursively multiplied the weights matrices of all layers. this mixes all the attention across tokens through all layers.
 
 
 
