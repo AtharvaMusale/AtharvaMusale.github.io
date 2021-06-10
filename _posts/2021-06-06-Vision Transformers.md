@@ -56,7 +56,7 @@ The above figure shows the experiments with the tranformers done and it was foun
 
 **Headtype and Class Token-**
 
-In order to make the vision transformer as close as one can to the BERT model, a class token z0=xclass is taken which is taken as an image representation. the output from this token is passed from a small MLP network with tanh actiavtion to get the final class predictions. There was another attempt made by using GlobalAveragePooling but both almost performed similarly. But both class token method and GlobalAverage pooling required different learning rates. Finally class token method was chosen.
+In order to make the vision transformer as close as one can to the BERT model, a class token z0 = xclass is taken which is taken as an image representation. the output from this token is passed from a small MLP network with tanh actiavtion to get the final class predictions. There was another attempt made by using GlobalAveragePooling but both almost performed similarly. But both class token method and GlobalAverage pooling required different learning rates. Finally class token method was chosen.
 ![image](https://user-images.githubusercontent.com/46114095/121461696-fa03da80-c9cc-11eb-8882-54957de876b8.png)
 
 **Positional Embedding**-
