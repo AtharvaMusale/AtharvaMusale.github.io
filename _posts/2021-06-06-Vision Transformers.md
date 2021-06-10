@@ -43,19 +43,24 @@ Try to use the diagram of the Transformer Encoder block for better understanding
 - In Eq(4), **y** is the layer normalized output of the Zl_0 where Zl_0 = xclass (Prepended BERT like embdedding).
 
 # **Additional Mathematical Details** -
+
 **SGD vs Adam for RESNETs**-
+
 In the typical experiments ResNets are normally trained with SGD as an optimizer but the experiments shown below shows that on an average Adam performs better in general on all dataset when the model is trained on JFT dataset.
 ![image](https://user-images.githubusercontent.com/46114095/121460567-c32cc500-c9ca-11eb-8479-5e7da2ed2360.png)
 
 **Transformer Shape**-
+
 ![image](https://user-images.githubusercontent.com/46114095/121460919-709fd880-c9cb-11eb-81b0-e5a28fdb9357.png)
 The above figure shows the experiments with the tranformers done and it was found that the changing the depths shows maxmimum improvement and changing the width had least improvement. Decreasing the patch size and improving the effective sequence length shows surprising improvements without adding any parameters. Overall the conclusion from this figure was depth variation should be preferred over width of the network. Scaling all the dimentions will be the best robust imrpovement for the model
 
 **Headtype and Class Token-**
+
 In order to make the vision transformer as close as one can to the BERT model, a class token z0=xclass is taken which is taken as an image representation. the output from this token is passed from a small MLP network with tanh actiavtion to get the final class predictions. There was another attempt made by using GlobalAveragePooling but both almost performed similarly. But both class token method and GlobalAverage pooling required different learning rates. Finally class token method was chosen.
 ![image](https://user-images.githubusercontent.com/46114095/121461696-fa03da80-c9cc-11eb-8882-54957de876b8.png)
 
 **Positional Embedding**-
+
 For positional embedding several experiments were done - 
 - Not giving any positional embedding
 - 1D positional embedding: considering all the inputs as a sequence of patches (1,2,3,4,...N) where N is total number of patches.
@@ -65,11 +70,13 @@ For positional embedding several experiments were done -
 We can see that there is a significant difference between no positional embeddings and positional embeddings but there is not a significant difference between what kind of positional embedding is used. Since transformers work on patch level inputs and not on pixel level inputs positional embeddings is no of much importance so 1D positional embedding is used. 
 
 **Axial Attention**-
+
 Axial attention is also a simple yet effective method to apply on large inputs sizes that are arranged as a multidimentional tensors. Genrally axial attention is performs multiple attention operations each along single axis. Instead of applying on the 1D tensor, each attention mixes information along particular axis and keep sinformation along other axis independent.
 ![image](https://user-images.githubusercontent.com/46114095/121464455-84e6d400-c9d1-11eb-9004-4a09c0467deb.png)
 As we can see that in terms of computes AxialResNet50 works well and consumes less compute resources. But the inference time is extremely slow. So this method is not used for ViT.
 
 **Attention Distance**-
+
 ![image](https://user-images.githubusercontent.com/46114095/121464785-29691600-c9d2-11eb-81d1-418021e84cd8.png)
 To understand how attention in ViT works refer the above figure. Attention span in the ViT can be thought of just like CNNs receptive field. Average attention distance is highly variable in lower heads like some attention heads are actually attending too much field in an image and some of the attention heads are attending very small area in an image near query location. As the depth increases the attention distance increases for all heads.
 ** Attention Maps**-
@@ -79,22 +86,34 @@ To get the attention maps, attention rollouts are used. Averaging the attention 
 
 
 # **Advantage of Transformers** - 
-**Inductive Bias.** Vision transformers has much less inductive bias than the CNNs. This must be because traditional CNNs looks at the local features one by one and somehow tries to generalize it. This leads to translational equivariance is baked into each layer throughout the whole model. but in case of Vision Transformers only MLP are translationally equivariant while the self-attention is global. Two dimentional neighbourhood is not used. Positional embeddings at the initialization time carry no information about the 2D positions of the patches and all the spatial relations have to be laerned from scratch.
 
-**Hybrid Arhcitecture.** In alternative to raw image a patch, input sequence can be formed from feature maps usign CNNs. In this hybrid model patch embedding projection **E** (Eq.1) is applie dto the patches extracted from CNN maps. If the patch size is kept as 1x1 then it can simply be a flattened projection.
+**Inductive Bias**- 
+
+Vision transformers has much less inductive bias than the CNNs. This must be because traditional CNNs looks at the local features one by one and somehow tries to generalize it. This leads to translational equivariance is baked into each layer throughout the whole model. but in case of Vision Transformers only MLP are translationally equivariant while the self-attention is global. Two dimentional neighbourhood is not used. Positional embeddings at the initialization time carry no information about the 2D positions of the patches and all the spatial relations have to be laerned from scratch.
+
+**Hybrid Arhcitecture**-
+
+In alternative to raw image a patch, input sequence can be formed from feature maps usign CNNs. In this hybrid model patch embedding projection **E** (Eq.1) is applie dto the patches extracted from CNN maps. If the patch size is kept as 1x1 then it can simply be a flattened projection.
 
 # **Fine Tuning and Higher resolution** - 
+
 Typically transformers are pre trained on a large dataset and fine tuned to downstream tasks. So in this normally a pretrained prediction head is removed and a zero intialized feed forward layers of size D*K are attached in place of pretrained prediction head. D is the output shape of the previous transformer Where k is the number of output classes. It is observed that it is better to fine tune at higher resolution than pretraining. When the images of higher resolution are fed and the patch size is kept same, it will result in large receptive sequence length. Transformer can process any sequence lengths however the pre-trained positional embedding will make no sense now. So to deal with this 2D interpolation(For each pixel approximate the nearest value) is used of the positional embeddings according to their location in the original image. Resolution adjustment and patch extraction are the only two points where the inductive bias about the images are manually injected into Vision Transformers.
 
 # **Experiments Done**-
-**Datasets.** For testing the model scalability model was trained on ILSVRC-2012 ,ImageNet-21k and JFT and then tested on CIFAR-10/100, Oxford-IIIT Pets, Oxford Flowers-102
+
+**Datasets**- 
+
+For testing the model scalability model was trained on ILSVRC-2012 ,ImageNet-21k and JFT and then tested on CIFAR-10/100, Oxford-IIIT Pets, Oxford Flowers-102
 <img width="937" alt="Screenshot 2021-06-09 at 4 30 18 PM" src="https://user-images.githubusercontent.com/46114095/121343234-16a60100-c940-11eb-954d-df1a754a7f99.png">
 ViT-base and ViT-large are based on the BERT model architectures only. The larger ViT huge model is added ahead.
 
-**Training & Fine-tuning.**  For the baseline CNNs Resnets are used but BatchNormalization are replaced by [GroupNomalization](https://towardsdatascience.com/what-is-group-normalization-45fe27307be7).For training optimizer used was Adam with a β1 = 0.9, β2 = 0.999. a batch size of 4096 and apply a high weight decay of 0.1.
+**Training & Fine-tuning**-
+
+For the baseline CNNs Resnets are used but BatchNormalization are replaced by [GroupNomalization](https://towardsdatascience.com/what-is-group-normalization-45fe27307be7).For training optimizer used was Adam with a β1 = 0.9, β2 = 0.999. a batch size of 4096 and apply a high weight decay of 0.1.
 For fine-tuning we use SGD with momentum,batch size 512. **Metrics** used for the downstream datsets is nothing but accuracy. Few shot accuracies are obtained by usign regularized least squared regression problem that maps subset of training images to {-1,1}^k target variables.
 
-# **Results** -
+# **Results**-
+
 <img width="923" alt="Screenshot 2021-06-09 at 4 58 05 PM" src="https://user-images.githubusercontent.com/46114095/121346685-098b1100-c944-11eb-89aa-8f534c9805b9.png">
 A common observation can be made that vision tranformer is outperforming the Resnet based baselines on all datasets and also taking less computational resources to pre-train.
 
@@ -103,5 +122,6 @@ Another experiment was done based on the type of datasets available. The model w
 As one can observe the ViT-H outperforms every other model on all tasks. 
 
 # **Conclusion**- 
+
 The main advantage of using transformers in image recognition tasks is that it doesnt include any image specific inductive bias since self attnetion heads work on global features, only MLPs and initial positional embeddings introduce a small bias in the transformers. Transformers are also computationally efficient and uses less computational resources. Still lots of other challenges remain like implementing vision transformers to image segmentation or detection.
 
