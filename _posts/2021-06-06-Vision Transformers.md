@@ -139,12 +139,12 @@ The main advantage of using transformers in image recognition tasks is that it d
 
 # **Additional Links** - 
 
-- [Vision Transfomers](https://arxiv.org/pdf/2010.11929v2.pdf)
+- [Vision Transfomers](https://arxiv.org/pdf/2010.11929v2.pdf) 
 - [Attention is all you need](https://arxiv.org/pdf/1706.03762.pdf)
 - [BERT Illustration](https://jalammar.github.io/illustrated-bert/)
 - [Illustrated Transformers](https://jalammar.github.io/illustrated-transformer/)
 
 
-# **Personal Notes**-
-This is my first blog on GitHub Pages and my first try at explaining a research paper. If you have any suggestions or any queries feel free to reach out on [LinkedIn](https://www.linkedin.com/in/atharva-musale/) or on my [twitter](https://twitter.com/AtharvaMusale). 
+# **Personal Note**-
 
+This is my first theoretical research paper based blog. Vision Transformers paper is quite new to everyone, I tried to explain as much as I can.  If you have any suggestions or any queries feel free to reach out on [LinkedIn](https://www.linkedin.com/in/atharva-musale/) or on [twitter](https://twitter.com/AtharvaMusale). 
