@@ -106,7 +106,7 @@ An alternative to raw image a patch, input sequence can be formed from feature m
 
 # **Fine Tuning and Higher resolution** - 
 
-Typically transformers are pre trained on a large dataset and fine tuned to downstream tasks. So in this normally a pretrained prediction head is removed and a zero intialized feed forward layers of size D*K are attached in place of pretrained prediction head. D is the output shape of the previous transformer Where k is the number of output classes. It is observed that it is better to fine tune at higher resolution than pretraining. When the images of higher resolution are fed and the patch size is kept same, it will result in large receptive sequence length. Transformer can process any sequence lengths however the pre-trained positional embedding will make no sense now. So to deal with this 2D interpolation(For each pixel approximate the nearest value) is used of the positional embeddings according to their location in the original image. Resolution adjustment and patch extraction are the only two points where the inductive bias about the images are manually injected into Vision Transformers.
+Typically transformers are pre trained on a large dataset and fine tuned to downstream tasks. So in this normally a pretrained prediction head is removed and a zero intialized feed forward layers of size D*K are attached in place of pretrained prediction head. D is the output shape of the previous transformer Where k is the number of output classes. It is observed that it is better to fine tune at higher resolution than pretraining. When the images of higher resolution are fed and the patch size is kept same, it will result in large receptive sequence length. Transformer can process any sequence lengths however, the pre-trained positional embedding will make no sense now. So to deal with this 2D interpolation is used of the positional embeddings according to their location in the original image. Resolution adjustment and patch extraction are the only two points where the inductive bias about the images are manually injected into Vision Transformers.
 
 
 # **Experiments Done**-
@@ -115,12 +115,12 @@ Typically transformers are pre trained on a large dataset and fine tuned to down
 
 For testing the model scalability model was trained on ILSVRC-2012 ,ImageNet-21k and JFT and then tested on CIFAR-10/100, Oxford-IIIT Pets, Oxford Flowers-102
 <img width="937" alt="Screenshot 2021-06-09 at 4 30 18 PM" src="https://user-images.githubusercontent.com/46114095/121343234-16a60100-c940-11eb-954d-df1a754a7f99.png">
-ViT-base and ViT-large are based on the BERT model architectures only. The larger ViT huge model is added ahead.
+ViT-base and ViT-large are based on the BERT model architectures only. The larger ViT-huge model is added ahead.
 
 **Training & Fine-tuning**-
 
 For the baseline CNNs Resnets are used but BatchNormalization are replaced by [GroupNomalization](https://towardsdatascience.com/what-is-group-normalization-45fe27307be7).For training optimizer used was Adam with a β1 = 0.9, β2 = 0.999. a batch size of 4096 and apply a high weight decay of 0.1.
-For fine-tuning we use SGD with momentum,batch size 512. **Metrics** used for the downstream datsets is nothing but accuracy. Few shot accuracies are obtained by usign regularized least squared regression problem that maps subset of training images to {-1,1}^k target variables.
+For fine-tuning SGD with momentum is used with batch size of 512. **Metrics** used for the downstream datsets is nothing but accuracy. Few shot accuracies are obtained by usign regularized least squared regression problem that maps subset of training images to {-1,1}^k target variables.
 
 
 # **Results**-
@@ -135,7 +135,7 @@ As one can observe the ViT-H outperforms every other model on all tasks.
 
 # **Conclusion**- 
 
-The main advantage of using transformers in image recognition tasks is that it doesnt include any image specific inductive bias since self attnetion heads work on global features, only MLPs and initial positional embeddings introduce a small bias in the transformers. Transformers are also computationally efficient and uses less computational resources. Still lots of other challenges remain like implementing vision transformers to image segmentation or detection.
+The main advantage of using transformers in image recognition tasks is that it doesn't include any image specific inductive bias since self attnetion heads work on global features, only MLPs and initial positional embeddings introduce a small bias in the transformers. Transformers are also computationally efficient and uses less computational resources. Still lots of other challenges remain like implementing vision transformers to image segmentation or detection.
 
 # **Additional Links** - 
 
@@ -143,4 +143,8 @@ The main advantage of using transformers in image recognition tasks is that it d
 - [Attention is all you need](https://arxiv.org/pdf/1706.03762.pdf)
 - [BERT Illustration](https://jalammar.github.io/illustrated-bert/)
 - [Illustrated Transformers](https://jalammar.github.io/illustrated-transformer/)
+
+
+# **Personal Notes**-
+This is my first blog on GitHub Pages and my first try at explaining a research paper. If you have any suggestions or any queries feel free to reach out on [LinkedIn](https://www.linkedin.com/in/atharva-musale/) or on my [twitter](https://twitter.com/AtharvaMusale). 
 
