@@ -23,15 +23,19 @@ NLP transformers recieves the 1D sequence of token embeddings. To handle the 2D 
 Similar to BERT a learnable embedding token is added before the sequence of embedded patches whose output will be used to represent the image. Adding a 2D aware positional embedding(11,12,13,14,21,22,23,24,31,....,44) didnt imrpove the performance so author tried to use the 1D positional embedding only for the images(for eg. 1,2,3,...,16)
 
 A typical structure of transformer encoder has alternating layers of self attention and MLP blocks and a layernorm is applied before each of these two blocks and a residual connection after each block.
+
+<img width="831" alt="Screenshot 2021-06-09 at 6 36 05 PM" src="https://user-images.githubusercontent.com/46114095/121359927-98eaf100-c951-11eb-9ed9-500d1a1b528b.png">
+
 <img width="933" alt="Screenshot 2021-06-09 at 10 38 48 AM" src="https://user-images.githubusercontent.com/46114095/121296849-f447bf80-c90e-11eb-814c-44a63c564b5e.png">
 
+Try to refer the diagram of the Transformer Encoder block for better understanding of equations shown above
 - In Eq(1), **xclass** represents the learnable embedding prepended just like in the case of BERT model. All other **xp_i** s represent the patches of the image where i indicates the 1D positional embedding. **E** is patch embedding projection so if we consider a patch size as 1 then it can be simply thought as flattened representation of the whole 2D image. **Epos** is the embedding with the shape of (N+1)*D where **N** is the number of pathces and **D** is the flattened map dimention of the patch(N for number of patches and one for the prepended xclass).
 - **Zl'** is an output which is obtained by adding the output of the last block (Zl-1) with the Multiheaded Self Attended linearly normalized output of the previous block(MSA(LN(Zl-1))) where **l=1,2,...,L**. So **Zl' will start from taking the Z0 and go till ZL-1**. 
 - **Zl** is an output which is obtained by addition of output of the MSA block(Zl') and the linearly normalized MLP output of the output of the MSA block output (MLP(LN(Zl')))
 - **y** is the linear normalized output of the Zl_0 where Zl_0=xclass(Prepended BERT like embdedding).
 
 
-<img width="831" alt="Screenshot 2021-06-09 at 6 36 05 PM" src="https://user-images.githubusercontent.com/46114095/121359927-98eaf100-c951-11eb-9ed9-500d1a1b528b.png">
+
 
 
 # **Advantage of Transformers** - 
