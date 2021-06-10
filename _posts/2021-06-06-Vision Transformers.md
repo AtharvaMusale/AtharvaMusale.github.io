@@ -106,7 +106,7 @@ An alternative to raw image a patch, input sequence can be formed from feature m
 
 # **Fine Tuning and Higher resolution** - 
 
-Typically transformers are pre trained on a large dataset and fine tuned to downstream tasks. So in this normally a pretrained prediction head is removed and a zero intialized feed forward layers of size D*K are attached in place of pretrained prediction head. D is the output shape of the previous transformer Where k is the number of output classes. It is observed that it is better to fine tune at higher resolution than pretraining. When the images of higher resolution are fed and the patch size is kept same, it will result in large receptive sequence length. Transformer can process any sequence lengths however, the pre-trained positional embedding will make no sense now. So to deal with this 2D interpolation is used of the positional embeddings according to their location in the original image. Resolution adjustment and patch extraction are the only two points where the inductive bias about the images are manually injected into Vision Transformers.
+Typically transformers are pre trained on a large dataset and fine tuned to downstream tasks. So in this, normally a pretrained prediction head is removed and a zero intialized feed forward layers of size D*K are attached in place of pretrained prediction head. D is the output shape of the previous transformer feature map Where k is the number of output classes. It is observed that it is better to fine tune at higher resolution than pretraining. When the images of higher resolution are fed and the patch size is kept same, it will result in large receptive sequence length. Transformer can process any sequence lengths however, the pre-trained positional embedding will make no sense now. So to deal with this 2D interpolation is used of the positional embeddings according to their location in the original image. Resolution adjustment and patch extraction are the only two points where the inductive bias about the images are manually injected into Vision Transformers.
 
 
 # **Experiments Done**-
@@ -119,8 +119,8 @@ ViT-base and ViT-large are based on the BERT model architectures only. The large
 
 **Training & Fine-tuning**-
 
-For the baseline CNNs Resnets are used but BatchNormalization are replaced by [GroupNomalization](https://towardsdatascience.com/what-is-group-normalization-45fe27307be7).For training optimizer used was Adam with a β1 = 0.9, β2 = 0.999. a batch size of 4096 and apply a high weight decay of 0.1.
-For fine-tuning SGD with momentum is used with batch size of 512. **Metrics** used for the downstream datsets is nothing but accuracy. Few shot accuracies are obtained by usign regularized least squared regression problem that maps subset of training images to {-1,1}^k target variables.
+For the baseline CNNs Resnets are used but BatchNormalization are replaced by [GroupNomalization](https://towardsdatascience.com/what-is-group-normalization-45fe27307be7). For training optimizer used was Adam with a β1 = 0.9, β2 = 0.999 and a batch size of 4096 and apply a high weight decay of 0.1.
+For fine-tuning SGD with momentum is used with batch size of 512. **Metrics** used for the downstream datsets is nothing but **accuracy**. Few shot accuracies are obtained by usign regularized least squared regression problem that maps subset of training images to {-1,1}^k target variables.
 
 
 # **Results**-
