@@ -24,9 +24,13 @@ The above image can be summarized in following steps -
 # **Mathematical Explaination** - 
 
 Transformers in NLP recieves the 1D sequence of token embeddings. To handle the 2D images, the images of  x ∈ R^(H×W×C) are reshaped into a sequence of a flattened 2D image patches xp ∈ R^(N×((P^2)*C)), where (H,W) is the resolution of the original image, C is the number of channels, (P,P) is the resolution of each image patch. N is the number of patches.
+
 Similar to [BERT](https://jalammar.github.io/illustrated-bert/) a learnable embedding token is added before the sequence of embedded patches whose output will be used to represent the image. Adding a 2D aware positional embedding (11,12,13,14,21,22,23,24,31,....,44) didnt improve the performance so paper uses the 1D positional embedding for the image patches (for eg. 1,2,3,...,16)
+
 A typical structure of transformer encoder has alternating layers of self attention blocks and MLP blocks and a layernorm is applied before each of these two blocks and a residual connection after each block.
+
 <img width="831" alt="Screenshot 2021-06-09 at 6 36 05 PM" src="https://user-images.githubusercontent.com/46114095/121359927-98eaf100-c951-11eb-9ed9-500d1a1b528b.png">
+
 <img width="933" alt="Screenshot 2021-06-09 at 10 38 48 AM" src="https://user-images.githubusercontent.com/46114095/121296849-f447bf80-c90e-11eb-814c-44a63c564b5e.png">
 
 Try to use the diagram of the Transformer Encoder block for better understanding of equations shown above
