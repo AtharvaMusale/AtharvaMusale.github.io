@@ -127,9 +127,10 @@ The main advantage of using transformers in image recognition tasks is that it d
 
 # **Additional Links** - 
 
-- https://arxiv.org/pdf/2010.11929v2.pdf 
-- https://arxiv.org/pdf/1706.03762.pdf
-- https://jalammar.github.io/illustrated-bert/ 
-- https://jalammar.github.io/illustrated-transformer/
+- [Vision Transfomers](https://arxiv.org/pdf/2010.11929v2.pdf)
+- [Attention is all you need](https://arxiv.org/pdf/1706.03762.pdf)
+- [BERT Illustration](https://jalammar.github.io/illustrated-bert/)
+- [Illustrated Transformers](https://jalammar.github.io/illustrated-transformer/)
+
 
 
