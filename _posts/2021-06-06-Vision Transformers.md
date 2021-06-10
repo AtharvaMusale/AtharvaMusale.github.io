@@ -20,7 +20,6 @@ The above image can be summarized in following steps -
 - Feeding the resulting sequence to the transformer encoder.
 
 
-
 # **Mathematical Explanation** - 
 
 Transformers in NLP receive the 1D sequence of token embeddings. To handle the 2D images, the images of x ∈ R^(H×W×C) are reshaped into a sequence of flattened 2D image patches xp ∈ R^(N×((P^2)*C)), where (H, W) is the resolution of the original image, C is the number of channels, (P, P) is the resolution of each image patch. N is the number of patches.
@@ -41,6 +40,7 @@ Try to use the diagram of the Transformer Encoder block for a better understandi
 - In Eq(3), **Zl** is an output which is obtained by the addition of output of the MSA block (Zl') and the layer normalized MLP output of the output of the MSA block output (MLP(LN(Zl')))
 
 - In Eq(4), **y** is the layer normalized output of the Zl_0 where Zl_0 = xclass (Prepended BERT-like embedding).
+
 
 # **Additional Mathematical Details** -
 
@@ -91,7 +91,6 @@ To get the attention maps, attention rollouts are used. Averaging the attention 
 ![image](https://user-images.githubusercontent.com/46114095/121464785-29691600-c9d2-11eb-81d1-418021e84cd8.png)
 
 
-
 # **Advantage of Transformers** - 
 
 **Inductive Bias**- 
@@ -102,9 +101,11 @@ Vision transformers have much less inductive bias than CNNs. This must be becaus
 
 An alternative to raw image a patch, input sequence can be formed from feature maps using CNNs. In this hybrid model patch embedding projection **E** (Eq.1) is applied to the patches extracted from CNN maps. If the patch size is kept as 1x1 then it can simply be a flattened projection.
 
+
 # **Fine Tuning and Higher resolution** - 
 
 Typically transformers are pre trained on a large dataset and fine tuned to downstream tasks. So in this normally a pretrained prediction head is removed and a zero intialized feed forward layers of size D*K are attached in place of pretrained prediction head. D is the output shape of the previous transformer Where k is the number of output classes. It is observed that it is better to fine tune at higher resolution than pretraining. When the images of higher resolution are fed and the patch size is kept same, it will result in large receptive sequence length. Transformer can process any sequence lengths however the pre-trained positional embedding will make no sense now. So to deal with this 2D interpolation(For each pixel approximate the nearest value) is used of the positional embeddings according to their location in the original image. Resolution adjustment and patch extraction are the only two points where the inductive bias about the images are manually injected into Vision Transformers.
+
 
 # **Experiments Done**-
 
@@ -119,6 +120,7 @@ ViT-base and ViT-large are based on the BERT model architectures only. The large
 For the baseline CNNs Resnets are used but BatchNormalization are replaced by [GroupNomalization](https://towardsdatascience.com/what-is-group-normalization-45fe27307be7).For training optimizer used was Adam with a β1 = 0.9, β2 = 0.999. a batch size of 4096 and apply a high weight decay of 0.1.
 For fine-tuning we use SGD with momentum,batch size 512. **Metrics** used for the downstream datsets is nothing but accuracy. Few shot accuracies are obtained by usign regularized least squared regression problem that maps subset of training images to {-1,1}^k target variables.
 
+
 # **Results**-
 
 <img width="923" alt="Screenshot 2021-06-09 at 4 58 05 PM" src="https://user-images.githubusercontent.com/46114095/121346685-098b1100-c944-11eb-89aa-8f534c9805b9.png">
@@ -127,6 +129,7 @@ A common observation can be made that vision tranformer is outperforming the Res
 Another experiment was done based on the type of datasets available. The model was trained on three types of datasets Natural( Pets, CIFAR, etc.), Specialized(medical and satellite imagery) and Structured(tasks that require geometric understanding like localization). The results look like 
 <img width="919" alt="Screenshot 2021-06-09 at 5 09 07 PM" src="https://user-images.githubusercontent.com/46114095/121347988-6fc46380-c945-11eb-9cf5-cc6ac4244b8a.png">
 As one can observe the ViT-H outperforms every other model on all tasks. 
+
 
 # **Conclusion**- 
 
