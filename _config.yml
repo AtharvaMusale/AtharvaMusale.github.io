@@ -1,7 +1,7 @@
-title: Atharva's Blog
+title: Atharva's AI Blog
 email: atharva.musale@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  AI enthusiast on the journey to find perfectly optimized models
+  AI enthusiast on the journey to find perfectly optimized models :)
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: AtharvaMusale
@@ -12,7 +12,6 @@ theme: minima
 plugins:
   - jekyll-feed
 
-avatar: https://user-images.githubusercontent.com/46114095/121290381-230c6880-c904-11eb-9524-9b7fb05e7bea.jpeg
 
 
 markdown: kramdown
