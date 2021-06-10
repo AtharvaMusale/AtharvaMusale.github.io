@@ -147,4 +147,4 @@ The main advantage of using transformers in image recognition tasks is that it d
 
 # **Personal Note**-
 
-This is my first theoretical research paper based blog. Vision Transformers paper is quite new to everyone, I tried to explain as much as I can.  If you have any suggestions or any queries feel free to reach out on [LinkedIn](https://www.linkedin.com/in/atharva-musale/) or on [twitter](https://twitter.com/AtharvaMusale). 
+This is my first theoretical research paper based blog. Vision Transformers paper is quite new to everyone, I tried to explain as much as I can.  If you have any suggestions or any queries feel free to reach out on [LinkedIn](https://www.linkedin.com/in/atharva-musale/) or on [Twitter](https://twitter.com/AtharvaMusale). 
