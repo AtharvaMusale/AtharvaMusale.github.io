@@ -35,9 +35,12 @@ A typical structure of transformer encoder has alternating layers of self attent
 
 Try to use the diagram of the Transformer Encoder block for better understanding of equations shown above
 - In Eq(1), **xclass** represents the learnable embedding prepended just like in the case of BERT model. All other **xp_i** s represent the patches of the image where i indicates the 1D positional embedding. **E** is patch embedding projection so if we consider a patch size as 1 then it can be simply thought as flattened representation of the whole 2D image. **Epos** is the embedding with the shape of (N+1)*D where **N** is the number of pathces and **D** is the flattened map dimensdion of the patch(N for number of patches and one for the prepended xclass).
-- In Eq(2),**Zl'** is an output which is obtained by adding the output of the last block (Zl-1) with the Multiheaded Self Attended layer normalized output of the previous block(MSA(LN(Zl-1))) where **l=1,2,...,L**. So **Zl' will start from taking the Z0 and go till ZL-1**. 
-- In Eq(3),**Zl** is an output which is obtained by addition of output of the MSA block(Zl') and the layer normalized MLP output of the output of the MSA block output (MLP(LN(Zl')))
-- In Eq(4),**y** is the layer normalized output of the Zl_0 where Zl_0=xclass(Prepended BERT like embdedding).
+
+- In Eq(2), **Zl'** is an output which is obtained by adding the output of the last block (Zl-1) with the Multiheaded Self Attended layer normalized output of the previous block (MSA(LN(Zl-1))) where **l=1,2,...,L**. So **Zl' will start from taking the Z0 and go till ZL-1**. 
+
+- In Eq(3), **Zl** is an output which is obtained by addition of output of the MSA block (Zl') and the layer normalized MLP output of the output of the MSA block output (MLP(LN(Zl')))
+
+- In Eq(4), **y** is the layer normalized output of the Zl_0 where Zl_0 = xclass (Prepended BERT like embdedding).
 
 # **Additional Mathematical Details** -
 **SGD vs Adam for RESNETs**-
