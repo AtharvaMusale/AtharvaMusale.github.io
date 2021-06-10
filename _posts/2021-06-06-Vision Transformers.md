@@ -22,18 +22,18 @@ The above image can be summarized in following steps -
 
 # **Mathematical Explanation** - 
 
-Transformers in NLP receive the 1D sequence of token embeddings. To handle the 2D images, the images of x ∈ R^(H×W×C) are reshaped into a sequence of flattened 2D image patches xp ∈ R^(N×((P^2)*C)), where (H, W) is the resolution of the original image, C is the number of channels, (P, P) is the resolution of each image patch. N is the number of patches.
+Transformers in NLP receive the 1D sequence of token embeddings. To handle the 2D images, the images of x ∈ R^(H×W×C) are reshaped into a sequence of flattened 2D image patches xp ∈ R^(N×((P^2)*C)), where (H, W) is the resolution of the original image, C is the number of channels, (P,P) is the resolution of each image patch. N is the number of patches.
 
-Similar to [BERT](https://jalammar.github.io/illustrated-bert/) a learnable embedding token is added before the sequence of embedded patches whose output will be used to represent the image. Adding a 2D aware positional embedding (11,12,13,14,21,22,23,24,31,....,44) didn't improve the performance so paper uses the 1D positional embedding for the image patches (for eg. 1,2,3,...,16).
+Similar to [BERT](https://jalammar.github.io/illustrated-bert/) a learnable embedding token is added before the sequence of embedded patches whose output will be used to represent the image. Adding a 2D aware positional embedding (for eg. 11,12,13,14,21,22,23,24,31,....,44) didn't improve the performance so paper uses the 1D positional embedding for the image patches (for eg. 1,2,3,...,16).
 
-A typical structure of transformer encoder has alternating layers of self-attention blocks and MLP blocks and a layer norm is applied before each of these two blocks and a residual connection after each block.
+A typical structure of transformer encoder has alternating layers of Multiheaded self-attention(MSA) blocks and Multi Layered Perceptron(MLP) blocks and a layer norm is applied before each of these two blocks and a residual connection after each block.
 
 <img width="831" alt="Screenshot 2021-06-09 at 6 36 05 PM" src="https://user-images.githubusercontent.com/46114095/121359927-98eaf100-c951-11eb-9ed9-500d1a1b528b.png">
 
 <img width="933" alt="Screenshot 2021-06-09 at 10 38 48 AM" src="https://user-images.githubusercontent.com/46114095/121296849-f447bf80-c90e-11eb-814c-44a63c564b5e.png">
 
 Try to use the diagram of the Transformer Encoder block for a better understanding of the equations shown above
-- In Eq(1), **xclass** represents the learnable embedding prepended just like in the case of BERT model. All other **xp_i** s represent the patches of the image where i indicates the 1D positional embedding. **E** is patch embedding projection so if we consider a patch size as 1 then it can be simply thought of as a flattened representation of the whole 2D image. **Epos** is the embedding with the shape of (N+1)*D where **N** is the number of patches and **D** is the flattened map dimensions of the patch(N for a number of patches and one for the prepended xclass).
+- In Eq(1), **xclass** represents the learnable embedding prepended just like in the case of BERT model. All other **xp_i** s represent the patches of the image where i indicates the 1D positional embedding. **E** is patch embedding projection so if we consider a patch size as 1 then it can be simply thought of as a flattened representation of the whole 2D image. **Epos** is the embedding with the shape of (N+1)*D where **N** is the number of patches and **D** is the flattened map dimensions of the patch (N for a number of patches and one for the prepended xclass).
 
 - In Eq(2), **Zl'** is an output which is obtained by adding the output of the last block (Zl-1) with the Multiheaded Self Attended layer normalized output of the previous block (MSA(LN(Zl-1))) where **l=1,2,..., L**. So **Zl' will start from taking the Z0 and go till ZL-1**. 
 
@@ -57,45 +57,47 @@ The figure given below shows the experiments which were done with the transforme
 
 **Head type and Class Token-**
 
-In order to make the vision transformers closely resemble to the BERT model, a class token z0 = xclass is taken which is taken as an image representation. the output from this token is passed from a small MLP network with **tanh** activation to get the final class predictions. There was another attempt made by using GlobalAveragePooling but both almost performed similarly. But both the class token method and GlobalAverage pooling required different learning rates. Finally, the class token method was chosen.
+In order to make the vision transformers closely resemble to the BERT model, a class token z0 = xclass is taken which is taken as an image representation. The output from this token is passed from a small MLP network with **tanh** activation to get the final class predictions. There was another attempt made by using GlobalAveragePooling but both the experiments almost gave same results. But both the class token method and GlobalAverage pooling required different learning rates. So finally, the class token method was chosen.
 ![image](https://user-images.githubusercontent.com/46114095/121461696-fa03da80-c9cc-11eb-8882-54957de876b8.png)
 
 **Positional Embedding**-
 
 For positional embedding, several experiments were done - 
-- Not giving any positional embedding
+- **Not giving any positional embedding**
 
-- 1D positional embedding: considering all the inputs as a sequence of patches (1,2,3,4,...N) where N is a total number of patches.
+- **1D positional embedding:** considering all the inputs as a sequence of patches (1,2,3,4,...N) where N is a total number of patches.
 
-- 2D positional embeddings: Considering the inputs as a grid in two-dimensional patches. in this two sets of embeddings are learned one for the X-embeddings and one for Y-embeddings each with the size of D/2. then X and y embeddings are concatenated to get the final positional embedding. (for eg. assume we have 9 patches of the image so final concatenated embeddings will be 11,12,13,21,22,23,31,32,33 etc).
+- **2D positional embeddings:** Considering the inputs as a grid in two-dimensional patches. In this two sets of embeddings are learned one for the X-embeddings and one for Y-embeddings each with the size of D/2. Then X and y embeddings are concatenated to get the final positional embedding. (for eg. assume we have 9 patches of the image so final concatenated embeddings will be 11,12,13,21,22,23,31,32,33 etc).
 
-- Relative positional embedding: For every pair of patches (one as a query and the other as a key/value in attention mechanism) we have an offset pq-pk where each offset is associated with embeddings, One more attention is carried out where the original query is used but the key is taken as a relative positional embedding. Logits from the relative attention are used as a bias term and add it to the logits of the main attention, before applying softmax.
+- **Relative positional embedding:** For every pair of patches (one as a query and the other as a key/value in attention mechanism) we have an offset pq-pk where each offset is associated with embeddings, One more attention is carried out where the original query is used but the key is taken as a relative positional embedding. Logits from the relative attention are used as a bias term and add it to the logits of the main attention, before applying softmax.
 
 ![image](https://user-images.githubusercontent.com/46114095/121463554-e7d76b80-c9cf-11eb-9180-4ee844d6f8d1.png)
 
-We can see that there is a significant difference between no positional embeddings and positional embeddings but there is not a significant difference between what kind of positional embedding is used. Since transformers work on patch level inputs and not on pixel-level inputs positional embeddings are no of much importance so 1D positional embedding is used. 
+We can see that there is a significant difference between no positional embeddings and positional embeddings but there is not a significant difference between what kind of positional embedding is used. Since transformers work on patch-level inputs and not on pixel-level inputs, positional embeddings are no of much importance so 1D positional embedding is used due to ease of its designing. 
 
 **Axial Attention**-
 
-Axial attention is also a simple yet effective method to apply on large inputs sizes that are arranged as multidimensional tensors. Generally axial attention is performed multiple attention operations each along a single axis. Instead of applying on the 1D tensor, each attention mixes information along a particular axis and keeps  the information along other axis independent.
+Axial attention is also a simple yet effective method to apply on attention on large inputs sizes that are arranged as multidimensional tensors. Generally axial attention performs multiple attention operations each along a single axis. Instead of applying on the 1D tensor, each attention mixes information along a particular axis and keeps  the information along other axis independent.
 ![image](https://user-images.githubusercontent.com/46114095/121464455-84e6d400-c9d1-11eb-9004-4a09c0467deb.png)
-As we can see that in terms of computes AxialResNet50 works well and consumes less compute resources. But the inference time is extremely slow. So this method is not used for ViT.
+As we can see that in terms of computes AxialResNet50 works well and consumes less compute resources. But the inference time is extremely high. So this method is not used for ViT.
 
 **Attention Distance**-
 
-To understand how attention in Vision Transformers works refer the figure given below. Attention span in the Vision Transformers can be thought of just like CNNs receptive field. Average attention distance is highly variable in lower heads like some attention heads are attending too much field in an image and some of the attention heads are attending very small areas in an image near query location. As the depth increases the attention distance increases for all heads.
+To understand how attention in Vision Transformers works refer the figure given below. Attention span in the Vision Transformers can be thought of just like CNN's receptive field. Average attention distance is highly variable in lower heads like some attention heads are attending too much field in an image and some of the attention heads are attending very small areas in an image near query location. As the depth increases the attention distance increases for all heads.
+![image](https://user-images.githubusercontent.com/46114095/121464785-29691600-c9d2-11eb-81d1-418021e84cd8.png) 
+
 
 **Attention Maps**-
 
-To get the attention maps, attention rollouts are used. Averaging the attention weights of ViT-L/16 across all the heads and then recursively multiplied the weights matrices of all layers. this mixes all the attention across tokens through all layers.
-![image](https://user-images.githubusercontent.com/46114095/121464785-29691600-c9d2-11eb-81d1-418021e84cd8.png)
+To get the attention maps, attention rollouts are used. Averaging the attention weights of ViT-L/16 across all the heads and then recursively multiplied the weights matrices of all layers. This mixes all the attention across tokens through all layers.
+
 
 
 # **Advantage of Transformers** - 
 
 **Inductive Bias**- 
 
-Vision transformers have much less inductive bias than CNNs. This must be because traditional CNNs look at the local features one by one and somehow tries to generalize it. This leads to translational equivariance is baked into each layer throughout the whole model. but in the case of Vision Transformers, only MLP are translationally equivariant while the self-attention is global. Two-dimensional neighborhood is not used. Positional embeddings at the initialization time carry no information about the 2D positions of the patches and all the spatial relations have to be learned from scratch.
+Vision transformers have much less inductive bias than CNNs. This must be because traditional CNNs look at the local features one by one and somehow tries to generalize it. This leads to translational equivariance is baked into each layer throughout the whole model. But in the case of Vision Transformers, only MLP are locally and translationally equivariant while the self-attention layers are global. Two-dimensional neighborhood is not much used.Its only used in the begining when images are cut into patches and at the fine tuning time for adjusting the positional embeddings of the images of different resolutions.Other than that, Positional embeddings at the initialization time carry no information about the 2D positions of the patches and all the spatial relations have to be learned from scratch.
 
 **Hybrid Architecture**-
 
@@ -141,7 +143,4 @@ The main advantage of using transformers in image recognition tasks is that it d
 - [Attention is all you need](https://arxiv.org/pdf/1706.03762.pdf)
 - [BERT Illustration](https://jalammar.github.io/illustrated-bert/)
 - [Illustrated Transformers](https://jalammar.github.io/illustrated-transformer/)
-
-
-
 
