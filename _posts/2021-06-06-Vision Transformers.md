@@ -47,7 +47,7 @@ Try to use the diagram of the Transformer Encoder block for a better understandi
 **SGD vs Adam for ResNets**-
 
 In the typical experiments ResNets are normally trained with SGD as an optimizer but the experiments shown below shows that on average, Adam performs better in general on all datasets when the model is trained on the JFT dataset and tested on the following datasets.
-![image](https://user-images.githubusercontent.com/46114095/121460567-c32cc500-c9ca-11eb-8479-5e7da2ed2360.png)
+![image](https://user-images.githubusercontent.com/46114095/121518562-3f94c780-ca0e-11eb-9e1c-5a245acf349b.png)
 
 
 **Transformer Shape**-
