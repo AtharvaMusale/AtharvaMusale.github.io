@@ -1,7 +1,8 @@
 # **Introduction** -
-Transformers in the latest natural language processing research has become a defacto for the models to perform best. Its application though, in Computer Vision is yet not used widely. Till now few efforts were taken to replace certain parts of CNN network using self attention but basic building structure of the CNN architecture remained intact. However the Vision Transformers are now set to revolutionize this vision field. The Vision Transformer paper explains that this reliance on CNN is no more needed and transformers when applied on patches of images can outperform traditional CNN architectures. When trained on substantially large data and fine tuned on smaller data or transferred onto mid or small sized datasets like CIFAR-100, Imagenet gives excellent results as compared to traditional CNN state of the art architectures with fewer computational resources needed to train. This blog will be referring [Vision Transformers](https://arxiv.org/pdf/2010.11929v2.pdf) paper. 
 
-Inspired from the transformers in NLP, standard transformers were directly applied to images. To do so images are first converted in small patches and linear embeddings of these patches are fed to the transformers. Patches are treated the same way as the tokens are treated in NLP applications. When trained on mid sized datasets like Imagenet transformers gave modest accuracy just below the ResNets of comparable size. But transformers lacked few of the inductive biases inherent to CNNs, such as translation equivariance and locality, and therefore do not generalize well when trained on insufficient amounts of data. However when transformers are trained on large data it outperforms most of the SOTA algorithms.
+Transformers in the latest natural language processing research has become a defacto for the models to give best results. Its application in computer visioin is still scarce. Till now few efforts were taken to replace certain parts of CNN network using self attention but basic building structure of the CNN architecture remained intact. However the Vision Transformers are now set to revolutionize computer vision field. The Vision Transformer paper explains that the reliance on CNNs is no longer needed and transformers when applied on patches of images can outperform traditional CNN architectures. When trained on substantially large data and fine tuned on smaller data or transferred onto mid or small sized datasets like CIFAR-100, Imagenet, transformers give excellent results as compared to traditional CNNs state of the art architectures with fewer computational resources needed. This blog will be referring [Vision Transformers](https://arxiv.org/pdf/2010.11929v2.pdf) paper. 
+ 
+Inspired from the transformers in NLP, standard transformers were directly applied to images. To do so images are first converted in small patches and linear embeddings of these patches are fed to the transformer encoders. Image patches are treated the same way as the tokens are treated in NLP applications. When trained on mid sized datasets like Imagenet, transformers gave modest accuracy just below the ResNets of comparable size. But transformers lacked few of the inductive biases inherent to CNNs, such as translation equivariance and locality, and therefore do not generalize well when trained on insufficient amounts of data. However when transformers are trained on large data it outperforms most of the SOTA algorithms.
 
 
 # **Vision Transformer Architecture Overview** - 
@@ -12,23 +13,20 @@ The above image can be summarized in following steps -
 
 - Linearly Embedding each of the image patches.
 
-- Adding the positional embedding.
+- Adding the positional embedding to the linear embeddings of image patches.
 
 - Adding the extra learnable "classification token" to the sequence.
 
-- Feeding the resulting sequence of a vector to the transformer encoder.
+- Feeding the resulting sequence to the transformer encoder.
 
 
 
 # **Mathematical Explaination** - 
+
 Transformers in NLP recieves the 1D sequence of token embeddings. To handle the 2D images, the images of  x ∈ R^(H×W×C) are reshaped into a sequence of a flattened 2D image patches xp ∈ R^(N×((P^2)*C)), where (H,W) is the resolution of the original image, C is the number of channels, (P,P) is the resolution of each image patch. N is the number of patches.
-
 Similar to [BERT](https://jalammar.github.io/illustrated-bert/) a learnable embedding token is added before the sequence of embedded patches whose output will be used to represent the image. Adding a 2D aware positional embedding (11,12,13,14,21,22,23,24,31,....,44) didnt improve the performance so paper uses the 1D positional embedding for the image patches (for eg. 1,2,3,...,16)
-
 A typical structure of transformer encoder has alternating layers of self attention blocks and MLP blocks and a layernorm is applied before each of these two blocks and a residual connection after each block.
-
 <img width="831" alt="Screenshot 2021-06-09 at 6 36 05 PM" src="https://user-images.githubusercontent.com/46114095/121359927-98eaf100-c951-11eb-9ed9-500d1a1b528b.png">
-
 <img width="933" alt="Screenshot 2021-06-09 at 10 38 48 AM" src="https://user-images.githubusercontent.com/46114095/121296849-f447bf80-c90e-11eb-814c-44a63c564b5e.png">
 
 Try to use the diagram of the Transformer Encoder block for better understanding of equations shown above
