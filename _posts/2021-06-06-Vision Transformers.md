@@ -44,7 +44,7 @@ Try to use the diagram of the Transformer Encoder block for better understanding
 
 # **Additional Mathematical Details** -
 
-**SGD vs Adam for RESNETs**-
+**SGD vs Adam for ResNets**-
 
 In the typical experiments ResNets are normally trained with SGD as an optimizer but the experiments shown below shows that on an average Adam performs better in general on all dataset when the model is trained on JFT dataset.
 ![image](https://user-images.githubusercontent.com/46114095/121460567-c32cc500-c9ca-11eb-8479-5e7da2ed2360.png)
@@ -124,4 +124,12 @@ As one can observe the ViT-H outperforms every other model on all tasks.
 # **Conclusion**- 
 
 The main advantage of using transformers in image recognition tasks is that it doesnt include any image specific inductive bias since self attnetion heads work on global features, only MLPs and initial positional embeddings introduce a small bias in the transformers. Transformers are also computationally efficient and uses less computational resources. Still lots of other challenges remain like implementing vision transformers to image segmentation or detection.
+
+# ** Additional Links** - 
+
+- https://arxiv.org/pdf/2010.11929v2.pdf 
+- https://arxiv.org/pdf/1706.03762.pdf
+- https://jalammar.github.io/illustrated-bert/ 
+- https://jalammar.github.io/illustrated-transformer/
+
 
