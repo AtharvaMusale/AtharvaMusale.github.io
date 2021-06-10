@@ -13,15 +13,16 @@ The above image can be summarized in following steps -
 
 - Adding the positional embedding.
 
-- Feeding the resulting sequence o vector to the transformer encoder.
-
 - Adding the extra learnable "classification token" to the sequence.
+
+- Feeding the resulting sequence of a vector to the transformer encoder.
+
 
 
 # **Mathematical Explaination** - 
-NLP transformers recieves the 1D sequence of token embeddings. To handle the 2D images, the images of  x ∈ R^(H×W×C) are reshaped into a sequence of a flattened 2D patches xp ∈ R^(N×((P^2)*C)), where (H,W) is the resolution of the image, C is the number of channels, (P,P) is the resolution of each image patch. N is the number of patches.
+Transformers in NLP recieves the 1D sequence of token embeddings. To handle the 2D images, the images of  x ∈ R^(H×W×C) are reshaped into a sequence of a flattened 2D patches xp ∈ R^(N×((P^2)*C)), where (H,W) is the resolution of the original image, C is the number of channels, (P,P) is the resolution of each image patch. N is the number of patches.
 
-Similar to BERT a learnable embedding token is added before the sequence of embedded patches whose output will be used to represent the image. Adding a 2D aware positional embedding(11,12,13,14,21,22,23,24,31,....,44) didnt imrpove the performance so author tried to use the 1D positional embedding only for the images(for eg. 1,2,3,...,16)
+Similar to [BERT](https://jalammar.github.io/illustrated-bert/) a learnable embedding token is added before the sequence of embedded patches whose output will be used to represent the image. Adding a 2D aware positional embedding (11,12,13,14,21,22,23,24,31,....,44) didnt improve the performance so paper uses the 1D positional embedding only for the images(for eg. 1,2,3,...,16)
 
 A typical structure of transformer encoder has alternating layers of self attention and MLP blocks and a layernorm is applied before each of these two blocks and a residual connection after each block.
 
