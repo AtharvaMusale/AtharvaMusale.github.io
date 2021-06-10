@@ -1,6 +1,6 @@
 # **Introduction** -
 
-Transformers in the latest natural language processing research have become a defacto for the models to give the best results. Its applications in computer vision are still not widely known. Some efforts were taken to replace certain parts of the CNN network using self-attention, but the basic building structure of the CNN architecture remained intact. However, the Vision Transformers are now set to revolutionize the computer vision field. The Vision Transformer paper explains that the reliance on CNNs is no longer needed and transformers can outperform traditional CNN architectures when applied on patches of images. When trained on substantially large data and fine-tuned on smaller data or transferred onto mid or small-sized datasets like CIFAR-100, Imagenet, transformers give excellent results as compared to traditional CNNs state of the art architectures with fewer computational resources needed. This blog will be referring to [Vision Transformers](https://arxiv.org/pdf/2010.11929v2.pdf) paper. 
+Transformers in the latest natural language processing research has become a defacto for the models to give the best results. Its applications in computer vision are still not widely known. Some efforts were taken to replace certain parts of the CNN network using self-attention, but the basic building structure of the CNN architecture remained intact. However, the Vision Transformers are now set to revolutionize the computer vision field. The Vision Transformer paper explains that the reliance on CNNs is no longer needed and transformers can outperform traditional CNN architectures when applied on patches of images. When trained on substantially large data and fine-tuned on smaller data or transferred onto mid or small-sized datasets like CIFAR-100, Imagenet, transformers give excellent results as compared to traditional CNNs state of the art architectures with fewer computational resources needed. This blog will be referring to [Vision Transformers](https://arxiv.org/pdf/2010.11929v2.pdf) paper. 
  
 Inspired by the transformers in NLP, standard transformers were directly applied to images. To do so images are first converted into small patches and linear embeddings of these patches are fed to the transformer encoders. Image patches are treated the same way as the tokens are treated in NLP applications. When trained on mid-sized datasets like Imagenet, transformers gave modest accuracy just below the ResNets of comparable size. But transformers lacked a few of the inductive biases inherent to CNNs, such as translation equivariance and locality, and therefore do not generalize well when trained on insufficient amounts of data. However, when transformers are trained on large data it outperforms most of the SOTA algorithms.
 
@@ -21,9 +21,9 @@ The above image can be summarized in following steps -
 
 
 
-# **Mathematical Explaination** - 
+# **Mathematical Explanation** - 
 
-Transformers in NLP receives the 1D sequence of token embeddings. To handle the 2D images, the images of x ∈ R^(H×W×C) are reshaped into a sequence of flattened 2D image patches xp ∈ R^(N×((P^2)*C)), where (H, W) is the resolution of the original image, C is the number of channels, (P, P) is the resolution of each image patch. N is the number of patches.
+Transformers in NLP receive the 1D sequence of token embeddings. To handle the 2D images, the images of x ∈ R^(H×W×C) are reshaped into a sequence of flattened 2D image patches xp ∈ R^(N×((P^2)*C)), where (H, W) is the resolution of the original image, C is the number of channels, (P, P) is the resolution of each image patch. N is the number of patches.
 
 Similar to [BERT](https://jalammar.github.io/illustrated-bert/) a learnable embedding token is added before the sequence of embedded patches whose output will be used to represent the image. Adding a 2D aware positional embedding (11,12,13,14,21,22,23,24,31,....,44) didn't improve the performance so paper uses the 1D positional embedding for the image patches (for eg. 1,2,3,...,16)
 
@@ -93,7 +93,7 @@ Vision transformers have much less inductive bias than CNNs. This must be becaus
 
 **Hybrid Architecture**-
 
-In alternative to raw image a patch, input sequence can be formed from feature maps usign CNNs. In this hybrid model patch embedding projection **E** (Eq.1) is applie dto the patches extracted from CNN maps. If the patch size is kept as 1x1 then it can simply be a flattened projection.
+An alternative to raw image a patch, input sequence can be formed from feature maps using CNNs. In this hybrid model patch embedding projection **E** (Eq.1) is applied to the patches extracted from CNN maps. If the patch size is kept as 1x1 then it can simply be a flattened projection.
 
 # **Fine Tuning and Higher resolution** - 
 
