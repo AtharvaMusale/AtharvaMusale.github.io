@@ -37,12 +37,12 @@ Try to refer the diagram of the Transformer Encoder block for better understandi
 
 - **y** is the linear normalized output of the Zl_0 where Zl_0=xclass(Prepended BERT like embdedding).
 
-# Additional Mathematical Details -
+# **Additional Mathematical Details** -
 **SGD vs Adam for RESNETs**-
 In the typical experiments ResNets are normally trained with SGD as an optimizer but the experiments shown below shows that on an average Adam performs better in general on all dataset when the model is trained on JFT dataset.
 ![image](https://user-images.githubusercontent.com/46114095/121460567-c32cc500-c9ca-11eb-8479-5e7da2ed2360.png)
 
-** Transformer Shape**-
+**Transformer Shape**-
 ![image](https://user-images.githubusercontent.com/46114095/121460919-709fd880-c9cb-11eb-81b0-e5a28fdb9357.png)
 The above figure shows the experiments with the tranformers done and it was found that the changing the depths shows maxmimum improvement and changing the width had least improvement. Decreasing the patch size and improving the effective sequence length shows surprising improvements without adding any parameters. Overall the conclusion from this figure was depth variation should be preferred over width of the network. Scaling all the dimentions will be the best robust imrpovement for the model
 
@@ -50,6 +50,17 @@ The above figure shows the experiments with the tranformers done and it was foun
 In order to make the vision transformer as close as one can to the BERT model, a class token z0=xclass is taken which is taken as an image representation. the output from this token is passed from a small MLP network with tanh actiavtion to get the final class predictions. There was another attempt made by using GlobalAveragePooling but both almost performed similarly. But both class token method and GlobalAverage pooling required different learning rates. Finally class token method was chosen.
 ![image](https://user-images.githubusercontent.com/46114095/121461696-fa03da80-c9cc-11eb-8882-54957de876b8.png)
 
+**Positional Embedding**-
+For positional embedding several experiments were done - 
+- Not giving any positional embedding
+- 1D positional embedding: considering all the inputs as a sequence of patches (1,2,3,4,...N) where N is total number of patches.
+- 2D positional embeddings: Considering the inputs as a grid in two dimentional patches. in this two sets of embeddings are learned one for the X-embeddings and one for Y-embeddings each with size of D/2. then X and y embddings are concatenated to get the final positional embedding. (for eg. assume we have 9 patches of the image so final concatenated embeddings will be 11,12,13,21,22,23,31,32,33 etc).
+- Relative positional embedding: For every pair of patches (one as a query and other as a key/value in attention mechanism) we have an offset pq-pk where each offset is associated with embeddings, One more attention is carried out where original query is used but key is taken as a relative positional embedding. Logits from the relative attention is used as a bais term and add it to the logits of the main attention, beofre applying softmax.
+![image](https://user-images.githubusercontent.com/46114095/121463554-e7d76b80-c9cf-11eb-9180-4ee844d6f8d1.png)
+We can see that there is a significant difference between no positional embeddings and positional embeddings but there is not a significant difference between what kind of positional embedding is used. Since transformers work on patch level inputs and not on pixel level inputs positional embeddings is no of much importance so 1D positional embedding is used. 
+
+**Axial Attention**-
+Axial atten
 
 
 
