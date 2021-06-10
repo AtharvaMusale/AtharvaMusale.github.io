@@ -24,10 +24,11 @@ Similar to BERT a learnable embedding token is added before the sequence of embe
 
 A typical structure of transformer encoder has alternating layers of self attention and MLP blocks and a layernorm is applied before each of these two blocks and a residual connection after each block.
 <img width="933" alt="Screenshot 2021-06-09 at 10 38 48 AM" src="https://user-images.githubusercontent.com/46114095/121296849-f447bf80-c90e-11eb-814c-44a63c564b5e.png">
-- In Eq1, xclass represents the learnable embedding prepended just like in the case of BERT model. All other xp_i s represent the patches of the image where i indicates the 1D positional embedding. **E** is patch embedding projection so if we consider a patch size as 1 then it can be simply thought as flattened rperesentation of the whole 2D image. **Epos** is the embedding with the shape of (N+1)*D where N is the number of pathces and D is the flattened map dimention of the patch.
-- Zl' is output of Multiheaded Self-Attention is an addition of linear normalization output of the input and the input itself. 
-- Zl is the output of the MLP is an addition of linear normalization of Multiheaded self-attention and Multiheaded self-attention output itself. 
-- y is the linear normalized output of Zl_0.
+
+- In Eq(1), **xclass** represents the learnable embedding prepended just like in the case of BERT model. All other **xp_i** s represent the patches of the image where i indicates the 1D positional embedding. **E** is patch embedding projection so if we consider a patch size as 1 then it can be simply thought as flattened representation of the whole 2D image. **Epos** is the embedding with the shape of (N+1)*D where **N** is the number of pathces and **D** is the flattened map dimention of the patch.
+- **Zl'** is output of Multiheaded Self-Attention is an addition of linear normalization output of the input and the input itself. 
+- **Zl** is the output of the MLP is an addition of linear normalization of Multiheaded self-attention and Multiheaded self-attention output itself. 
+- **y** is the linear normalized output of **Zl_0**.
 
 
 <img width="831" alt="Screenshot 2021-06-09 at 6 36 05 PM" src="https://user-images.githubusercontent.com/46114095/121359927-98eaf100-c951-11eb-9ed9-500d1a1b528b.png">
