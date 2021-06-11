@@ -11,3 +11,5 @@ github_username:  AtharvaMusale
 theme: minima
 plugins:
   - jekyll-feed
+
+google_analytics: G-9L4GJKS44G
