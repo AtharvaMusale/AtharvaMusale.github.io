@@ -16,13 +16,13 @@ So as you can see when the edge detecting filter was applied on the image we got
 
 **Now there are few questions which lead to invention of CNNs -**
 
-1. In the traditional method only softmax layer was learned but kernels which were used for feature extraction were not learned, they were previosuly derived by the mathematicians for each type of extraction. But the questions now was, can we somehow learn these kernels as well?
+- In the traditional method only softmax layer was learned but kernels which were used for feature extraction were not learned, they were previosuly derived by the mathematicians for each type of extraction. But the questions now was, can we somehow learn these kernels as well?
 ![image](https://user-images.githubusercontent.com/46114095/121987660-8be95a00-cdb6-11eb-8330-9ccad29cdf55.png)
 
-2. If we are able to learn the kernels, can we learn multiple kernels for one image?
+- If we are able to learn the kernels, can we learn multiple kernels for one image?
 ![image](https://user-images.githubusercontent.com/46114095/121987720-aae7ec00-cdb6-11eb-9915-de71509aa691.png) 
 
-3. If we are able to learn multiple kernels for each image can we have multiple layers of multiple kernels so that we can even extract feature on top of already extracted features?
+- If we are able to learn multiple kernels for each image can we have multiple layers of multiple kernels so that we can even extract feature on top of already extracted features?
 ![image](https://user-images.githubusercontent.com/46114095/121987762-baffcb80-cdb6-11eb-9e19-15bcdc06f85d.png)
 The answer to all these questions was Convolutional Neural Netwroks.
 
@@ -31,4 +31,17 @@ The answer to all these questions was Convolutional Neural Netwroks.
 
 ![image](https://user-images.githubusercontent.com/46114095/121989996-b0dfcc00-cdba-11eb-8c88-583561c528ed.png)
 
+So as one can see, a typical neural netowrk consists of following layers - 
+- Convolution Layer
+- MaxPooling Layer
+- Flatten Layer
+- Fully Connected Layer (Dense Layer)
 
+But in practice many more layers are used in between these layers as well to make CNNs perform well. Some of those layers are-
+- BatchNormalization
+- Dropout
+- Actication
+- Add
+- GlobalAveragePooling
+- GlobalMaxPooling 
+and list goes on and on. 
