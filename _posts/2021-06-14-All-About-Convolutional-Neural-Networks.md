@@ -43,4 +43,5 @@ and list goes on and on. In this blog we will look into each of these layers and
 
 # **Convolution Layer**- 
 Lets look at convolution operation first to know what exctly happens in convolution layer.
-![image](https://user-images.githubusercontent.com/46114095/122044243-e8ba3400-cdf9-11eb-87c2-91cd95412cd4.png)
+<!-- ![image](https://user-images.githubusercontent.com/46114095/122044243-e8ba3400-cdf9-11eb-87c2-91cd95412cd4.png) -->
+![convolution operation](https://miro.medium.com/max/1920/1*D6iRfzDkz-sEzyjYoVZ73w.gif)
