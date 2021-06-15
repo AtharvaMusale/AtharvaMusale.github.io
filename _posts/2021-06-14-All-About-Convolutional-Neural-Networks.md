@@ -27,7 +27,6 @@ The answer to all these questions was Convolutional Neural Netwroks.
 
 # **A Typical Convolutional Neural Network Architecture** -
 ![image](https://user-images.githubusercontent.com/46114095/121989996-b0dfcc00-cdba-11eb-8c88-583561c528ed.png)
-
 So as one can see, a typical neural netowrk consists of following layers - 
 - Convolution Layer
 - MaxPooling Layer
