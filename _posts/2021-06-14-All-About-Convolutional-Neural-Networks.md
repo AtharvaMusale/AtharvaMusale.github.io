@@ -15,10 +15,10 @@ Now there are few questions which lead to invention of CNNs -
 ![image](https://user-images.githubusercontent.com/46114095/121987660-8be95a00-cdb6-11eb-8330-9ccad29cdf55.png)
 
 2. If we are able to learn the kernels, can we learn multiple kernels for one image?
-![image](https://user-images.githubusercontent.com/46114095/121987720-aae7ec00-cdb6-11eb-9915-de71509aa691.png)
+![image](https://user-images.githubusercontent.com/46114095/121987720-aae7ec00-cdb6-11eb-9915-de71509aa691.png) 
 
 3. If we are able to learn multiple kernels for each image can we have multiple layers of multiple kernels so that we can even extract feature on top of already extracted features?
-![image](https://user-images.githubusercontent.com/46114095/121987762-baffcb80-cdb6-11eb-9e19-15bcdc06f85d.png
+![image](https://user-images.githubusercontent.com/46114095/121987762-baffcb80-cdb6-11eb-9e19-15bcdc06f85d.png)
 
 The answer to all these questions was Convolutional Neural Netwroks.
 
