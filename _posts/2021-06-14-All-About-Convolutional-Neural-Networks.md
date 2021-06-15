@@ -1,6 +1,6 @@
 
 ### Still working on the post
-
+<!-- 
 # **Introduction**-
 From the emerge of [**ImageNet**](https://image-net.org/challenges/LSVRC/) competition **Convolutional Neural Networks(CNN)** have been the most favourite model for any Computer Vision experts. With its simplicity and brilliant frameworks like Tensorflow and Pytorch, it has become very easy to create a complex CNN architecture and implement it in tasks like Image Classification, Image Segmentation, Object Detection. In this blog I will try to explain CNNs in depth. This blog is going to be a bit long as there is lot to cover. So lets dive in!!!
 
@@ -43,5 +43,6 @@ and list goes on and on. In this blog we will look into each of these layers and
 
 # **Convolution Layer**- 
 Lets look at convolution operation first to know what exctly happens in convolution layer.
-<!-- ![image](https://user-images.githubusercontent.com/46114095/122044243-e8ba3400-cdf9-11eb-87c2-91cd95412cd4.png) -->
 ![convolution operation](https://miro.medium.com/max/1920/1*D6iRfzDkz-sEzyjYoVZ73w.gif)
+For eg. If you can see the operation which is being done above then you can observe that first the kernel is being applied on (3x3) subpart of the image and the each pixel value of the image in that subpart will be multiplied with the corresponding kernel value at that position. In that way you will have the 9 multiplication operations and addition of these 9 values will be the output of the convolution operation.
+ -->
