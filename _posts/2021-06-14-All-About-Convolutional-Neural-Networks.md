@@ -25,7 +25,7 @@ So as you can see when the edge detecting filter was applied on the image we got
 3. If we are able to learn multiple kernels for each image can we have multiple layers of multiple kernels so that we can even extract feature on top of already extracted features?
 ![image](https://user-images.githubusercontent.com/46114095/121987762-baffcb80-cdb6-11eb-9e19-15bcdc06f85d.png)
 
-**The answer to all these questions was Convolutional Neural Netwroks.**
+The answer to all these questions was Convolutional Neural Netwroks.
 
 
 # **A Typical Convolutional Neural Network Architecture** -
