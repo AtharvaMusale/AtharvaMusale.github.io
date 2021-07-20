@@ -7,11 +7,13 @@ The very standard definition of Deep learning is artificial intelligence (AI) fu
 # **Biological Neuron Structure** -
 Before diving in the deep learning concepts let's try to understand the source of inspiration for making the mathematical neuron based functions. 
 ![image](https://user-images.githubusercontent.com/46114095/126327718-214de2e6-e0ed-4c33-ab1c-223c9b4b799a.png)
+
 There are actually **10 Billion** neurons in our brain and each of them are connected to roughly **10000 other neurons**. Each neuron receives electrochemical inputs from other neurons at the dendrites.  If the sum of these electrical inputs is sufficiently powerful to activate the neuron, it transmits an electrochemical signal along the axon, and passes this signal to the other neurons whose dendrites are attached at any of the axon terminals. These attached neurons may then fire. It is important to note that a neuron fires only if the total signal received at the cell body exceeds a certain level.  The neuron either fires or it doesn't, there aren't different grades of firing.
 
 # **Mathematical Neuron Structure** - 
 The simplest for of mathematical replication of how biological neurons work was done by McCulloch-Pitts in the year 1943. 
 ![image](https://user-images.githubusercontent.com/46114095/126329005-e7e1a503-628b-4a1a-908d-af792d5cf4f5.png)
+
 This is how basic neuron was created using simple mathematical function. **g** takes an input(in biological neuron input is nothing but the dendrites). It performs the addition of all the inputs and the **f** makes the decision based on the value of **g**.
 
 Lets assume an output of an experiment where I want to go to play Basketball. Let 
