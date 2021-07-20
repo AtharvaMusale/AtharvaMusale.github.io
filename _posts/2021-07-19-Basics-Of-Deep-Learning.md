@@ -1,1 +1,4 @@
+I find deep learning as extremely fascinating field due to its enormous power of producing state of the art results. But still most people in the industry consider it as a black box full of unpredictability. Lack of interpretability of the Deep Learning algorithms has been the biggest problem and currently one of the most challenging tasks to be implemented which has actually lead to the sub branch of Artificial Intelligence(AI) called Explainable AI. In this blog I am going to try to explain basic concepts which are required to get one started in Deep Learning. 
 
+**What exactly is Deep Learning** - 
+The very standard definition of Deep learning is artificial intelligence (AI) function that imitates the workings of the human brain in processing data and creating patterns for its use in decision making. Deep learning was actually a mere try to replicate few functions of the neurons in the brain.
