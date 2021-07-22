@@ -25,7 +25,9 @@ The simplest form of mathematical replication of how biological neurons is calle
 The above figure shows the perceptron structure. In the above figure **Xi**s are the inputs of the perceptron, **Wi**s are the weights associated with each input, **b** is the bias constant used for shifting the actiavtion function by some value(It can be also set to 0 for simplicity but ideally it is randomly initialized). The first round block will be giving the weighted sum of the inputs as an output. The second round block will be applying any one of the kind of activation function(in case of perceptorn simple step function) on that weighted sum to get the final output. If the final output is greater than certain threshold then the output of the perceptron will be fired or else it will stay in the idle state. The significance of the weights in the weighted sum is to select how much portion of the input should be used to calculate the final output. The range of weights and bias value is in between 0 and 1. These weights are learnt when the deep neural networks are trained. These weights are adjusted to learn the new information in better manner.  
 
 Simple equation of the perceptron can be written as-
+
 **f(x) = (∑ wi * xi +b)** ... Weighted sum 
+
 Since in case of perceptron only step function will be used, a threshold will be set and according to threshold value the output will be - **if f(x)>threshold then output will be 1 else it will be 0.**
 
 
