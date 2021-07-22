@@ -60,7 +60,7 @@ The goal of this optimization problem is to minimze this loss value. Lesser the 
 
 * Solving the optimization equation-
 
-1. Initialization of w_i randomly.
+1. Initialization of w<sub>i</sub> randomly.
 2. Calculating a partial derivatives of loss function w.r.t each of the weights
 3. **x<sub>i_new</sub> = w<sub>i_old</sub>** **-** **η * [∂L/∂w<sub>i</sub>]<sub>(w<sub>iold</sub>)</sub>**
 
@@ -81,6 +81,10 @@ L = ∑(i=1 to n) (y<sub>i</sub> - f(W<sup>T</sup> * x<sub>i</sub>))<sup>2</sup>
 
 In the above image a multi layered neural network has been shown. It has 4 inputs named x<sub>i1</sub>,x<sub>i1</sub>,...x<sub>i4</sub>. Similarly each activation function in each neuron is f<sub>i1</sub>,f<sub>i2</sub>...f<sub>i4</sub>. and outputs of each of the is o<sub>i1</sub>,o<sub>i2</sub>...o<sub>i4</sub>. W<sub>i,j</sub><sup>k</sup> is the weight symbol in which i is the index of the currunt layer neuron, j is the index of the next layer neuron and k is the layer number. So lets assume if for input x<sub>i1</sub> there will be w<sub>11</sub><sup>1</sup>,w<sub>12</sub><sup>1</sup>,w<sub>13</sub><sup>1</sup> in the above figure.
 
+In case of multi-layered perceptron also the same steps are followed-
+
+1. Define a loss function-
+**L = ∑(i=1 to n) (y<sub>i</sub>-yhat<sub>i</sub>)<sup>2</sup> + regularization term**
 
 # **Reference** - 
 [https://cs.stanford.edu/people/eroberts/courses/soco/projects/neural-networks/Biology/index.html]
