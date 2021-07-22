@@ -26,17 +26,18 @@ The above figure shows the perceptron structure. In the above figure **Xi**s are
 
 Simple equation of the perceptron can be written as-
 **f(x) = (∑ wi * xi +b)** ... Weighted sum 
-Since in case of perceptron only step function is used output will be
-**if f(x)>threshold:
-    output = 1
-else:
-    output = 0 **
+Since in case of perceptron only step function will be used, a threshold will be set and according to threshold value the output will be - **if f(x)>threshold then output will be 1 else it will be 0.**
+
 
 
 
  
- # **Multi-Layer Perceptron** - 
- 
+ # **Need Of Multi-Layer Perceptron** - 
+ * Biological Inspiration -
+ In case of brain neurons there are lots and lots of interlinking of the neurons in the brain. This makes the chain of networks of the neurons which are used to carry out intensive tasks. Similarly perceptron can be stacked in the form of networks to performs some complex tasks
+ * Complex Mathematical Computation - 
+Consider this equation f(x) = 2sin(x) + e^x - sqrt(x^4)
+Such comoplex equations can be done using where each of these operations will be done with each layer of neuron. 
 
 # **Reference** - 
 [https://cs.stanford.edu/people/eroberts/courses/soco/projects/neural-networks/Biology/index.html]
