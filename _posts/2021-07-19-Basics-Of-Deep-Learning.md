@@ -74,6 +74,12 @@ L = ∑(i=1 to n) (y<sub>i</sub> - f(W<sup>T</sup> * x<sub>i</sub>))<sup>2</sup>
 
 ∂L/∂w<sub>i</sub> = - ∑(i=1 to n) (2*(y<sub> - yhat<sub>i<sub>))
 
+  
+# **Training a Multi- Layered Perceptron model-**
+  
+![image](https://user-images.githubusercontent.com/46114095/126665656-62bec22a-bc33-4161-bfb5-e8e40fe7f778.png)
+
+
 # **Reference** - 
 [https://cs.stanford.edu/people/eroberts/courses/soco/projects/neural-networks/Biology/index.html]
 [https://towardsdatascience.com/mcculloch-pitts-model-5fdf65ac5dd1]
