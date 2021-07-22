@@ -25,10 +25,6 @@ The simplest form of mathematical replication of how biological neurons is calle
 This is how basic perceptron was created using simple mathematical function. 
 
 
-
-![image](https://user-images.githubusercontent.com/46114095/126587876-43304436-2629-4268-aff7-5a7237174db2.png)
-
-
 So based on all the above inputs I will have the output of the experiment if I will go to play basketball or not.
 Lets say that these all inputs will have only two values (0 and 1). If an aggregation of the inputs gives us certain value which is above some threshold(Lets assume threshold is 2) then I will go to play basketball or else I wont.
 
