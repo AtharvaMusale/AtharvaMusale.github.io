@@ -18,12 +18,11 @@ I really like to think of deep learning with a analogy of a toddler learning new
 
 
 # **Perceptron** - 
-The simplest form of mathematical replication of how biological neurons is called perceptron, this is like a basic building block which will be used in almost all the deep learning neural networks.
+The simplest form of mathematical replication of how biological neurons is called perceptron, this is like a basic building block which will be used in almost all the deep neural networks.
 
 ![image](https://user-images.githubusercontent.com/46114095/126589557-6c77b127-7800-4f13-a022-276c30b2f818.png)
 
-The above figure shows the perceptron structure. 
-
+The above figure shows the perceptron structure. In the above figure **Xi**s are the inputs of the perceptron, **Wi**s are the weights associated with each input. The first block will be giving the weighted sum of the inputs as an output. The second block will be applying any one of the kind of activation function on that weighted sum to get the final output. The significance of the weights in the weighted sum is to select how much portion of the input should be used to calculate the final output. These weights are learnt when the deep neural networks are trained. 
 
 # **Reference** - 
 [https://cs.stanford.edu/people/eroberts/courses/soco/projects/neural-networks/Biology/index.html]
