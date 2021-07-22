@@ -19,11 +19,16 @@ The simplest for of mathematical replication of how biological neurons work was 
 This is how basic neuron was created using simple mathematical function. **g** takes an input(in biological neuron input is nothing but the dendrites). It performs the addition of all the inputs and the **f** makes the decision based on the value of **g**.
 
 Lets assume an output of an experiment where I want to go to play Basketball. Let 
-* **x1** be an input if it will rain or not
-* **x2** be an input of wheather a weather outside is pleasant or not.
+* **x1** be an input if it will rain or not (I wont like to play basketball while its raining).
+* **x2** be an input of wheather a weather outside is pleasant or not.(I dont like to play in very hot and humid condition either)
 * **x3** be an input wheather there is too much traffic or not.
-* **x4** be an input wheather the 
+* **x4** be an input which says if there are enough friends to make a good sizable team.(I am a team player)
 
+![image](https://user-images.githubusercontent.com/46114095/126587876-43304436-2629-4268-aff7-5a7237174db2.png)
+
+
+So based on all the above inputs I will have the output of the experiment if I will go to play basketball or not.
+Lets say that these all inputs will have only two values (0 and 1). If an aggregation of the inputs gives us certain value which is above some threshold(Lets assume threshold is 2) then I will go to play basketball or else I wont.
 
 
 # **Reference** - 
