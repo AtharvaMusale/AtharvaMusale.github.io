@@ -16,10 +16,13 @@ There are actually **10 Billion** neurons in our brain and each of them are conn
 I really like to think of deep learning with a analogy of a toddler learning new alphabets. Think of how would you teach a toddler about alphabets? Probably playcards or some sticknots with alphabets written on them?. Lets say you will show a sticky note with the alphabet written on it and speak out what alphabet that was to a toddler only once and ask him/her what was that letter? First time he/she may not be able to give the correct answer. But think of showing him the same alphabet thousands of times with its pronounciation, and then ask him/her the next time what letter was that? The probability of a toddler giving a correct answer will be fairly high. This is exactly what is done in the deep learning. We use mathematical neural network and pass certain inputs through it say 10 or 100 or 1000000 times. Neural network adjusts the weights in the network and the next time when you pass the input just to verify if network weights are learnt properly or not, network will most probably give correct answer. So this is how the deep learning neural networks learn the new information just like whart a toddler learns alphabtes.
 
 
+
 # **Perceptron** - 
 The simplest for of mathematical replication of how biological neurons work was done by McCulloch-Pitts in the year 1943.
 
 ![image](https://user-images.githubusercontent.com/46114095/126329005-e7e1a503-628b-4a1a-908d-af792d5cf4f5.png)
+
+![image](https://user-images.githubusercontent.com/46114095/126589557-6c77b127-7800-4f13-a022-276c30b2f818.png)
 
 This is how basic neuron was created using simple mathematical function. **g** takes an input(in biological neuron input is nothing but the dendrites). It performs the addition of all the inputs and the **f** makes the decision based on the value of **g**.
 
