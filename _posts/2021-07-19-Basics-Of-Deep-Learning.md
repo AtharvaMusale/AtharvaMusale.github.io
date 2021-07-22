@@ -33,7 +33,6 @@ Since in case of perceptron only step function will be used, a threshold will be
 
 
 
- 
 # **Need Of Multi-Layer Perceptron-** 
 * **Biological Inspiration -**
 
@@ -43,6 +42,17 @@ In case of brain neurons there are lots and lots of interlinking of the neurons 
 
 Consider this equation f(x) = 2sin(x) + e^x - sqrt(x^4)
 Such comoplex equations can be done using where each of these operations will be done with each layer of neuron. 
+
+# **How the neural networks actually learn the weights?**
+## **Training a single neuron model** - 
+
+There are 3 steps involved in training a single neuron network.
+
+* **Defining a loss function -** 
+**L = ∑(i=1 to n) (y_i-yhat_i)^2 + regularization term**
+Here L is the loss function. This equation will be optimized while training the neural network. 
+
+
 
 # **Reference** - 
 [https://cs.stanford.edu/people/eroberts/courses/soco/projects/neural-networks/Biology/index.html]
