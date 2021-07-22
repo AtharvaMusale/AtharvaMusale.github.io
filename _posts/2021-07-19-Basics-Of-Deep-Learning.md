@@ -49,8 +49,22 @@ Such comoplex equations can be done using where each of these operations will be
 There are 3 steps involved in training a single neuron network.
 
 * **Defining a loss function -** 
+
 **L = ∑(i=1 to n) (y_i-yhat_i)^2 + regularization term**
-Here L is the loss function. This equation will be optimized while training the neural network. 
+Here L is the loss function. This equation will be optimized while training the neural network. Here y_i is the true output for a particular input. y_hat is the predicted output for a particular input by a netowrk. Regularization term will be used to avoid overfitting, we will come across this concept in the later sections of this chapter. So this equation is taking a sum of squared difference between the actual output and the predicted outputs across all the sets of inputs in a dataset and then adding the regularization term to it. This whole equation is the loss function of a single neuron. (Here the yhat_i = f(w_i^T * x_i))
+
+* **Optimization Problem-**
+
+**w_opt = argmin ∑(i=1 to n) (y_i - f(w_i^T * x_i))^2 + regularization term**
+The goal of this optimization problem is to minimze this loss value. Lesser the loss, better would be neural network model's output will be. W_opt is the optmized value of the weights which will give the best results.
+
+* **Solving the optimization equation-**
+
+1. Initialization of w_i randomly.
+2. Calculating a partial derivatives of loss function w.r.t each of the weights
+3. w_i_{new} = w_i_{old}
+
+
 
 
 
