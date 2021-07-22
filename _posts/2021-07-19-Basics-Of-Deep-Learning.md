@@ -18,19 +18,13 @@ I really like to think of deep learning with a analogy of a toddler learning new
 
 
 # **Perceptron** - 
-The simplest for of mathematical replication of how biological neurons work was done by McCulloch-Pitts in the year 1943.
-
-![image](https://user-images.githubusercontent.com/46114095/126329005-e7e1a503-628b-4a1a-908d-af792d5cf4f5.png)
+The simplest form of mathematical replication of how biological neurons is called perceptron, this is like a basic building block which will be used in almost all the deep learning neural networks.
 
 ![image](https://user-images.githubusercontent.com/46114095/126589557-6c77b127-7800-4f13-a022-276c30b2f818.png)
 
-This is how basic neuron was created using simple mathematical function. **g** takes an input(in biological neuron input is nothing but the dendrites). It performs the addition of all the inputs and the **f** makes the decision based on the value of **g**.
+This is how basic perceptron was created using simple mathematical function. 
 
-Lets assume an output of an experiment where I want to go to play Basketball. Let 
-* **x1** be an input if it will rain or not (I wont like to play basketball while its raining).
-* **x2** be an input of wheather a weather outside is pleasant or not.(I dont like to play in very hot and humid condition either)
-* **x3** be an input wheather there is too much traffic or not.
-* **x4** be an input which says if there are enough friends to make a good sizable team.(I am a team player)
+
 
 ![image](https://user-images.githubusercontent.com/46114095/126587876-43304436-2629-4268-aff7-5a7237174db2.png)
 
