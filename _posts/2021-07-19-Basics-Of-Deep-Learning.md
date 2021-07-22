@@ -22,7 +22,10 @@ The simplest form of mathematical replication of how biological neurons is calle
 
 ![image](https://user-images.githubusercontent.com/46114095/126589557-6c77b127-7800-4f13-a022-276c30b2f818.png)
 
-The above figure shows the perceptron structure. In the above figure **Xi**s are the inputs of the perceptron, **Wi**s are the weights associated with each input. The first block will be giving the weighted sum of the inputs as an output. The second block will be applying any one of the kind of activation function on that weighted sum to get the final output. The significance of the weights in the weighted sum is to select how much portion of the input should be used to calculate the final output. These weights are learnt when the deep neural networks are trained. 
+The above figure shows the perceptron structure. In the above figure **Xi**s are the inputs of the perceptron, **Wi**s are the weights associated with each input. The first block will be giving the weighted sum of the inputs as an output. The second block will be applying any one of the kind of activation function on that weighted sum to get the final output. If the final output is greater than certain threshold then the output of the perceptron will be fired. The significance of the weights in the weighted sum is to select how much portion of the input should be used to calculate the final output. These weights are learnt when the deep neural networks are trained. These weights are adjusted to learn the new information in better manner. 
+ 
+ # **Multi-Layer Perceptron** - 
+ 
 
 # **Reference** - 
 [https://cs.stanford.edu/people/eroberts/courses/soco/projects/neural-networks/Biology/index.html]
