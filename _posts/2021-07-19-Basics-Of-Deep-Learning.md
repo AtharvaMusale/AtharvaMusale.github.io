@@ -55,7 +55,7 @@ Here L is the loss function. This equation will be optimized while training the 
 
 * **Optimization Problem-**
 
-**w<sub>opt</sub> = argmin ∑(i=1 to n) (y_i - f(w_i^T * x_i))^2 + regularization term**
+**w<sub>opt</sub> = argmin ∑(i=1 to n) (y<sub>i</sub> - f(w<sub>i</sub><sup>T</sup> * x<sub>i</sub>))<sup>2</sup> + regularization term**
 The goal of this optimization problem is to minimze this loss value. Lesser the loss, better would be neural network model's output will be. W_opt is the optmized value of the weights which will give the best results.
 
 * **Solving the optimization equation-**
