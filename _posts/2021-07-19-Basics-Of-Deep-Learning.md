@@ -79,7 +79,7 @@ L = ∑(i=1 to n) (y<sub>i</sub> - f(W<sup>T</sup> * x<sub>i</sub>))<sup>2</sup>
   
 ![126665656-62bec22a-bc33-4161-bfb5-e8e40fe7f778](https://user-images.githubusercontent.com/46114095/126666802-45a0a84a-f0fe-419d-9894-d7da495e2d6f.png)
 
-In the above image a multi layered neural network has been shown. It has 4 inputs named x<sub>i1</sub>,x<sub>i1</sub>,...x<sub>i4</sub>. Similarly each activation function in each neuron is f<sub>i1</sub>,f<sub>i2</sub>...f<sub>i4</sub>. and outputs of each of the is o<sub>i1</sub>,o<sub>i2</sub>...o<sub>i4</sub>. W<sub>i,j</sub><sup>k</sup> is the weight symbol in which i is the index of the currunt layer neuron, j is the index of the next layer neuron and k is the layer number. So lets assume if for input x<sub>i1</sub> there will be w<sub>11<sub><sup>1</sup>,w<sub>12<sub><sup>1</sup>,w<sub>13<sub><sup>1</sup> in the above figure.
+In the above image a multi layered neural network has been shown. It has 4 inputs named x<sub>i1</sub>,x<sub>i1</sub>,...x<sub>i4</sub>. Similarly each activation function in each neuron is f<sub>i1</sub>,f<sub>i2</sub>...f<sub>i4</sub>. and outputs of each of the is o<sub>i1</sub>,o<sub>i2</sub>...o<sub>i4</sub>. W<sub>i,j</sub><sup>k</sup> is the weight symbol in which i is the index of the currunt layer neuron, j is the index of the next layer neuron and k is the layer number. So lets assume if for input x<sub>i1</sub> there will be w<sub>11</sub><sup>1</sup>,w<sub>12</sub><sup>1</sup>,w<sub>13</sub><sup>1</sup> in the above figure.
 
 
 # **Reference** - 
