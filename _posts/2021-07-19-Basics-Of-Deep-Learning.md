@@ -50,7 +50,7 @@ There are 3 steps involved in training a single neuron network.
 
 * **Defining a loss function -** 
 
-**L = ∑(i=1 to n) (y<sub>i</sub>-$\hat{y}$ <sub>i</sub>)<sup>2</sup> + regularization term**
+**L = ∑(i=1 to n) (y<sub>i</sub>-yhat<sub>i</sub>)<sup>2</sup> + regularization term**
 Here L is the loss function. This equation will be optimized while training the neural network. Here y_i is the true output for a particular input. y_hat is the predicted output for a particular input by a netowrk. Regularization term will be used to avoid overfitting, we will come across this concept in the later sections of this chapter. So this equation is taking a sum of squared difference between the actual output and the predicted outputs across all the sets of inputs in a dataset and then adding the regularization term to it. This whole equation is the loss function of a single neuron. (Here the yhat_i = f(w_i^T * x_i))
 
 * **Optimization Problem-**
