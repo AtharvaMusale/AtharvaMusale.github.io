@@ -40,7 +40,7 @@ In case of brain neurons there are lots and lots of interlinking of the neurons 
 
 * **Complex Mathematical Computation -**
 
-Consider this equation f(x) = 2sin(x) + e^x - sqrt(x^4)
+Consider this equation f(x) = 2*sin(x) + e<sup>x</sup> - sqrt(x<sup>4</sup>)
 Such comoplex equations can be done using where each of these operations will be done with each layer of neuron. 
 
 # **How the neural networks actually learn the weights?**
