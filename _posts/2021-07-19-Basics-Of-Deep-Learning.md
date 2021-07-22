@@ -62,7 +62,7 @@ The goal of this optimization problem is to minimze this loss value. Lesser the 
 
 1. Initialization of w_i randomly.
 2. Calculating a partial derivatives of loss function w.r.t each of the weights
-3. X<sup>i<sup> = w_i_{old}
+3. X<sub>i,new</sub> = w_i_{old}
 
 
 
