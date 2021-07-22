@@ -77,7 +77,7 @@ L = ∑(i=1 to n) (y<sub>i</sub> - f(W<sup>T</sup> * x<sub>i</sub>))<sup>2</sup>
   
 # **Training a Multi- Layered Perceptron model-**
   
-![image](https://user-images.githubusercontent.com/46114095/126665656-62bec22a-bc33-4161-bfb5-e8e40fe7f778.png)
+![imageonline-co-blackandwhiteimage](https://user-images.githubusercontent.com/46114095/126666635-520301ad-4b7d-4e4b-8d78-cea3f5046a27.png)
 
 
 # **Reference** - 
