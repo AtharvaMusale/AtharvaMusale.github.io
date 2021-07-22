@@ -26,7 +26,7 @@ The above figure shows the perceptron structure. In the above figure **Xi**s are
 
 Simple equation of the perceptron can be written as-
 
-**f(x) = (∑ wi * xi +b)** ... Weighted sum 
+**f(x) = (∑ w<sub>i</sub> * x<sub>i</sub> +b)** ... Weighted sum 
 
 Since in case of perceptron only step function will be used, a threshold will be set and according to threshold value the output will be - **if f(x)>threshold then output will be 1 else it will be 0.**
 
@@ -55,7 +55,7 @@ Here L is the loss function. This equation will be optimized while training the 
 
 * **Optimization Problem-**
 
-**w_opt = argmin ∑(i=1 to n) (y_i - f(w_i^T * x_i))^2 + regularization term**
+**w<sub>opt</sub> = argmin ∑(i=1 to n) (y_i - f(w_i^T * x_i))^2 + regularization term**
 The goal of this optimization problem is to minimze this loss value. Lesser the loss, better would be neural network model's output will be. W_opt is the optmized value of the weights which will give the best results.
 
 * **Solving the optimization equation-**
