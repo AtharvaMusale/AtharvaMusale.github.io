@@ -66,7 +66,7 @@ The goal of this optimization problem is to minimze this loss value. Lesser the 
 
 So the equation shown above has the partial differential term of Loss function which might be confusing. I will just solve it for you.
 
-L = ∑(i=1 to n) (y<sub>i</sub> -** **f(W<sup>T</sup> * x<sub>i</sub>))<sup>2</sup>
+L = ∑(i=1 to n) (y<sub>i</sub> - f(W<sup>T</sup> * x<sub>i</sub>))<sup>2</sup>
 
 ∂L/∂F = - ∑(i=1 to n) 2*(y<sub>i</sub> - f(w<sup>T</sup> * x<sub>i</sub>))
 
