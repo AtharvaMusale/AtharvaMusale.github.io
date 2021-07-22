@@ -77,8 +77,9 @@ L = ∑(i=1 to n) (y<sub>i</sub> - f(W<sup>T</sup> * x<sub>i</sub>))<sup>2</sup>
   
 # **Training a Multi- Layered Perceptron model-**
   
-![imageonline-co-blackandwhiteimage](https://user-images.githubusercontent.com/46114095/126666635-520301ad-4b7d-4e4b-8d78-cea3f5046a27.png)
+![126665656-62bec22a-bc33-4161-bfb5-e8e40fe7f778](https://user-images.githubusercontent.com/46114095/126666802-45a0a84a-f0fe-419d-9894-d7da495e2d6f.png)
 
+In the above image a multi layered neural network has been shown. It has 4 inputs named x<sub>i1</sub>,x<sub>i1</sub>,...x<sub>i4</sub>. Similarly each activation function in each neuron is f<sub>i1</sub>,f<sub>i2</sub>...f<sub>i4</sub>. and outputs of each of the is o<sub>i1</sub>,o<sub>i2</sub>...o<sub>i4</sub>. 
 
 # **Reference** - 
 [https://cs.stanford.edu/people/eroberts/courses/soco/projects/neural-networks/Biology/index.html]
