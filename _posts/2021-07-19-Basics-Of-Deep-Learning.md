@@ -34,17 +34,17 @@ Since in case of perceptron only step function will be used, a threshold will be
 
 
 # **Need Of Multi-Layer Perceptron-** 
-* **Biological Inspiration -**
+* Biological Inspiration -
 
 In case of brain neurons there are lots and lots of interlinking of the neurons in the brain. This makes the chain of networks of the neurons which are used to carry out intensive tasks. Similarly perceptron can be stacked in the form of networks to performs some complex tasks
 
-* **Complex Mathematical Computation -**
+* Complex Mathematical Computation -
 
 Consider this equation f(x) = 2*sin(x) + e<sup>x</sup> - sqrt(x<sup>4</sup>)
 Such comoplex equations can be done using where each of these operations will be done with each layer of neuron. 
 
 # **How the neural networks actually learn the weights?**
-## **Training a single neuron model** - 
+# **Training a single neuron model** - 
 
 There are 3 steps involved in training a single neuron network.
 
