@@ -11,7 +11,12 @@ Before diving in the deep learning concepts let's try to understand the source o
 
 There are actually **10 Billion** neurons in our brain and each of them are connected to roughly **10000 other neurons**. Each neuron receives electrochemical inputs from other neurons at the dendrites.  If the sum of these electrical inputs is sufficiently powerful to activate the neuron, it transmits an electrochemical signal along the axon, and passes this signal to the other neurons whose dendrites are attached at any of the axon terminals. These attached neurons may then fire. It is important to note that a neuron fires only if the total signal received at the cell body exceeds a certain level.  The neuron either fires or it doesn't, there aren't different grades of firing.
 
-# **Mathematical Neuron Structure** - 
+
+# **Analogy** - 
+I really like to think of deep learning with a analogy of a toddler learning new alphabets. Think of how would you teach a toddler about alphabets? Probably playcards or some sticknots with alphabets written on them?. Lets say you will show a sticky note with the alphabet written on it and speak out what alphabet that was to a toddler only once and ask him/her what was that letter? First time he/she may not be able to give the correct answer. But think of showing him the same alphabet thousands of times with its pronounciation, and then ask him/her the next time what letter was that? The probability of a toddler giving a correct answer will be fairly high. This is exactly what is done in the deep learning. We use mathematical neural network and pass certain inputs through it say 10 or 100 or 1000000 times. Neural network adjusts the weights in the network and the next time when you pass the input just to verify if network weights are learnt properly or not, network will most probably give correct answer. So this is how the deep learning neural networks learn the new information just like whart a toddler learns alphabtes.
+
+
+# **Perceptron** - 
 The simplest for of mathematical replication of how biological neurons work was done by McCulloch-Pitts in the year 1943.
 
 ![image](https://user-images.githubusercontent.com/46114095/126329005-e7e1a503-628b-4a1a-908d-af792d5cf4f5.png)
@@ -30,8 +35,6 @@ Lets assume an output of an experiment where I want to go to play Basketball. Le
 So based on all the above inputs I will have the output of the experiment if I will go to play basketball or not.
 Lets say that these all inputs will have only two values (0 and 1). If an aggregation of the inputs gives us certain value which is above some threshold(Lets assume threshold is 2) then I will go to play basketball or else I wont.
 
-# **Analogy** - 
-I really like to think of deep learning with a analogy of a toddler learning new alphabets. Think of how would you teach a toddler about alphabets? Probably playcards or some sticknots with alphabets written on them?. Lets say you will show a sticky note with the alphabet written on it and speak out what alphabet that was to a toddler only once and ask him/her what was that letter? First time he/she may not be able to give the correct answer. But think of showing him the same alphabet thousands of times with its pronounciation, and then ask him/her the next time what letter was that? The probability of a toddler giving a correct answer will be fairly high. This is exactly what is done in the deep learning. We use mathematical neural network and pass certain inputs through it say 10 or 100 or 1000000 times. Neural network adjusts the weights in the network and the next time when you pass the input just to verify if network weights are learnt properly or not, network will most probably give correct answer. So this is how the deep learning neural networks learn the new information just like whart a toddler learns alphabtes. I hope my analogy was clear enough.
 
 # **Reference** - 
 [https://cs.stanford.edu/people/eroberts/courses/soco/projects/neural-networks/Biology/index.html]
