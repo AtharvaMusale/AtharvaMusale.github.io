@@ -112,7 +112,8 @@ d. Update weights from end of network to start.
 3. Repeat the step till convergence. Means till  (W<sub>i,j</sub><sup>k</sup>)<sub>new</sub> ~ (W<sub>i,j</sub><sup>k</sup>)<sub>old</sub>
  
 **For backpropagation all the activation functions must be differentiable.**
-  
+ 
+
 # **Reference** - 
 [https://cs.stanford.edu/people/eroberts/courses/soco/projects/neural-networks/Biology/index.html]
 [https://towardsdatascience.com/mcculloch-pitts-model-5fdf65ac5dd1]
