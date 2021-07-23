@@ -102,11 +102,16 @@ This is the algorithm which is the most part of any deep learning algorithm. Thi
 * For each x<sub>i</sub> in Dataset:
   
 a. Pass x<sub>i</sub> forward through the network. This step is called as forward propagation.
+  
 b. Compute the loss on y<sub>i</sub> and yhat<sub>i</sub>
+  
 c. Compute all the derivatives as a chain rule + memoisation.
+  
 d. Update weights from end of network to start.
 
 3. Repeat the step till convergence. Means till  (W<sub>i,j</sub><sup>k</sup>)<sub>new</sub> ~ (W<sub>i,j</sub><sup>k</sup>)<sub>old</sub>
+ 
+**For backpropagation all the activation functions must be differentiable.**
   
 # **Reference** - 
 [https://cs.stanford.edu/people/eroberts/courses/soco/projects/neural-networks/Biology/index.html]
