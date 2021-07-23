@@ -88,6 +88,7 @@ In case of multi-layered perceptron also the same steps are followed-
 **L = ∑(i=1 to n) (y<sub>i</sub>-yhat<sub>i</sub>)<sup>2</sup> + regularization term**
   
 2. Stochastic gradient Descent or Gradient Descent-
+  
 a. Initianlize the weights randomly
   
 b. Update Stage - (W<sub>i,j</sub><sup>k</sup>)<sub>new</sub>  = (W<sub>i,j</sub><sup>k</sup>)<sub>old</sub> - η * ∂L/∂w<sub>i,j</sub><sup>k</sup>.
@@ -95,7 +96,18 @@ b. Update Stage - (W<sub>i,j</sub><sup>k</sup>)<sub>new</sub>  = (W<sub>i,j</sub
 
 c. Perform updates till convergence
   
+# **Backpropagation-**
+This is the algorithm which is the most part of any deep learning algorithm. This is nothing but differential chain rule + memoisation. Steps in this algorithm are as follows - 
+* Initialize the (W<sub>i,j</sub><sup>k</sup>)s randomly.
+* For each x<sub>i</sub> in Dataset:
+  
+a. Pass x<sub>i</sub> forward through the network. This step is called as forward propagation.
+b. Compute the loss on y<sub>i</sub> and yhat<sub>i</sub>
+c. Compute all the derivatives as a chain rule + memoisation.
+d. Update weights from end of network to start.
 
+3. Repeat the step till convergence. Means till  (W<sub>i,j</sub><sup>k</sup>)<sub>new</sub> ~ (W<sub>i,j</sub><sup>k</sup>)<sub>old</sub>
+  
 # **Reference** - 
 [https://cs.stanford.edu/people/eroberts/courses/soco/projects/neural-networks/Biology/index.html]
 [https://towardsdatascience.com/mcculloch-pitts-model-5fdf65ac5dd1]
