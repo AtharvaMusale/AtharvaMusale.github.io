@@ -90,8 +90,12 @@ In case of multi-layered perceptron also the same steps are followed-
 2. Stochastic gradient Descent or Gradient Descent-
 a. Initianlize the weights randomly
   
-b. Update Stage - (W<sub>i,j</sub><sup>k</sup>)<sub>new</sub>  = (W<sub>i,j</sub><sup>k</sup>)<sub>old</sub> - η * ∂L/∂w<sub>i,j</sub><sup>k</sup>
+b. Update Stage - (W<sub>i,j</sub><sup>k</sup>)<sub>new</sub>  = (W<sub>i,j</sub><sup>k</sup>)<sub>old</sub> - η * ∂L/∂w<sub>i,j</sub><sup>k</sup>.
+  Here η is the learning rate.
+
+c. Perform updates till convergence
   
+
 # **Reference** - 
 [https://cs.stanford.edu/people/eroberts/courses/soco/projects/neural-networks/Biology/index.html]
 [https://towardsdatascience.com/mcculloch-pitts-model-5fdf65ac5dd1]
