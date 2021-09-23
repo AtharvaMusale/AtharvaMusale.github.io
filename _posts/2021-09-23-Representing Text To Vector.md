@@ -215,7 +215,7 @@ THe GloVe algorithm consists of following steps:
 
 2. Define soft constraints for each word pair:
 
-   <n>w<sup>T</sup><sub>i</sub>w<sub>j</sub>+b<sub>i</sub>+b<sub>j</sub>=log(X<sub>ij</sub>)</n>
+<!--    <n>w<sup>T</sup><sub>i</sub>w<sub>j</sub>+b<sub>i</sub>+b<sub>j</sub>=log(X<sub>ij</sub>)</n> -->
    
 <!--    <n>Here w<sub>i</sub> - vector for the main word, w<sub>j</sub> - vector for the context word, b<sub>i</sub>, b<sub>j</sub> are scalar biases for the main and   context words.</n> -->
    ![image](https://user-images.githubusercontent.com/46114095/134587081-7f049658-2aaf-47bb-86c1-9c1bdc07df3b.png)
