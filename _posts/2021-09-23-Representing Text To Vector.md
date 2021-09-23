@@ -130,7 +130,7 @@ Word2Vec is one of the most powerful techniques in converting a text to a vector
 
 Word2Vec is one of the most powerful techniques in converting a text to a vector. This technique actually takes into consideration the semantic meaning of the words unlike the traditionally used techniques like Bag Of Words or TF-IDF. It is almost the state of the art method. Intuitively Word2Vec looks at the neighborhood of the target word to predict the target word. One of the best advantages of the Word2Vec model is that it gives the dense vector as an output, unlike the previous techniques.
 
-![Uploading image.png…]()
+![image](https://user-images.githubusercontent.com/46114095/134481459-bd5b239f-2793-4ba6-8aed-908fa5aa4ea7.png)
 
 Word2Vec is a shallow two-layered network, which is trained to reconstruct the linguistic context of the words. It takes a large corpus of words as an input and converts it to a vector of the size of hundreds of dimensions(typically 100 to 300 dimensions). These word vectors are positioned in such a manner that word vectors of the word having similar contexts are located in close proximity and those which have different contexts are set apart in the vector space. Word2Vec is a computationally efficient predictive model for learning word embeddings from raw text.
 
@@ -147,3 +147,62 @@ Let's assume we have,
 2. Using one hot encoding of each word. This will represent each word as a one-hot encoded vector of size v.
 
 Let's assume we have a huge text corpus and we have createed the dataset of the target word and its corresponding context words.
+
+![image](https://user-images.githubusercontent.com/46114095/134481536-ca1ccc57-6bbb-43a9-8c14-ab708ae8f2a5.png)
+
+This CBOW is a very simple two-layered neural network and if trained on the dataset which we created, at the output this model will return N*v vector. This N*v vector can be used for vectorization. So given a word Wi we will get corresponding Vi. This corresponding Vi will have a whole vector representation of the size of N dimensions.
+
+# Skip-Gram
+Skip-gram predicts surrounding context words from the given target words (inverse of CBOW). Statistically, skip-gram treats each context-target pair as a new observation, and this tends to do better when we have larger datasets.
+
+![image](https://user-images.githubusercontent.com/46114095/134481766-5a2f9026-d7c0-4baf-b6d8-289bb4c41230.png)
+
+In this Skip-Gram, the target word is provided as an input and the Context vector is the output. In the case of SkipGram Wv*N matrix can be used to get the words.
+
+# Advantages of CBOW - 
+* Faster than SkipGram
+* Better for frequently occurring words.
+
+# Advantages of SkipGram - 
+* Can work with a smaller amount of data
+* Well for infrequent words
+
+If you think about this skip-gram is a much harder problem to solve since it is predicting the whole context given a target. Whereas in the case of CBOW whole context is given and it just predicts the target word. It's like filling the blanks problem. But since SkipGram solves the much harder problem it works well and gets more semantic meaning. K is the number of context words. If k increases then more context is seen by CBOW.
+
+There is one major problem in CBOW and SkipGram
+
+Lets look at number of weights to be trained- 
+
+#weights = (K+1) (N*v)
+
+Assume N = 200, k=5, V=10k
+It will be 12 million weights. This will be a huge computation for any compute. It will take nearly forever to do this. So how to optimize this?
+
+# Word2Vec Optimization -
+
+We saw that both CBOW and Skip-Gram training will be extremely exhaustive for training. So there are two concepts that are used to train these models.
+
+# Hierarchical Softmax 
+If one takes a look at the SkipGram or CBOW connections they both use multiple softmax functions. Computations of these softmax functions are bit exhaustive. So core idea of the hierarchical softmax is to replace these v -softmax functions with something which is computationally less expensive. Softmax activation is trying to solve V class classification. 
+Let's say we have 8 words, we place 8 words at the leaf node of the binary tree.
+
+![image](https://user-images.githubusercontent.com/46114095/134481918-f148f887-8a32-4014-b8f2-d81ceec25c97.png)
+
+In the case of linear softmax function, for each word in a sentence, one softmax is needed and softmax calculations are computationally expensive. In the above example since we have 8 words, there will be 8 softmax functions.
+
+Hierarchical softmax uses a binary tree to represent all words in the vocabulary. The words themselves are leaves in the tree. For each leaf, there exists a unique path from the root to the leaf, and this path is used to estimate the probability of the word represented by the leaf. This probability is defined as the probability of a random walk starting from the root ending at the leaf in question.
+
+The main advantage is that instead of evaluating V output nodes in the neural network to obtain the probability distribution, it is needed to evaluate only about log2(V) words. Typically a binary Huffman tree is used, as it assigns short codes to the frequent words which result in fast training.
+
+# Negative Sampling 
+Negative Sampling is simply the idea that we only update a sample of output words per iteration. The target output word should be kept in the sample and it will get updated, and we add to this a few (non-target) words as negative samples. "A probabilistic distribution is needed for the sampling process, and it can be arbitrarily chosen… One can determine a good distribution empirically."
+Each word is discarded with a probability of P(wi) where P(wi ) is,
+
+![image](https://user-images.githubusercontent.com/46114095/134482031-a1597b5a-8cc5-4b48-99df-639024910e8f.png)
+
+Since the negative sampling and the hierarchical softmax are used in the Word2Vec model, it trains much faster and can be used as a vectorization technique with the semantic meaning consideration.
+
+## Glove (Global Vectors For Word Representation)
+![Uploading image.png…]()
+
+The Word2Vec doesn't consider the statistical information of word co-occurrence. This was an inspiration for developing Global Vectors for word representation(Glove). Glove combines the benefits of the Word2Vec SkipGram model in analogy tasks with the benefits of matrix factorization methods that can exploit global statistical information.
