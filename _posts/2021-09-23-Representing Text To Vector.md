@@ -119,4 +119,31 @@ TF-IDF("How",d2,D) = 0.125 * 1= 0.125
 * You have some basic metric to extract the most descriptive terms in a document
 
 * You can easily compute the similarity between 2 documents using it
-* 
+
+## W2Vec (Word To Vector)
+
+![image](https://user-images.githubusercontent.com/46114095/134462609-a4a85ba2-e490-42d6-ab7a-d2b827d3539b.png)
+
+Word2Vec is one of the most powerful techniques in converting a text to a vector. This technique actually takes into consideration the semantic meaning of the words unlike the traditionally used techniques like Bag Of Words or TF-IDF. It is almost the state of the art method. Intuitively Word2Vec looks at the neighborhood of the target word to predict the target word. One of the best advantages of the Word2Vec model is that it gives the dense vector as an output, unlike the previous techniques.
+
+![image](https://user-images.githubusercontent.com/46114095/134462684-0006de25-573a-43fe-8efe-83267ce8d386.png)
+
+Word2Vec is one of the most powerful techniques in converting a text to a vector. This technique actually takes into consideration the semantic meaning of the words unlike the traditionally used techniques like Bag Of Words or TF-IDF. It is almost the state of the art method. Intuitively Word2Vec looks at the neighborhood of the target word to predict the target word. One of the best advantages of the Word2Vec model is that it gives the dense vector as an output, unlike the previous techniques.
+
+![Uploading image.png…]()
+
+Word2Vec is a shallow two-layered network, which is trained to reconstruct the linguistic context of the words. It takes a large corpus of words as an input and converts it to a vector of the size of hundreds of dimensions(typically 100 to 300 dimensions). These word vectors are positioned in such a manner that word vectors of the word having similar contexts are located in close proximity and those which have different contexts are set apart in the vector space. Word2Vec is a computationally efficient predictive model for learning word embeddings from raw text.
+
+# CBOW (Continuous Bag Of words)
+CBOW is a W2Vec model which will predict the target word given the context of the target word.
+
+Sentence: The cheetah ran very fast while hunting the deer.
+
+In this sentence, considering cheetah as a target word, the context words would be "The(c1) ran(c2) very(c3) fast(c4) while(c5) chasing(c6) the(c7) deer(c8)"
+
+Let's assume we have,
+
+1. The V = vocabulary or dictionary of words and v = Length/Size of the Vocabulary.
+2. Using one hot encoding of each word. This will represent each word as a one-hot encoded vector of size v.
+
+Let's assume we have a huge text corpus and we have createed the dataset of the target word and its corresponding context words.
