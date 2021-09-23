@@ -54,3 +54,24 @@ These are the 7 words from the whole corpus of 11 words.
 While creating the BOW vector it will consider each of the words in the vocabulary and count the number of times that word appeared in the whole text corpus that count will be the value of the vector.
 
 ## How to Implement the Bag Of Words
+
+import nltk
+
+import re
+
+import numpy as np
+
+# execute the text here as :
+
+# text = """ # place text here  """
+
+dataset = nltk.sent_tokenize(text)
+
+for i in range(len(dataset)):
+
+  dataset[i] = dataset[i].lower()
+  
+  dataset[i] = re.sub(r'\W', ' ', dataset[i])
+  
+  dataset[i] = re.sub(r'\s+', ' ', dataset[i])
+  
