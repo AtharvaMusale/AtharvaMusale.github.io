@@ -1,20 +1,21 @@
 
 ![word representation](https://user-images.githubusercontent.com/46114095/134459818-7e858caa-7782-4a4b-92c3-b3f4c75ea11c.png)
 
-   Any Machine Learning or Deep Learning model operates on a numeric feature space, expecting an input to be a two-dimensional vector where rows are the instances and columns are the features. In order to perform a language modeling on text, text must be transformed into vector representation such that machine learning or deep learning algorithms can be applied to the textual data. This process of converting text to a vector is called Vectorization. This is the first essential step towards language modeling.
-
-## Text Vectorization Techniques
+   Any Deep Learning model operates on a numeric features in N dimensional space. In order to perform a language modeling on text, text must be transformed into vector representation so that machine learning or deep learning models can be used on the textual data. This process of converting text to a vector is called Vectorization. In this post I will discuss about the most widely used vectorization techiniques and intuition behind all those techniques. So lets dive in! 
+   
+## **Text Vectorization Techniques**
 
 Some commonly used text vectorization techniques are-
 
-* Bag Of Words
-* TF-IDF 
-* W2Vec
-* Glove
+
+* **Bag Of Words**
+* **TF-IDF** 
+* **W2Vec**
+* **Glove**
 
 Out of all these common techniques, W2Vec and Glove are used widely due to their ability to take into account the semantic meaning of words as well. So let's take a deep dive into each of these techniques.
 
-## Bag Of Words
+## **Bag Of Words**
 
 ![image](https://user-images.githubusercontent.com/46114095/134460035-7e383086-e800-42c7-bd52-453256c0a008.png)
 
@@ -65,7 +66,7 @@ While creating the BOW vector it will consider each of the words in the vocabula
 
 * Not Considering The Meaning- The biggest drawback of BOW is ignoring the meaning of the words in the corpus. The meaning of the words brings intuition to the whole sentence. BOW is not taking into account this while vectorizing. This is one of the biggest disadvantages of a BOW words vectorization.
 
-## TF-IDF (Term Frequency- Inverse Document Frequency)
+## **TF-IDF (Term Frequency- Inverse Document Frequency)**
 
 ![image](https://user-images.githubusercontent.com/46114095/134461303-baf882f0-4cd9-4f79-ab89-2d5c3628ed6b.png)
 
@@ -119,7 +120,7 @@ TF-IDF("How",d2,D) = 0.125 * 1= 0.125
 
 * You can easily compute the similarity between 2 documents using it
 
-## W2Vec (Word To Vector)
+## **W2Vec (Word To Vector)**
 
 ![image](https://user-images.githubusercontent.com/46114095/134462609-a4a85ba2-e490-42d6-ab7a-d2b827d3539b.png)
 
@@ -209,9 +210,9 @@ Since the negative sampling and the hierarchical softmax are used in the Word2Ve
 
 The Word2Vec doesn't consider the statistical information of word co-occurrence. This was an inspiration for developing Global Vectors for word representation(Glove). Glove combines the benefits of the Word2Vec SkipGram model in analogy tasks with the benefits of matrix factorization methods that can exploit global statistical information.
 
-## GloVe algorithm
+## **GloVe algorithm**
 
-THe GloVe algorithm consists of following steps:
+The GloVe algorithm consists of following steps:
 
 1. Collect word co-occurence statistics in a form of word co-ocurrence matrix X. Each element X<sub>ij</sub> of such matrix represents how often word i appears in context of word j. Usually we scan our corpus in the following manner: for each term we look for context terms within some area defined by a window_size before the term and a window_size after the term. Also we give less weight for more distant words, usually using this formula:<n>decay = 1/offset</n>
 
