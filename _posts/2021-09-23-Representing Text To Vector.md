@@ -1,7 +1,7 @@
 
 ![word representation](https://user-images.githubusercontent.com/46114095/134459818-7e858caa-7782-4a4b-92c3-b3f4c75ea11c.png)
 
-   Any Deep Learning model operates on a numeric features in N dimensional space. In order to perform a language modeling on text, text must be transformed into vector representation so that machine learning or deep learning models can be used on the textual data. This process of converting text to a vector is called Vectorization. In this post I will discuss about the most widely used vectorization techiniques and intuition behind all those techniques. So lets dive in! 
+   Any Deep Learning model trains on a numeric features in N dimensional space. In order to perform a language modeling on text, a text must be transformed into the its vector representation so that machine learning or deep learning models can be used on the textual data. This process of converting a text to a vector is called the Vectorization. In this post I will discuss about the most widely used vectorization techiniques and intuition behind all those techniques.
    
 ## **Text Vectorization Techniques**
 
@@ -26,14 +26,14 @@ Bag Of Words(BOW) is one of the simplest techniques to convert a text into a vec
 
 It is called a bag because the order of the words is not preserved and it is only concerned if a word is present in the corpus or not. A simple intuition behind this representation is that two text corpora are similar if they have the same words in them. Let's take a simple example and try to understand how it works.
 
-# Step 1- Data Collection
+### Step 1- Data Collection
 
 * This pasta is very tasty.
 * This pasta is not so tasty.
 
 Consider the above two lines as two text reviews from the single text corpus. Unique words in the above sentences are
 
-# Step2- Creating a vocabulary
+### Step2- Creating a vocabulary
 
 * This
 * pasta
@@ -45,7 +45,7 @@ Consider the above two lines as two text reviews from the single text corpus. Un
 
 These are the 7 words from the whole corpus of 11 words.
 
-# Step3- Create Document Vectors
+### Step3- Create Document Vectors
 
 ![image](https://user-images.githubusercontent.com/46114095/134460538-6eb8442e-9f22-4432-93be-628f98621549.png)
 
@@ -53,13 +53,10 @@ These are the 7 words from the whole corpus of 11 words.
 
 While creating the BOW vector it will consider each of the words in the vocabulary and count the number of times that word appeared in the whole text corpus that count will be the value of the vector.
 
-# How to Implement the Bag Of Words
-
-
-# Advantages of Bag Of Words
+### Advantages of Bag Of Words
 * Simple to understand and implement.
 
-# Disadvantages of Bag Of Words
+### Disadvantages of Bag Of Words
 * Curse of Dimensionality- If the unique words in the corpus are too high and there are many words with low frequency then it will lead to a sparse vector representation of BOW. Sparse vector is difficult for a model to compute as well as to interpret. So the metrics of a model would be low since the model won't be able to interpret the features properly.
 
 * Vocabulary- The vocabulary of the BOW needs to be created carefully. The text corpus should be preprocessed (like removing stopwords/punctuations, stemming, lemmatization, converting to lower case, etc). This will significantly reduce the sparsity by a lot and also help the model to interpret the vector in a better manner.
@@ -72,7 +69,7 @@ While creating the BOW vector it will consider each of the words in the vocabula
 
 TF-IDF is a measure of the originality of a word by comparing the number of times appears in a document with the number of documents the word appears in. Term frequency (TF) is how often a word appears in a document, divided by how many words there are. The inverse document frequency is a measure of how much information the word provides, i.e., if it's common or rare across all documents. It is the logarithmically scaled inverse fraction of the documents that contain the word (obtained by dividing the total number of documents by the number of documents containing the term, and then taking the logarithm of that quotient). Check the above figure to get the simplified formula of TFIDF.
 
-# Need Of Log Term In IDF Formula
+### Need Of Log Term In IDF Formula
 In simple as well as modified TFIDF formula there is a log term in the IDF formula. To understand why log term is needed let's look at the formula of IDF without considering the log term (I am considering only a simplified version of the IDF here). Without the log term formula of IDF would look like N/n. In this N is the total number of documents and n is the total number of documents in which term is present. Lets assume there were 100000 documents and the term for which IDF is being calculated is present in only 10 documents then the IDF term would be 100000/10 = 10000. The term frequency in TFIDF would be too low as compared to the IDF value calculated above. So if TF-IDF is calculated without the log term then IDF part of the formula will dominate the overall value of the TFIDF. Instead of that if we use log in the IDF then this value of IDF will be log(10000)= 4 which is significantly lower than the one without log term.
 
 Consider the following document which has two sentences in it
@@ -108,11 +105,8 @@ TF-IDF("How",d1,D) = 0.10526315789 * 1= 0.10526315789
 
 TF-IDF("How",d2,D) = 0.125 * 1= 0.125
 
-# Sample Code To Implement TFIDF Vectorizer
 
-![image](https://user-images.githubusercontent.com/46114095/134462431-b782f329-6994-49cf-9b26-627483f41368.png)
-
-# Advantages of using TFIDF Vector 
+### Advantages of using TFIDF Vector 
 
 * Easy to compute
 
