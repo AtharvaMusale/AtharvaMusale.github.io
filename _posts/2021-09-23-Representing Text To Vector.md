@@ -213,14 +213,16 @@ THe GloVe algorithm consists of following steps:
 
 1. Collect word co-occurence statistics in a form of word co-ocurrence matrix X. Each element X<sub>ij</sub> of such matrix represents how often word i appears in context of word j. Usually we scan our corpus in the following manner: for each term we look for context terms within some area defined by a window_size before the term and a window_size after the term. Also we give less weight for more distant words, usually using this formula:<n>decay = 1/offset</n>
 
-2. Define soft constraints for each word pair:<n>w<sup>T</sup><sub>i</sub>w<sub>j</sub>+b<sub>i</sub>+b<sub>j</sub>=log(X<sub>ij</sub>)</n>
-  <n>Here w<sub>i</sub> - vector for the main word, w<sub>j</sub> - vector for the context word, b<sub>i</sub>, b<sub>j</sub> are scalar biases for the main and   context words.</n>
+2. Define soft constraints for each word pair:
+   <n>w<sup>T</sup><sub>i</sub>w<sub>j</sub>+b<sub>i</sub>+b<sub>j</sub>=log(X<sub>ij</sub>)</n>
+   <n>Here w<sub>i</sub> - vector for the main word, w<sub>j</sub> - vector for the context word, b<sub>i</sub>, b<sub>j</sub> are scalar biases for the main and   context words.</n>
 
 3. Define a cost function
 
-  J=∑(i=1 to V) ∑(j=1 to V) f(X<sub>ij</sub>)(w<sup>T</sup><sub>i</sub>w<sub>j</sub>+b<sub>i</sub>+b<sub>j</sub>−logX<sub>ij</sub>)<sup>2</sup>
-  Here f is a weighting function which help us to prevent learning only from extremely common word pairs. The GloVe authors choose the following function:
-  f(X<sub>ij</sub>)={(X<sub>ij</sub>xmax)α1if Xij<XMAXotherwise
+   J=∑(i=1 to V) ∑(j=1 to V) f(X<sub>ij</sub>)(w<sup>T</sup><sub>i</sub>w<sub>j</sub>+b<sub>i</sub>+b<sub>j</sub>−logX<sub>ij</sub>)<sup>2</sup>
+   
+   Here f is a weighting function which help us to prevent learning only from extremely common word pairs. The GloVe authors choose the following function:
+   f(X<sub>ij</sub>)={(X<sub>ij</sub>xmax)α1if Xij<XMAXotherwise
 
 
 Reference 
