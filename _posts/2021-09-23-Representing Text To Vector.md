@@ -203,7 +203,7 @@ Each word is discarded with a probability of P(wi) where P(wi ) is,
 Since the negative sampling and the hierarchical softmax are used in the Word2Vec model, it trains much faster and can be used as a vectorization technique with the semantic meaning consideration.
 
 ## Glove (Global Vectors For Word Representation)
-![Uploading image.png…]()
+![image](https://user-images.githubusercontent.com/46114095/134586636-3dae9ac7-38b1-4da9-b7c7-127f2a1b52d0.png)
 
 The Word2Vec doesn't consider the statistical information of word co-occurrence. This was an inspiration for developing Global Vectors for word representation(Glove). Glove combines the benefits of the Word2Vec SkipGram model in analogy tasks with the benefits of matrix factorization methods that can exploit global statistical information.
 
@@ -217,15 +217,21 @@ THe GloVe algorithm consists of following steps:
 
    <n>w<sup>T</sup><sub>i</sub>w<sub>j</sub>+b<sub>i</sub>+b<sub>j</sub>=log(X<sub>ij</sub>)</n>
    
-   <n>Here w<sub>i</sub> - vector for the main word, w<sub>j</sub> - vector for the context word, b<sub>i</sub>, b<sub>j</sub> are scalar biases for the main and   context words.</n>
+<!--    <n>Here w<sub>i</sub> - vector for the main word, w<sub>j</sub> - vector for the context word, b<sub>i</sub>, b<sub>j</sub> are scalar biases for the main and   context words.</n> -->
+   ![image](https://user-images.githubusercontent.com/46114095/134587081-7f049658-2aaf-47bb-86c1-9c1bdc07df3b.png)
+
 
 3. Define a cost function
 
-   J=∑(i=1 to V) ∑(j=1 to V) f(X<sub>ij</sub>)(w<sup>T</sup><sub>i</sub>w<sub>j</sub>+b<sub>i</sub>+b<sub>j</sub>−logX<sub>ij</sub>)<sup>2</sup>
-   
-   Here f is a weighting function which help us to prevent learning only from extremely common word pairs. The GloVe authors choose the following function:
-   f(X<sub>ij</sub>)={(X<sub>ij</sub>xmax)α1if Xij<XMAXotherwise
+<!--    J=∑(i=1 to V) ∑(j=1 to V) f(X<sub>ij</sub>)(w<sup>T</sup><sub>i</sub>w<sub>j</sub>+b<sub>i</sub>+b<sub>j</sub>−logX<sub>ij</sub>)<sup>2</sup> -->
+   ![image](https://user-images.githubusercontent.com/46114095/134586991-efffd62d-8a40-4976-be14-0e4053ea46a8.png)
 
+   Here f is a weighting function which help us to prevent learning only from extremely common word pairs. The GloVe authors choose the following function:
+<!--    f(X<sub>ij</sub>)= (X<sub>ij</sub>/ xmax)<sup>α</sup>1if Xij<XMAXotherwise -->
+
+   ![image](https://user-images.githubusercontent.com/46114095/134587046-bc43c674-6e2c-4a05-81a9-4c35e0b8df91.png)
+
+   
 
 Reference 
 
