@@ -55,23 +55,14 @@ While creating the BOW vector it will consider each of the words in the vocabula
 
 # How to Implement the Bag Of Words
 
-import nltk
+![image](https://user-images.githubusercontent.com/46114095/134461072-4668f124-3da8-4ff3-aef0-8bdb45ecded1.png)
 
-import re
+# Advantages of Bag Of Words
+* Simple to understand and implement.
 
-import numpy as np
+# Disadvantages of Bag Of Words
+* Curse of Dimensionality- If the unique words in the corpus are too high and there are many words with low frequency then it will lead to a sparse vector representation of BOW. Sparse vector is difficult for a model to compute as well as to interpret. So the metrics of a model would be low since the model won't be able to interpret the features properly.
 
-//execute the text here as :
+* Vocabulary- The vocabulary of the BOW needs to be created carefully. The text corpus should be preprocessed (like removing stopwords/punctuations, stemming, lemmatization, converting to lower case, etc). This will significantly reduce the sparsity by a lot and also help the model to interpret the vector in a better manner.
 
-//text = """ # place text here  """
-
-dataset = nltk.sent_tokenize(text)
-
-for i in range(len(dataset)):
-
-<t>dataset[i] = dataset[i].lower()<\t>
-  
-<t>dataset[i] = re.sub(r'\W', ' ', dataset[i])<\t>
-  
-<t>dataset[i] = re.sub(r'\s+', ' ', dataset[i])<\t>
-  
+* Not Considering The Meaning- The biggest drawback of BOW is ignoring the meaning of the words in the corpus. The meaning of the words brings intuition to the whole sentence. BOW is not taking into account this while vectorizing. This is one of the biggest disadvantages of a BOW words vectorization.
