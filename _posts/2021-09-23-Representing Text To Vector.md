@@ -206,3 +206,13 @@ Since the negative sampling and the hierarchical softmax are used in the Word2Ve
 ![Uploading image.png…]()
 
 The Word2Vec doesn't consider the statistical information of word co-occurrence. This was an inspiration for developing Global Vectors for word representation(Glove). Glove combines the benefits of the Word2Vec SkipGram model in analogy tasks with the benefits of matrix factorization methods that can exploit global statistical information.
+
+Reference 
+
+* https://nlp.stanford.edu/pubs/glove.pdf
+
+* https://arxiv.org/pdf/1301.3781.pdf
+
+* https://arxiv.org/pdf/1301.3781.pdfhttps://arxiv.org/pdf/1301.3781.pdf
+
+* https://blog.acolyer.org/2016/04/21/the-amazing-power-of-word-vectors/
