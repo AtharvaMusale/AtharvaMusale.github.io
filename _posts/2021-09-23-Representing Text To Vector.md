@@ -231,10 +231,10 @@ f(Xij)={(Xijxmax)α1if Xij<XMAXotherwise
 
 Reference 
 
-* https://nlp.stanford.edu/pubs/glove.pdf
+* (https://nlp.stanford.edu/pubs/glove.pdf)
 
-* https://arxiv.org/pdf/1301.3781.pdf
+* (https://arxiv.org/pdf/1301.3781.pdf)
 
-* https://arxiv.org/pdf/1301.3781.pdfhttps://arxiv.org/pdf/1301.3781.pdf
+* [Word2Vec](https://arxiv.org/pdf/1301.3781.pdf)
 
-* https://blog.acolyer.org/2016/04/21/the-amazing-power-of-word-vectors/
+* [Amazing Power Of Word Vectors](https://blog.acolyer.org/2016/04/21/the-amazing-power-of-word-vectors/)
