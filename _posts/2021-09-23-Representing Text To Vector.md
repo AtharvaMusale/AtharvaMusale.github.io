@@ -54,25 +54,6 @@ While creating the BOW vector it will consider each of the words in the vocabula
 
 # How to Implement the Bag Of Words
 
-<!-- ![image](https://user-images.githubusercontent.com/46114095/134461072-4668f124-3da8-4ff3-aef0-8bdb45ecded1.png) -->
-import nltk
-
-import re
-
-import numpy as np
-
-<!-- # execute the text here as : -->
-
-<!-- # text = """ # place text here  """ -->
-dataset = nltk.sent_tokenize(text)
-
-for i in range(len(dataset)):
-
-  <t>dataset[i] = dataset[i].lower()</t>
-  
-  <t>dataset[i] = re.sub(r'\W', ' ', dataset[i])</t>
-  
-  <t>dataset[i] = re.sub(r'\s+', ' ', dataset[i])</t>
 
 # Advantages of Bag Of Words
 * Simple to understand and implement.
