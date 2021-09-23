@@ -234,9 +234,7 @@ THe GloVe algorithm consists of following steps:
 
 Reference 
 
-* (https://nlp.stanford.edu/pubs/glove.pdf)
-
-* (https://arxiv.org/pdf/1301.3781.pdf)
+* [GloVe: Global Vectors for Word Representation](https://nlp.stanford.edu/pubs/glove.pdf)
 
 * [Word2Vec](https://arxiv.org/pdf/1301.3781.pdf)
 
