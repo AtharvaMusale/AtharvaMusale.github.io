@@ -1,7 +1,7 @@
 
 ![word representation](https://user-images.githubusercontent.com/46114095/134459818-7e858caa-7782-4a4b-92c3-b3f4c75ea11c.png)
 
-   Any Deep Learning model trains on a numeric features in N dimensional space. In order to perform a language modeling on text, a text must be transformed into the its vector representation so that machine learning or deep learning models can be used on the textual data. This process of converting a text to a vector is called the Vectorization. In this post I will discuss about the most widely used vectorization techiniques and intuition behind all those techniques.
+   Any Deep Learning model trains on a numeric features present in N dimensional space. In order to perform a language modeling on text, a text must be transformed into the its vector representation so that machine learning or deep learning models can be used on the text data. This process of converting a text to a vector is called the Vectorization. In this post, I will discuss about the most widely used vectorization techiniques and intuition behind all those techniques. So lets dive in!
    
 ## **Text Vectorization Techniques**
 
@@ -13,7 +13,7 @@ Some commonly used text vectorization techniques are-
 * **W2Vec**
 * **Glove**
 
-Out of all these common techniques, W2Vec and Glove are used widely due to their ability to take into account the semantic meaning of words as well. So let's take a deep dive into each of these techniques.
+Out of all these common techniques, W2Vec and Glove are used widely due to their ability to take into account the semantic meaning of words as well.
 
 ## **Bag Of Words**
 
@@ -47,21 +47,26 @@ These are the 7 words from the whole corpus of 11 words.
 
 ### Step3- Create Document Vectors
 
+Bag Of words Vector For First Sentence -
+
 ![image](https://user-images.githubusercontent.com/46114095/134460538-6eb8442e-9f22-4432-93be-628f98621549.png)
+
+Bag Of words Vector For Second Sentence -
 
 ![image](https://user-images.githubusercontent.com/46114095/134460554-47c2f9da-2a49-4d10-b04b-2e815392e0e2.png)
 
 While creating the BOW vector it will consider each of the words in the vocabulary and count the number of times that word appeared in the whole text corpus that count will be the value of the vector.
 
 ### Advantages of Bag Of Words
+
 * Simple to understand and implement.
 
 ### Disadvantages of Bag Of Words
-* Curse of Dimensionality- If the unique words in the corpus are too high and there are many words with low frequency then it will lead to a sparse vector representation of BOW. Sparse vector is difficult for a model to compute as well as to interpret. So the metrics of a model would be low since the model won't be able to interpret the features properly.
+* **Curse of Dimensionality-** If the unique words in the corpus are too high and there are many words with low frequency then it will lead to a sparse vector representation of BOW. Sparse vector is difficult for a model to compute as well as to interpret. So the performance metrics of a model would be low since the model won't be able to interpret the features properly.
 
-* Vocabulary- The vocabulary of the BOW needs to be created carefully. The text corpus should be preprocessed (like removing stopwords/punctuations, stemming, lemmatization, converting to lower case, etc). This will significantly reduce the sparsity by a lot and also help the model to interpret the vector in a better manner.
+* **Vocabulary-** The vocabulary of the BOW needs to be created carefully. The text corpus should be preprocessed (like removing stopwords/punctuations, stemming, lemmatization, converting to lower case, etc). This will significantly reduce the sparsity and also help the model to interpret the vector in a better manner.
 
-* Not Considering The Meaning- The biggest drawback of BOW is ignoring the meaning of the words in the corpus. The meaning of the words brings intuition to the whole sentence. BOW is not taking into account this while vectorizing. This is one of the biggest disadvantages of a BOW words vectorization.
+* **Not Considering The Meaning-** The biggest drawback of BOW is ignoring the meaning of the words in the corpus. The meaning of the words brings intuition to the whole sentence. BOW is not taking into account this while vectorizing. This is one of the biggest disadvantages of a BOW words vectorization.
 
 ## **TF-IDF (Term Frequency- Inverse Document Frequency)**
 
@@ -80,9 +85,9 @@ d2: "How on earth can someone be that stupid?"
 
 Let's calculate the TFIDF vector for the word "How". (Assuming all the punctuation are removed and preprocessing is done before calculating the TFIDF vector)
 
-TF("How",d1) = 2 ("How" appeared two times in d1)/19(Total number of terms in d1)
+TF("How",d1) = 2 ("How" appeared two times in d1) / 19(Total number of terms in d1)
 
-TF("How",d2) = 1 ("How" appeared once in d2)/8(Total number of terms in d2 )
+TF("How",d2) = 1 ("How" appeared once in d2)/ 8(Total number of terms in d2 )
 
 IDF("How",D) = log(2/2) = 0
 
@@ -113,6 +118,15 @@ TF-IDF("How",d2,D) = 0.125 * 1= 0.125
 * You have some basic metric to extract the most descriptive terms in a document
 
 * You can easily compute the similarity between 2 documents using it
+
+### Disadvantages of using TFIDF Vector 
+
+* TF-IDF is based on the bag-of-words (BoW) model, therefore it does not capture position in text, semantics, co-occurrences in different documents, etc.
+
+* For this reason, TF-IDF is only useful as a lexical level feature
+
+* Cannot capture semantics (e.g. as compared to topic models, word embeddings)
+
 
 ## **W2Vec (Word To Vector)**
 
