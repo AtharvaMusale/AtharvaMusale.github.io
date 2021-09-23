@@ -93,3 +93,30 @@ TF-IDF("How",d1,D) = 0.10526315789 * 0 = 0
 
 TF-IDF("How",d2,D) = 0.125 * 0 = 0
 
+![image](https://user-images.githubusercontent.com/46114095/134462316-5af134ea-96e0-45b9-99b5-9aaf3621813e.png)
+
+One can see that TFIDF is turning out to be 0. This will definitely make the importance of word which is occurring in every document irrelevant. The purpose of adding the +1 is to accomplish one of the two objectives
+
+a) To avoid divide by zero error as when a term appears in no documents
+b) To set a lower bound to avoid a term being given a zero weight just because it appeared in all documents.
+
+So with the modified formula of IDF as shown in the figure above 
+
+IDF("How",D) = (log(1+2/1+2)) +1= 1
+
+TF-IDF("How",d1,D) = 0.10526315789 * 1= 0.10526315789
+
+TF-IDF("How",d2,D) = 0.125 * 1= 0.125
+
+# Sample Code To Implement TFIDF Vectorizer
+
+![image](https://user-images.githubusercontent.com/46114095/134462431-b782f329-6994-49cf-9b26-627483f41368.png)
+
+# Advantages of using TFIDF Vector 
+
+* Easy to compute
+
+* You have some basic metric to extract the most descriptive terms in a document
+
+* You can easily compute the similarity between 2 documents using it
+* 
