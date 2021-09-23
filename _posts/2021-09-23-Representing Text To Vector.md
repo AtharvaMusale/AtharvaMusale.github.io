@@ -205,7 +205,7 @@ Let's say we have 8 words, we place 8 words at the leaf node of the binary tree.
 
 ![image](https://user-images.githubusercontent.com/46114095/134481918-f148f887-8a32-4014-b8f2-d81ceec25c97.png)
 
-
+<img src="https://latex.codecogs.com/svg.image?P(Wi)&space;=&space;1&space;-&space;(\frac{t}{f(Wi)})^{1/2}" title="P(Wi) = 1 - (\frac{t}{f(Wi)})^{1/2}" />
 In the case of linear softmax function, for each word in a sentence, one softmax is needed and softmax calculations are computationally expensive. In the above example since we have 8 words, there will be 8 softmax functions.
 
 Hierarchical softmax uses a binary tree to represent all words in the vocabulary. The words themselves are leaves in the tree. For each leaf, there exists a unique path from the root to the leaf, and this path is used to estimate the probability of the word represented by the leaf. This probability is defined as the probability of a random walk starting from the root ending at the leaf in question.
