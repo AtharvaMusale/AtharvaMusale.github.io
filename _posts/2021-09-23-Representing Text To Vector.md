@@ -69,9 +69,9 @@ dataset = nltk.sent_tokenize(text)
 
 for i in range(len(dataset)):
 
-  dataset[i] = dataset[i].lower()
+<t>dataset[i] = dataset[i].lower()<\t>
   
-  dataset[i] = re.sub(r'\W', ' ', dataset[i])
+<t>dataset[i] = re.sub(r'\W', ' ', dataset[i])<\t>
   
-  dataset[i] = re.sub(r'\s+', ' ', dataset[i])
+<t>dataset[i] = re.sub(r'\s+', ' ', dataset[i])<\t>
   
