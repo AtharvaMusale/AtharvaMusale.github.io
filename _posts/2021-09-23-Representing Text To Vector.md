@@ -61,9 +61,9 @@ import re
 
 import numpy as np
 
-# execute the text here as :
+//execute the text here as :
 
-# text = """ # place text here  """
+//text = """ # place text here  """
 
 dataset = nltk.sent_tokenize(text)
 
