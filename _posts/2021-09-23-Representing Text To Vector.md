@@ -205,7 +205,9 @@ Let's say we have 8 words, we place 8 words at the leaf node of the binary tree.
 
 <!-- ![image](https://user-images.githubusercontent.com/46114095/134481918-f148f887-8a32-4014-b8f2-d81ceec25c97.png) -->
 
-![image](https://user-images.githubusercontent.com/46114095/134598139-8c6f6cec-2b83-4e58-9e87-72b679bc68fb.png)
+<!-- ![image](https://user-images.githubusercontent.com/46114095/134598139-8c6f6cec-2b83-4e58-9e87-72b679bc68fb.png) -->
+![image](https://user-images.githubusercontent.com/46114095/134598218-6644c34f-0544-45d2-86b4-75883bab8557.png)
+
 
 In the case of linear softmax function, for each word in a sentence, one softmax is needed and softmax calculations are computationally expensive. In the above example since we have 8 words, there will be 8 softmax functions.
 
