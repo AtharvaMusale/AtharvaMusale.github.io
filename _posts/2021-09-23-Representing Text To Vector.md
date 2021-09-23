@@ -211,15 +211,10 @@ The Word2Vec doesn't consider the statistical information of word co-occurrence.
 
 THe GloVe algorithm consists of following steps:
 
-1. Collect word co-occurence statistics in a form of word co-ocurrence matrix X. Each element X<sub>ij</sub> of such matrix represents how often word i appears in context of word j. Usually we scan our corpus in the following manner: for each term we look for context terms within some area defined by a window_size before the term and a window_size after the term. Also we give less weight for more distant words, usually using this formula:
+1. Collect word co-occurence statistics in a form of word co-ocurrence matrix X. Each element X<sub>ij</sub> of such matrix represents how often word i appears in context of word j. Usually we scan our corpus in the following manner: for each term we look for context terms within some area defined by a window_size before the term and a window_size after the term. Also we give less weight for more distant words, usually using this formula:<n>decay = 1/offset</n>
 
-  <t>decay = 1/offset</t>
-
-2. Define soft constraints for each word pair:
-  
-   <t>w<sup>T</sup><sub>i</sub>w<sub>j</sub>+b<sub>i</sub>+b<sub>j</sub>=log(X<sub>ij</sub>)</t>
-
-  Here w<sub>i</sub> - vector for the main word, w<sub>j</sub> - vector for the context word, b<sub>i</sub>, b<sub>j</sub> are scalar biases for the main and   context words.
+2. Define soft constraints for each word pair:<n>w<sup>T</sup><sub>i</sub>w<sub>j</sub>+b<sub>i</sub>+b<sub>j</sub>=log(X<sub>ij</sub>)</n>
+  <n>Here w<sub>i</sub> - vector for the main word, w<sub>j</sub> - vector for the context word, b<sub>i</sub>, b<sub>j</sub> are scalar biases for the main and   context words.</n>
 
 3. Define a cost function
 
