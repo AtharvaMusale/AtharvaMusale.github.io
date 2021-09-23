@@ -134,11 +134,15 @@ TF-IDF("How",d2,D) = 0.125 * 1= 0.125
 
 Word2Vec is one of the most powerful techniques in converting a text to a vector. This technique actually takes into consideration the semantic meaning of the words unlike the traditionally used techniques like Bag Of Words or TF-IDF. It is almost the state of the art method. Intuitively Word2Vec looks at the neighborhood of the target word to predict the target word. One of the best advantages of the Word2Vec model is that it gives the dense vector as an output, unlike the previous techniques.
 
+
 ![image](https://user-images.githubusercontent.com/46114095/134462684-0006de25-573a-43fe-8efe-83267ce8d386.png)
+
 
 Word2Vec is one of the most powerful techniques in converting a text to a vector. This technique actually takes into consideration the semantic meaning of the words unlike the traditionally used techniques like Bag Of Words or TF-IDF. It is almost the state of the art method. Intuitively Word2Vec looks at the neighborhood of the target word to predict the target word. One of the best advantages of the Word2Vec model is that it gives the dense vector as an output, unlike the previous techniques.
 
+
 ![image](https://user-images.githubusercontent.com/46114095/134481459-bd5b239f-2793-4ba6-8aed-908fa5aa4ea7.png)
+
 
 Word2Vec is a shallow two-layered network, which is trained to reconstruct the linguistic context of the words. It takes a large corpus of words as an input and converts it to a vector of the size of hundreds of dimensions(typically 100 to 300 dimensions). These word vectors are positioned in such a manner that word vectors of the word having similar contexts are located in close proximity and those which have different contexts are set apart in the vector space. Word2Vec is a computationally efficient predictive model for learning word embeddings from raw text.
 
@@ -156,14 +160,18 @@ Let's assume we have,
 
 Let's assume we have a huge text corpus and we have createed the dataset of the target word and its corresponding context words.
 
+
 ![image](https://user-images.githubusercontent.com/46114095/134481536-ca1ccc57-6bbb-43a9-8c14-ab708ae8f2a5.png)
+
 
 This CBOW is a very simple two-layered neural network and if trained on the dataset which we created, at the output this model will return N*v vector. This N*v vector can be used for vectorization. So given a word Wi we will get corresponding Vi. This corresponding Vi will have a whole vector representation of the size of N dimensions.
 
 # Skip-Gram
 Skip-gram predicts surrounding context words from the given target words (inverse of CBOW). Statistically, skip-gram treats each context-target pair as a new observation, and this tends to do better when we have larger datasets.
 
+
 ![image](https://user-images.githubusercontent.com/46114095/134481766-5a2f9026-d7c0-4baf-b6d8-289bb4c41230.png)
+
 
 In this Skip-Gram, the target word is provided as an input and the Context vector is the output. In the case of SkipGram Wv*N matrix can be used to get the words.
 
@@ -194,7 +202,9 @@ We saw that both CBOW and Skip-Gram training will be extremely exhaustive for tr
 If one takes a look at the SkipGram or CBOW connections they both use multiple softmax functions. Computations of these softmax functions are bit exhaustive. So core idea of the hierarchical softmax is to replace these v -softmax functions with something which is computationally less expensive. Softmax activation is trying to solve V class classification. 
 Let's say we have 8 words, we place 8 words at the leaf node of the binary tree.
 
+
 ![image](https://user-images.githubusercontent.com/46114095/134481918-f148f887-8a32-4014-b8f2-d81ceec25c97.png)
+
 
 In the case of linear softmax function, for each word in a sentence, one softmax is needed and softmax calculations are computationally expensive. In the above example since we have 8 words, there will be 8 softmax functions.
 
@@ -211,7 +221,10 @@ Each word is discarded with a probability of P(wi) where P(wi ) is,
 
 Since the negative sampling and the hierarchical softmax are used in the Word2Vec model, it trains much faster and can be used as a vectorization technique with the semantic meaning consideration.
 
+
 ## Glove (Global Vectors For Word Representation)
+
+
 ![image](https://user-images.githubusercontent.com/46114095/134482031-a1597b5a-8cc5-4b48-99df-639024910e8f.png)
 
 
@@ -226,11 +239,15 @@ The GloVe algorithm consists of following steps:
 
 2. Define soft constraints for each word pair:
 
+
    ![image](https://user-images.githubusercontent.com/46114095/134587081-7f049658-2aaf-47bb-86c1-9c1bdc07df3b.png)
+
 
 3. Define a cost function
 
+
    ![image](https://user-images.githubusercontent.com/46114095/134586991-efffd62d-8a40-4976-be14-0e4053ea46a8.png)
+
 
    Here f is a weighting function which help us to prevent learning only from extremely common word pairs. The GloVe authors choose the following function:
 
