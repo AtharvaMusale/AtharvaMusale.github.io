@@ -223,11 +223,11 @@ THe GloVe algorithm consists of following steps:
 
 3. Define a cost function
 
-  J=∑(i=1toV) ∑(j=1toV) f(X<sub>ij</sub>)(w<sup>T</sup><sub>i</sub>w<sub>j</sub>+b<sub>i</sub>+b<sub>j</sub>−logX<sub>ij</sub>)<sup>2</sup><\t>
-
+  J=∑(i=1toV) ∑(j=1toV) f(X<sub>ij</sub>)(w<sup>T</sup><sub>i</sub>w<sub>j</sub>+b<sub>i</sub>+b<sub>j</sub>−logX<sub>ij</sub>)<sup>2</sup>
+  
   Here f is a weighting function which help us to prevent learning only from extremely common word pairs. The GloVe authors choose the following function:
 
-  f(Xij)={(Xijxmax)α1if Xij<XMAXotherwise
+  f(X<sub>ij</sub>)={(X<sub>ij</sub>xmax)α1if Xij<XMAXotherwise
 
 
 Reference 
