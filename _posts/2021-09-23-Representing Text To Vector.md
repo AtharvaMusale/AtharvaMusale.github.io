@@ -208,21 +208,22 @@ Since the negative sampling and the hierarchical softmax are used in the Word2Ve
 The Word2Vec doesn't consider the statistical information of word co-occurrence. This was an inspiration for developing Global Vectors for word representation(Glove). Glove combines the benefits of the Word2Vec SkipGram model in analogy tasks with the benefits of matrix factorization methods that can exploit global statistical information.
 
 ## GloVe algorithm
+
 THe GloVe algorithm consists of following steps:
-THe GloVe algorithm consists of following steps:
 
-Collect word co-occurence statistics in a form of word co-ocurrence matrix X. Each element Xij of such matrix represents how often word i appears in context of word j. Usually we scan our corpus in the following manner: for each term we look for context terms within some area defined by a window_size before the term and a window_size after the term. Also we give less weight for more distant words, usually using this formula:
-decay=1/offset
+1. Collect word co-occurence statistics in a form of word co-ocurrence matrix X. Each element X<sub>ij</sub> of such matrix represents how often word i appears in context of word j. Usually we scan our corpus in the following manner: for each term we look for context terms within some area defined by a window_size before the term and a window_size after the term. Also we give less weight for more distant words, usually using this formula:
 
-1. Define soft constraints for each word pair:
+  decay = 1/offset
 
-wTiwj+bi+bj=log(Xij)
+2. Define soft constraints for each word pair:
+  
+  w<sup>T</sup><sub>i</sub>w<sub>j</sub>+b<sub>i</sub>+b<sub>j</sub>=log(X<sub>ij</sub>)
 
-Here wi - vector for the main word, wj - vector for the context word, bi, bj are scalar biases for the main and context words.
+Here w<sub>i</sub> - vector for the main word, w<sub>j</sub> - vector for the context word, b<sub>i</sub>, b<sub>j</sub> are scalar biases for the main and context words.
 
-2. Define a cost function
+3. Define a cost function
 
-J=∑i=1V∑j=1Vf(Xij)(wTiwj+bi+bj−logXij)2
+<t>J=∑i=1V∑j=1Vf(Xij)(wTiwj+bi+bj−logXij)2<\t>
 
 Here f is a weighting function which help us to prevent learning only from extremely common word pairs. The GloVe authors choose the following function:
 
