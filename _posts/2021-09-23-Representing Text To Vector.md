@@ -217,18 +217,13 @@ THe GloVe algorithm consists of following steps:
 
 2. Define soft constraints for each word pair:
 
-<!--    <n>w<sup>T</sup><sub>i</sub>w<sub>j</sub>+b<sub>i</sub>+b<sub>j</sub>=log(X<sub>ij</sub>)</n> -->
-   
-<!--    <n>Here w<sub>i</sub> - vector for the main word, w<sub>j</sub> - vector for the context word, b<sub>i</sub>, b<sub>j</sub> are scalar biases for the main and   context words.</n> -->
    ![image](https://user-images.githubusercontent.com/46114095/134587081-7f049658-2aaf-47bb-86c1-9c1bdc07df3b.png)
 
 3. Define a cost function
 
-<!--    J=∑(i=1 to V) ∑(j=1 to V) f(X<sub>ij</sub>)(w<sup>T</sup><sub>i</sub>w<sub>j</sub>+b<sub>i</sub>+b<sub>j</sub>−logX<sub>ij</sub>)<sup>2</sup> -->
    ![image](https://user-images.githubusercontent.com/46114095/134586991-efffd62d-8a40-4976-be14-0e4053ea46a8.png)
 
    Here f is a weighting function which help us to prevent learning only from extremely common word pairs. The GloVe authors choose the following function:
-<!--    f(X<sub>ij</sub>)= (X<sub>ij</sub>/ xmax)<sup>α</sup>1if Xij<XMAXotherwise -->
 
    ![image](https://user-images.githubusercontent.com/46114095/134587046-bc43c674-6e2c-4a05-81a9-4c35e0b8df91.png)
 
