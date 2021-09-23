@@ -197,12 +197,15 @@ The main advantage is that instead of evaluating V output nodes in the neural ne
 Negative Sampling is simply the idea that we only update a sample of output words per iteration. The target output word should be kept in the sample and it will get updated, and we add to this a few (non-target) words as negative samples. "A probabilistic distribution is needed for the sampling process, and it can be arbitrarily chosen… One can determine a good distribution empirically."
 Each word is discarded with a probability of P(wi) where P(wi ) is,
 
-![image](https://user-images.githubusercontent.com/46114095/134482031-a1597b5a-8cc5-4b48-99df-639024910e8f.png)
+
+
 
 Since the negative sampling and the hierarchical softmax are used in the Word2Vec model, it trains much faster and can be used as a vectorization technique with the semantic meaning consideration.
 
 ## Glove (Global Vectors For Word Representation)
-![image](https://user-images.githubusercontent.com/46114095/134586636-3dae9ac7-38b1-4da9-b7c7-127f2a1b52d0.png)
+![image](https://user-images.githubusercontent.com/46114095/134482031-a1597b5a-8cc5-4b48-99df-639024910e8f.png)
+
+
 
 The Word2Vec doesn't consider the statistical information of word co-occurrence. This was an inspiration for developing Global Vectors for word representation(Glove). Glove combines the benefits of the Word2Vec SkipGram model in analogy tasks with the benefits of matrix factorization methods that can exploit global statistical information.
 
@@ -231,7 +234,7 @@ THe GloVe algorithm consists of following steps:
    ![image](https://user-images.githubusercontent.com/46114095/134587046-bc43c674-6e2c-4a05-81a9-4c35e0b8df91.png)
 
    
-
+      
 Reference 
 
 * [GloVe: Global Vectors for Word Representation](https://nlp.stanford.edu/pubs/glove.pdf)
