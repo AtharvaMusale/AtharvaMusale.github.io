@@ -54,7 +54,8 @@ While creating the BOW vector it will consider each of the words in the vocabula
 
 # How to Implement the Bag Of Words
 
-![image](https://user-images.githubusercontent.com/46114095/134461072-4668f124-3da8-4ff3-aef0-8bdb45ecded1.png)
+<!-- ![image](https://user-images.githubusercontent.com/46114095/134461072-4668f124-3da8-4ff3-aef0-8bdb45ecded1.png) -->
+<script src="https://gist.github.com/AtharvaMusale/154c58d2c408d7079918e3168357aff8.js"></script>
 
 # Advantages of Bag Of Words
 * Simple to understand and implement.
