@@ -202,12 +202,7 @@ We saw that both CBOW and Skip-Gram training will be extremely exhaustive for tr
 If one takes a look at the SkipGram or CBOW connections they both use multiple softmax functions. Computations of these softmax functions are bit exhaustive. So core idea of the hierarchical softmax is to replace these v -softmax functions with something which is computationally less expensive. Softmax activation is trying to solve V class classification. 
 Let's say we have 8 words, we place 8 words at the leaf node of the binary tree.
 
-
-<!-- ![image](https://user-images.githubusercontent.com/46114095/134481918-f148f887-8a32-4014-b8f2-d81ceec25c97.png) -->
-
-<!-- ![image](https://user-images.githubusercontent.com/46114095/134598139-8c6f6cec-2b83-4e58-9e87-72b679bc68fb.png) -->
-![image](https://user-images.githubusercontent.com/46114095/134598218-6644c34f-0544-45d2-86b4-75883bab8557.png)
-
+![image](https://user-images.githubusercontent.com/46114095/134598276-0e2f6f22-edd7-41f2-9f3b-67c272c094c0.png)
 
 In the case of linear softmax function, for each word in a sentence, one softmax is needed and softmax calculations are computationally expensive. In the above example since we have 8 words, there will be 8 softmax functions.
 
