@@ -76,6 +76,7 @@ While creating the BOW vector it will consider each of the words in the vocabula
 TF-IDF is a measure of the originality of a word by comparing the number of times the word appears in a document with the number of documents the word appears in. Term frequency (TF) is how often a word appears in a document, divided by total number of words present in the document. The Inverse Document Frequency (IDF) is a measure of how much information the word provides, i.e., if it's common or rare across all documents. It is the logarithmically scaled inverse fraction of the documents that contain the word (obtained by dividing the total number of documents by the number of documents containing the term, and then taking the logarithm of that quotient). Check the above figure to get the simplified formula of TFIDF.
 
 ### Need Of Log Term In IDF Formula
+
 In simple as well as modified TFIDF formula there is a log term in the IDF formula. To understand why log term is needed let's look at the formula of IDF without considering the log term (I am considering only a simplified version of the IDF here). Without the log term formula of IDF would look like N/n. In this N is the total number of documents and n is the total number of documents in which term is present. Lets assume there were 100000 documents and the term for which IDF is being calculated is present in only 10 documents then the IDF term would be 100000/10 = 10000. The term frequency in TFIDF would be too low as compared to the IDF value calculated above. So if TF-IDF is calculated without the log term then IDF part of the formula will dominate the overall value of the TFIDF. Instead of that if we use log in the IDF then this value of IDF will be log(10000)= 4 which is significantly lower than the one without log term.
 
 Consider the following document which has two sentences in it
@@ -101,6 +102,7 @@ TF-IDF("How",d2,D) = 0.125 * 0 = 0
 One can see that TFIDF is turning out to be 0. This will definitely make the importance of word which is occurring in every document irrelevant. The purpose of adding the +1 is to accomplish one of the two objectives
 
 a) To avoid divide by zero error as when a term appears in no documents
+
 b) To set a lower bound to avoid a term being given a zero weight just because it appeared in all documents.
 
 So with the modified formula of IDF as shown in the figure above 
@@ -136,7 +138,8 @@ TF-IDF("How",d2,D) = 0.125 * 1= 0.125
 Word2Vec is one of the most powerful techniques in converting a text to a vector. This technique actually takes into consideration the semantic meaning of the words unlike the traditionally used techniques like Bag Of Words or TF-IDF. It is almost the state of the art method. Intuitively Word2Vec looks at the neighborhood of the target word to predict the target word. One of the best advantages of the Word2Vec model is that it gives the dense vector as an output, unlike the previous techniques.
 
 
-![image](https://user-images.githubusercontent.com/46114095/134462684-0006de25-573a-43fe-8efe-83267ce8d386.png)
+<!-- ![image](https://user-images.githubusercontent.com/46114095/134462684-0006de25-573a-43fe-8efe-83267ce8d386.png) -->
+![image](https://user-images.githubusercontent.com/46114095/134625125-f1882e79-b789-4ef1-9630-5a8a9b1fdbf3.png)
 
 
 Word2Vec is one of the most powerful techniques in converting a text to a vector. This technique actually takes into consideration the semantic meaning of the words unlike the traditionally used techniques like Bag Of Words or TF-IDF. It is almost the state of the art method. Intuitively Word2Vec looks at the neighborhood of the target word to predict the target word. One of the best advantages of the Word2Vec model is that it gives the dense vector as an output, unlike the previous techniques.
