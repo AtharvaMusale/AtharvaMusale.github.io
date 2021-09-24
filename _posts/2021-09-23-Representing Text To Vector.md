@@ -73,11 +73,11 @@ While creating the BOW vector it will consider each of the words in the vocabula
 <!-- ![image](https://user-images.githubusercontent.com/46114095/134461303-baf882f0-4cd9-4f79-ab89-2d5c3628ed6b.png) -->
 ![image](https://user-images.githubusercontent.com/46114095/134624891-5b97776a-1b3e-4e86-b44c-b256ad076e48.png)
 
-TF-IDF is a measure of the originality of a word by comparing the number of times the word appears in a document with the number of documents the word appears in. Term frequency (TF) is how often a word appears in a document, divided by total number of words present in the document. The Inverse Document Frequency (IDF) is a measure of how much information the word provides, i.e., if it's common or rare across all documents. It is the logarithmically scaled inverse fraction of the documents that contain the word (obtained by dividing the total number of documents by the number of documents containing the term, and then taking the logarithm of that quotient). Check the above figure to get the simplified formula of TFIDF.
+TF-IDF is a measure of the originality of a word by comparing the number of times the word appears in a document with the number of documents the word appears in. Term frequency (TF) is how often a word appears in a document, divided by total number of words present in the document. The Inverse Document Frequency (IDF) is a measure of how much information the word provides, i.e., if it's common or rare across all documents. It is the logarithmically scaled inverse fraction of the documents that contain the word (obtained by dividing the total number of documents by the number of documents containing the term, and then taking the logarithm of that quotient). Check the above figure to get the simplified formula of TF-IDF.
 
 # Need Of Log Term In IDF Formula
 
-In simple as well as modified TFIDF formula there is a log term in the IDF formula. To understand why log term is needed let's look at the formula of IDF without considering the log term (I am considering only a simplified version of the IDF here). Without the log term formula of IDF would look like N/n. In this N is the total number of documents and n is the total number of documents in which term is present. Lets assume there were 100000 documents and the term for which IDF is being calculated is present in only 10 documents then the IDF term would be 100000/10 = 10000. The term frequency in TFIDF would be too low as compared to the IDF value calculated above. So if TF-IDF is calculated without the log term then IDF part of the formula will dominate the overall value of the TFIDF. Instead of that if we use log in the IDF then this value of IDF will be log(10000)= 4 which is significantly lower than the one without log term.
+In simple as well as modified TF-IDF formula there is a log term in the IDF formula. To understand why log term is needed let's look at the formula of IDF without considering the log term (I am considering only a simplified version of the IDF here). Without the log term formula of IDF would look like N/n. In this N is the total number of documents and df is the total number of documents in which term is present. Lets assume there were 100000 documents and the term for which IDF is being calculated is present in only 10 documents then the IDF term would be 100000/10 = 10000. The term frequency in TFIDF would be too low as compared to the IDF value calculated above. So if TF-IDF is calculated without the log term then IDF part of the formula will dominate the overall value of the TF-IDF. Instead of that if we use log in the IDF then this value of IDF will be log(10000)= 4 which is significantly lower than the one without log term.
 
 Consider the following document which has two sentences in it
 
@@ -85,7 +85,7 @@ d1: "Hey man! How are you? I thought you moved to New York. How come you are her
 
 d2: "How on earth can someone be that stupid?"
 
-Let's calculate the TFIDF vector for the word "How". (Assuming all the punctuation are removed and preprocessing is done before calculating the TFIDF vector)
+Let's calculate the TF-IDF vector for the word "How" using the simple TF-IDF formula (Assuming all the punctuation are removed and preprocessing is done before calculating the TF-IDF vector)
 
 TF("How",d1) = 2 ("How" appeared two times in d1) / 19(Total number of terms in d1)
 
@@ -97,15 +97,18 @@ TF-IDF("How",d1,D) = 0.10526315789 * 0 = 0
 
 TF-IDF("How",d2,D) = 0.125 * 0 = 0
 
-![image](https://user-images.githubusercontent.com/46114095/134462316-5af134ea-96e0-45b9-99b5-9aaf3621813e.png)
 
-One can see that TFIDF is turning out to be 0. This will definitely make the importance of word which is occurring in every document irrelevant. The purpose of adding the +1 is to accomplish one of the two objectives
+One can see that TF-IDF is turning out to be 0. This will definitely make the importance of word which is occurring in every document irrelevant. The purpose of adding the +1 is to accomplish one of the two objectives
 
 a) To avoid divide by zero error as when a term appears in no documents
 
 b) To set a lower bound to avoid a term being given a zero weight just because it appeared in all documents.
 
-So with the modified formula of IDF as shown in the figure above 
+So with the modified formula of IDF as shown in the figure below 
+
+![image](https://user-images.githubusercontent.com/46114095/134462316-5af134ea-96e0-45b9-99b5-9aaf3621813e.png)
+
+According to modified TF-IDF formula-
 
 IDF("How",D) = (log(1+2/1+2)) +1= 1
 
