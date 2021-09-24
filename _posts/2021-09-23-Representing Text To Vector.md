@@ -70,7 +70,8 @@ While creating the BOW vector it will consider each of the words in the vocabula
 
 ## **TF-IDF (Term Frequency- Inverse Document Frequency)**
 
-![image](https://user-images.githubusercontent.com/46114095/134461303-baf882f0-4cd9-4f79-ab89-2d5c3628ed6b.png)
+<!-- ![image](https://user-images.githubusercontent.com/46114095/134461303-baf882f0-4cd9-4f79-ab89-2d5c3628ed6b.png) -->
+![image](https://user-images.githubusercontent.com/46114095/134624891-5b97776a-1b3e-4e86-b44c-b256ad076e48.png)
 
 TF-IDF is a measure of the originality of a word by comparing the number of times the word appears in a document with the number of documents the word appears in. Term frequency (TF) is how often a word appears in a document, divided by total number of words present in the document. The Inverse Document Frequency (IDF) is a measure of how much information the word provides, i.e., if it's common or rare across all documents. It is the logarithmically scaled inverse fraction of the documents that contain the word (obtained by dividing the total number of documents by the number of documents containing the term, and then taking the logarithm of that quotient). Check the above figure to get the simplified formula of TFIDF.
 
