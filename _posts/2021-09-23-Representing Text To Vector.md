@@ -33,7 +33,7 @@ It is called a bag because the order of the words is not preserved and it is onl
 
 Consider the above two lines as two text reviews from the single text corpus. Unique words in the above reviews are
 
-# Step2- Creating a vocabulary
+# Step 2- Creating a vocabulary
 
 * This
 * pasta
@@ -45,7 +45,7 @@ Consider the above two lines as two text reviews from the single text corpus. Un
 
 These are the 7 unique words in the whole corpus of 11 words.
 
-# Step3- Create Document Vectors
+# Step 3- Create Document Vectors
 
 Bag Of words Vector For First Sentence -
 
@@ -104,7 +104,7 @@ a) To avoid divide by zero error as when a term appears in no documents
 
 b) To set a lower bound to avoid a term being given a zero weight just because it appeared in all documents.
 
-So with the modified formula of IDF as shown in the figure below 
+So with the modified formula of TF-IDF as shown in the figure below 
 
 ![image](https://user-images.githubusercontent.com/46114095/134462316-5af134ea-96e0-45b9-99b5-9aaf3621813e.png)
 
