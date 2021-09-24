@@ -226,7 +226,7 @@ Each word is discarded with a probability of P(wi) where P(wi ) is,
 Since the negative sampling and the hierarchical softmax are used in the Word2Vec model, it trains much faster and can be used as a vectorization technique with the semantic meaning consideration.
 
 
-## Glove (Global Vectors For Word Representation)
+## **Glove (Global Vectors For Word Representation)**
 
 
 ![image](https://user-images.githubusercontent.com/46114095/134482031-a1597b5a-8cc5-4b48-99df-639024910e8f.png)
@@ -235,7 +235,7 @@ Since the negative sampling and the hierarchical softmax are used in the Word2Ve
 
 The Word2Vec doesn't consider the statistical information of word co-occurrence. This was an inspiration for developing Global Vectors for word representation(Glove). Glove combines the benefits of the Word2Vec SkipGram model in analogy tasks with the benefits of matrix factorization methods that can exploit global statistical information.
 
-## **GloVe algorithm**
+## GloVe algorithm
 
 The GloVe algorithm consists of following steps:
 
