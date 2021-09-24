@@ -145,7 +145,8 @@ Word2Vec is one of the most powerful techniques in converting a text to a vector
 Word2Vec is one of the most powerful techniques in converting a text to a vector. This technique actually takes into consideration the semantic meaning of the words unlike the traditionally used techniques like Bag Of Words or TF-IDF. It is almost the state of the art method. Intuitively Word2Vec looks at the neighborhood of the target word to predict the target word. One of the best advantages of the Word2Vec model is that it gives the dense vector as an output, unlike the previous techniques.
 
 
-![image](https://user-images.githubusercontent.com/46114095/134481459-bd5b239f-2793-4ba6-8aed-908fa5aa4ea7.png)
+<!-- ![image](https://user-images.githubusercontent.com/46114095/134481459-bd5b239f-2793-4ba6-8aed-908fa5aa4ea7.png) -->
+![image](https://user-images.githubusercontent.com/46114095/134625193-fc40eded-9124-408c-a28b-0cbf4f32868d.png)
 
 
 Word2Vec is a shallow two-layered network, which is trained to reconstruct the linguistic context of the words. It takes a large corpus of words as an input and converts it to a vector of the size of hundreds of dimensions(typically 100 to 300 dimensions). These word vectors are positioned in such a manner that word vectors of the word having similar contexts are located in close proximity and those which have different contexts are set apart in the vector space. Word2Vec is a computationally efficient predictive model for learning word embeddings from raw text.
