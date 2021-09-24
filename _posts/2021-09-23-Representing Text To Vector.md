@@ -26,14 +26,14 @@ Bag Of Words(BOW) is one of the simplest techniques to convert a text into a vec
 
 It is called a bag because the order of the words is not preserved and it is only concerned if a word is present in the corpus or not. A simple intuition behind this representation is that two text corpora are similar if they have the same words in them. Let's take a simple example and try to understand how it works.
 
-### Step 1- Data Collection
+# Step 1- Data Collection
 
 * This pasta is very tasty.
 * This pasta is not so tasty.
 
 Consider the above two lines as two text reviews from the single text corpus. Unique words in the above reviews are
 
-### Step2- Creating a vocabulary
+# Step2- Creating a vocabulary
 
 * This
 * pasta
@@ -45,7 +45,7 @@ Consider the above two lines as two text reviews from the single text corpus. Un
 
 These are the 7 unique words in the whole corpus of 11 words.
 
-### Step3- Create Document Vectors
+# Step3- Create Document Vectors
 
 Bag Of words Vector For First Sentence -
 
@@ -57,11 +57,11 @@ Bag Of words Vector For Second Sentence -
 
 While creating the BOW vector it will consider each of the words in the vocabulary and count the number of times that word appeared in the whole text corpus. This count is used as a vector representation for each word in the text corpus.
 
-### Advantages of Bag Of Words
+# Advantages of Bag Of Words
 
 * **Simple to understand and implement.**
 
-### Disadvantages of Bag Of Words
+# Disadvantages of Bag Of Words
 * **Curse of Dimensionality-** If the unique words in the corpus are too high and there are many words with low frequency then it will lead to a sparse vector representation of BOW. Sparse vector is difficult for a model to compute as well as to interpret. So the performance metrics of a model would be low since the model won't be able to interpret the features properly.
 
 * **Vocabulary-** The vocabulary of the BOW needs to be created carefully. The text corpus should be preprocessed with some of the techniques like removing stopwords/punctuations, stemming, lemmatization, converting to lower case, etc. This will significantly reduce the sparsity and also help the model to interpret the vector in a better manner.
@@ -75,7 +75,7 @@ While creating the BOW vector it will consider each of the words in the vocabula
 
 TF-IDF is a measure of the originality of a word by comparing the number of times the word appears in a document with the number of documents the word appears in. Term frequency (TF) is how often a word appears in a document, divided by total number of words present in the document. The Inverse Document Frequency (IDF) is a measure of how much information the word provides, i.e., if it's common or rare across all documents. It is the logarithmically scaled inverse fraction of the documents that contain the word (obtained by dividing the total number of documents by the number of documents containing the term, and then taking the logarithm of that quotient). Check the above figure to get the simplified formula of TFIDF.
 
-### Need Of Log Term In IDF Formula
+# Need Of Log Term In IDF Formula
 
 In simple as well as modified TFIDF formula there is a log term in the IDF formula. To understand why log term is needed let's look at the formula of IDF without considering the log term (I am considering only a simplified version of the IDF here). Without the log term formula of IDF would look like N/n. In this N is the total number of documents and n is the total number of documents in which term is present. Lets assume there were 100000 documents and the term for which IDF is being calculated is present in only 10 documents then the IDF term would be 100000/10 = 10000. The term frequency in TFIDF would be too low as compared to the IDF value calculated above. So if TF-IDF is calculated without the log term then IDF part of the formula will dominate the overall value of the TFIDF. Instead of that if we use log in the IDF then this value of IDF will be log(10000)= 4 which is significantly lower than the one without log term.
 
@@ -114,7 +114,7 @@ TF-IDF("How",d1,D) = 0.10526315789 * 1= 0.10526315789
 TF-IDF("How",d2,D) = 0.125 * 1= 0.125
 
 
-### Advantages of using TFIDF Vector 
+# Advantages of using TFIDF Vector 
 
 * Easy to compute
 
@@ -122,7 +122,7 @@ TF-IDF("How",d2,D) = 0.125 * 1= 0.125
 
 * You can easily compute the similarity between 2 documents using it
 
-### Disadvantages of using TFIDF Vector 
+# Disadvantages of using TFIDF Vector 
 
 * TF-IDF is based on the bag-of-words (BoW) model, therefore it does not capture position in text, semantics, co-occurrences in different documents, etc.
 
@@ -235,7 +235,7 @@ Since the negative sampling and the hierarchical softmax are used in the Word2Ve
 
 The Word2Vec doesn't consider the statistical information of word co-occurrence. This was an inspiration for developing Global Vectors for word representation(Glove). Glove combines the benefits of the Word2Vec SkipGram model in analogy tasks with the benefits of matrix factorization methods that can exploit global statistical information.
 
-## GloVe algorithm
+# GloVe algorithm
 
 The GloVe algorithm consists of following steps:
 
