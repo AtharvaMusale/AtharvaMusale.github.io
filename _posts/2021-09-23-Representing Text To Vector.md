@@ -239,6 +239,15 @@ f(w<sub>i</sub>) is the frequency of word w<sub>i</sub> and t is a chosen thresh
 
 Since the negative sampling and the hierarchical softmax are used in the Word2Vec model, it trains much faster and can be used as a vectorization technique with the semantic meaning consideration.
 
+# Adavantages Of Word2Vec
+   * The idea is very intuitive, which transforms the unlabled raw corpus into labeled data (by mapping the target word to its context word), and learns the      representation of words in a classification task.
+   * The mapping between the target word to its context word implicitly embeds the sub-linear relationship into the vector space of words, so that relationships like “king:man as queen:woman” can be infered by word vectors.
+   * Easy to understand and implement
+
+Disadvantages:
+
+   * The sub-linear relationships are not explicitly defined. There is little theoretical support behind such characteristic.
+   * The model could be very difficult to train if use the softmax function, since the number of categories is too large (the size of vocabulary). Though   approxination algorithms like negative sampling (NEG) and hierarchical softmax (HS) are proposed to address the issue, other problems happen. For example, the word vectors by NEG are not distributed uniformally, they are located within a cone in the vector space hence the vector space is not sufficiently utilized.
 
 ## **Glove (Global Vectors For Word Representation)**
 
@@ -271,7 +280,21 @@ The GloVe algorithm consists of following steps:
 
    ![image](https://user-images.githubusercontent.com/46114095/134587046-bc43c674-6e2c-4a05-81a9-4c35e0b8df91.png)
 
-   
+Advantages:
+
+   * The goal of Glove is very straightforward, i.e., to enforce the word vectors to capture sub-linear relationships in the vector space. Thus, it proves to perform better than Word2vec in the word analogoy tasks.
+   * Glove adds some more practical meaning into word vectors by considering the relationships between word pair and word pair rather than word and word.
+   * Glove gives lower weight for highly frequent word pairs so as to prevent the meaningless stop words like “the”, “an” will not dominate the training progress.
+
+Disadvantages:
+
+   * The model is trained on the co-occurrence matrix of words, which takes a lot of memory for storage. Especially, if you change the hyper-parameters related to the co-occurrence matrix, you have to reconstruct the matrix again, which is very time-consuming. 
+
+
+# **Conclusion** 
+
+Out of the four techniques of vectorization, Word2Vec and Glove outperforms BOW and TF-IDF in almost all the cases due to their ability to take semantic meaning into consideration. Even with Word2Vec and Glove vectorizers some challenges still remain, like how to learn the representation for out-of-vocabulary words.
+how to separate some opposite word pairs like "good" or "bad" which are located in the same vector space nearby.
       
 ## **Reference** 
 
