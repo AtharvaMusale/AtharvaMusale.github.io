@@ -176,7 +176,7 @@ Let's assume we have a huge text corpus and we have createed the dataset of the 
 ![image](https://user-images.githubusercontent.com/46114095/134625193-fc40eded-9124-408c-a28b-0cbf4f32868d.png)
 
 
-<!-- ![image](https://user-images.githubusercontent.com/46114095/134481536-ca1ccc57-6bbb-43a9-8c14-ab708ae8f2a5.png) -->
+
 
 
 This CBOW is a very simple two-layered neural network and if trained on the dataset which we created, at the output this model will return N*v vector. This N*v vector can be used for vectorization. So given a word Wi we will get corresponding Vi. This corresponding Vi will have a whole vector representation of the size of N dimensions.
@@ -184,8 +184,7 @@ This CBOW is a very simple two-layered neural network and if trained on the data
 # Skip-Gram
 Skip-gram predicts surrounding context words from the given target words (inverse of CBOW). Statistically, skip-gram treats each context-target pair as a new observation, and this tends to do better when we have larger datasets.
 
-
-![image](https://user-images.githubusercontent.com/46114095/134481766-5a2f9026-d7c0-4baf-b6d8-289bb4c41230.png)
+![image](https://user-images.githubusercontent.com/46114095/134481536-ca1ccc57-6bbb-43a9-8c14-ab708ae8f2a5.png)
 
 
 In this Skip-Gram, the target word is provided as an input and the Context vector is the output. In the case of SkipGram Wv*N matrix can be used to get the words.
@@ -217,7 +216,11 @@ We saw that both CBOW and Skip-Gram training will be extremely exhaustive for tr
 If one takes a look at the SkipGram or CBOW connections they both use multiple softmax functions. Computations of these softmax functions are bit exhaustive. So core idea of the hierarchical softmax is to replace these v -softmax functions with something which is computationally less expensive. Softmax activation is trying to solve V class classification. 
 Let's say we have 8 words, we place 8 words at the leaf node of the binary tree.
 
-<t><t><t>![image](https://user-images.githubusercontent.com/46114095/134598461-01db476b-543d-464f-8ba8-5a316c6291b0.png)</t></t></t>
+
+![image](https://user-images.githubusercontent.com/46114095/134481766-5a2f9026-d7c0-4baf-b6d8-289bb4c41230.png)
+ 
+![image](https://user-images.githubusercontent.com/46114095/134598461-01db476b-543d-464f-8ba8-5a316c6291b0.png)
+
 
 
 In the case of linear softmax function, for each word in a sentence, one softmax is needed and softmax calculations are computationally expensive. In the above example since we have 8 words, there will be 8 softmax functions.
