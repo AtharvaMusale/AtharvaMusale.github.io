@@ -258,7 +258,7 @@ Disadvantages:
 
 The Word2Vec doesn't consider the statistical information of word co-occurrence. This was an inspiration for developing Global Vectors for word representation(Glove). Glove combines the benefits of the Word2Vec SkipGram model in analogy tasks with the benefits of matrix factorization methods that can exploit global statistical information.
 
-# GloVe algorithm
+# Glove algorithm
 
 The GloVe algorithm consists of following steps:
 
@@ -295,6 +295,10 @@ Disadvantages:
 
 Out of the four techniques of vectorization, Word2Vec and Glove outperforms BOW and TF-IDF in almost all the cases due to their ability to take semantic meaning into consideration. Even with Word2Vec and Glove vectorizers some challenges still remain, like how to learn the representation for out-of-vocabulary words.
 how to separate some opposite word pairs like "good" or "bad" which are located in the same vector space nearby.
+
+# **Note**
+I tried to explain the vectorization techniques since most people treat this as a blackboc for converting the text to vectors. If you have any questions/suggestions feel free to reach out to me on [LinkedIn](https://www.linkedin.com/in/atharva-musale/).
+      
       
 ## **Reference** 
 
