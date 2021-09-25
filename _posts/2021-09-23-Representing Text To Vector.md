@@ -235,6 +235,8 @@ Each word is discarded with a probability of P(wi) where P(wi ) is,
 
 ![image](https://user-images.githubusercontent.com/46114095/134757227-fa08713e-7c1d-41a5-b6b6-953e7d5e12df.png)
 
+f(w<sub>i</sub>) is the frequency of word w<sub>i</sub> and t is a chosen threshold, typically around 10<sup>-5</sup>.
+
 Since the negative sampling and the hierarchical softmax are used in the Word2Vec model, it trains much faster and can be used as a vectorization technique with the semantic meaning consideration.
 
 
@@ -251,7 +253,7 @@ The Word2Vec doesn't consider the statistical information of word co-occurrence.
 
 The GloVe algorithm consists of following steps:
 
-1. Collect word co-occurence statistics in a form of word co-ocurrence matrix X. Each element X<sub>ij</sub> of such matrix represents how often word i appears in context of word j. Usually we scan our corpus in the following manner: for each term we look for context terms within some area defined by a window_size before the term and a window_size after the term. Also we give less weight for more distant words, usually using this formula:<n>decay = 1/offset</n>
+1. Collect word co-occurence statistics in a form of word co-ocurrence matrix X. Each element X<sub>ij</sub> of such matrix represents how often word i appears in context of word j. Usually we scan our corpus in the following manner: for each term we look for context terms within some area defined by a window_size before the term and a window_size after the term. Also we give less weight for more distant words, usually using this formula: decay = 1/offset
 
 2. Define soft constraints for each word pair:
 
@@ -271,7 +273,7 @@ The GloVe algorithm consists of following steps:
 
    
       
-Reference 
+## **Reference** 
 
 * [GloVe: Global Vectors for Word Representation](https://nlp.stanford.edu/pubs/glove.pdf)
 
