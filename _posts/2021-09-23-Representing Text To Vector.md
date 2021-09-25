@@ -297,7 +297,7 @@ Out of the four techniques of vectorization, Word2Vec and Glove outperforms BOW 
 how to separate some opposite word pairs like "good" or "bad" which are located in the same vector space nearby.
 
 # **Note**
-I tried to explain the vectorization techniques since most people treat this as a blackboc for converting the text to vectors. If you have any questions/suggestions feel free to reach out to me on [LinkedIn](https://www.linkedin.com/in/atharva-musale/).
+I tried to explain the vectorization techniques since most people treat this as a blackbox for converting the text to vectors. If you have any questions/suggestions feel free to reach out to me on [LinkedIn](https://www.linkedin.com/in/atharva-musale/).
       
       
 ## **Reference** 
