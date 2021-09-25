@@ -73,11 +73,11 @@ While creating the BOW vector it will consider each of the words in the vocabula
 <!-- ![image](https://user-images.githubusercontent.com/46114095/134461303-baf882f0-4cd9-4f79-ab89-2d5c3628ed6b.png) -->
 ![image](https://user-images.githubusercontent.com/46114095/134624891-5b97776a-1b3e-4e86-b44c-b256ad076e48.png)
 
-TF-IDF is a measure of the originality of a word by comparing the number of times the word appears in a document with the number of documents the word appears in. Term frequency (TF) is how often a word appears in a document, divided by total number of words present in the document. The Inverse Document Frequency (IDF) is a measure of how much information the word provides, i.e., if it's common or rare across all documents. It is the logarithmically scaled inverse fraction of the documents that contain the word (obtained by dividing the total number of documents by the number of documents containing the term, and then taking the logarithm of that quotient). Check the above figure to get the simplified formula of TF-IDF.
+TF-IDF is a measure of the originality of a word by comparing the number of times the word appears in a document with the number of documents the word appears in. Term frequency (TF) is how often a word appears in a document, divided by total number of words present in the document. The Inverse Document Frequency (IDF) is a measure of how much information the word provides, i.e. if it's common or rare across all documents. It is the logarithmically scaled fraction of the total number of documents by the number of documents containing the term. Above Equation of TF-IDF represents a simplified TF-IDF formula.
 
 # Need Of Log Term In IDF Formula
 
-In simple as well as modified TF-IDF formula there is a log term in the IDF formula. To understand why log term is needed let's look at the formula of IDF without considering the log term (I am considering only a simplified version of the IDF here). Without the log term formula of IDF would look like N/n. In this N is the total number of documents and df is the total number of documents in which term is present. Lets assume there were 100000 documents and the term for which IDF is being calculated is present in only 10 documents then the IDF term would be 100000/10 = 10000. The term frequency in TFIDF would be too low as compared to the IDF value calculated above. So if TF-IDF is calculated without the log term then IDF part of the formula will dominate the overall value of the TF-IDF. Instead of that if we use log in the IDF then this value of IDF will be log(10000)= 4 which is significantly lower than the one without log term.
+In simple as well as modified TF-IDF formula there is a log term in the IDF formula. To understand why log term is needed let's look at the formula of IDF without considering the log term (I am considering only a simplified version of the IDF here). Without the log term formula of IDF would look like N/df. In this N is the total number of documents and df is the total number of documents in which term is present. Lets assume there were 100000 documents and the term for which IDF is being calculated is present in only 10 documents then the IDF term would be 100000/10 = 10000. The term frequency in TFIDF would be too low as compared to the IDF value calculated above. So if TF-IDF is calculated without the log term then IDF part of the formula will dominate the overall value of the TF-IDF. Instead of that if we use log in the IDF then this value of IDF will be log(10000)= 4 which is significantly lower than the one without log term.
 
 Consider the following document which has two sentences in it
 
@@ -98,15 +98,17 @@ TF-IDF("How",d1,D) = 0.10526315789 * 0 = 0
 TF-IDF("How",d2,D) = 0.125 * 0 = 0
 
 
-One can see that TF-IDF is turning out to be 0. This will definitely make the importance of word which is occurring in every document irrelevant. The purpose of adding the +1 is to accomplish one of the two objectives
+One can see that TF-IDF is turning out to be 0. This will definitely make the importance of word which is occurring in every document irrelevant. 
+So with the modified formula of TF-IDF as shown in the figure below,
+
+![image](https://user-images.githubusercontent.com/46114095/134462316-5af134ea-96e0-45b9-99b5-9aaf3621813e.png)
+
+The purpose of adding the +1 is to accomplish one of the two objectives
 
 a) To avoid divide by zero error as when a term appears in no documents
 
 b) To set a lower bound to avoid a term being given a zero weight just because it appeared in all documents.
 
-So with the modified formula of TF-IDF as shown in the figure below 
-
-![image](https://user-images.githubusercontent.com/46114095/134462316-5af134ea-96e0-45b9-99b5-9aaf3621813e.png)
 
 According to modified TF-IDF formula-
 
@@ -145,16 +147,19 @@ Word2Vec is one of the most powerful techniques in converting a text to a vector
 ![image](https://user-images.githubusercontent.com/46114095/134625125-f1882e79-b789-4ef1-9630-5a8a9b1fdbf3.png)
 
 
-Word2Vec is one of the most powerful techniques in converting a text to a vector. This technique actually takes into consideration the semantic meaning of the words unlike the traditionally used techniques like Bag Of Words or TF-IDF. It is almost the state of the art method. Intuitively Word2Vec looks at the neighborhood of the target word to predict the target word. One of the best advantages of the Word2Vec model is that it gives the dense vector as an output, unlike the previous techniques.
-
-
-<!-- ![image](https://user-images.githubusercontent.com/46114095/134481459-bd5b239f-2793-4ba6-8aed-908fa5aa4ea7.png) -->
-![image](https://user-images.githubusercontent.com/46114095/134625193-fc40eded-9124-408c-a28b-0cbf4f32868d.png)
-
 
 Word2Vec is a shallow two-layered network, which is trained to reconstruct the linguistic context of the words. It takes a large corpus of words as an input and converts it to a vector of the size of hundreds of dimensions(typically 100 to 300 dimensions). These word vectors are positioned in such a manner that word vectors of the word having similar contexts are located in close proximity and those which have different contexts are set apart in the vector space. Word2Vec is a computationally efficient predictive model for learning word embeddings from raw text.
 
+
+
+<!-- ![image](https://user-images.githubusercontent.com/46114095/134481459-bd5b239f-2793-4ba6-8aed-908fa5aa4ea7.png) -->
+
+
+
 # CBOW (Continuous Bag Of words)
+
+
+
 CBOW is a W2Vec model which will predict the target word given the context of the target word.
 
 Sentence: The cheetah ran very fast while hunting the deer.
@@ -168,8 +173,10 @@ Let's assume we have,
 
 Let's assume we have a huge text corpus and we have createed the dataset of the target word and its corresponding context words.
 
+![image](https://user-images.githubusercontent.com/46114095/134625193-fc40eded-9124-408c-a28b-0cbf4f32868d.png)
 
-![image](https://user-images.githubusercontent.com/46114095/134481536-ca1ccc57-6bbb-43a9-8c14-ab708ae8f2a5.png)
+
+<!-- ![image](https://user-images.githubusercontent.com/46114095/134481536-ca1ccc57-6bbb-43a9-8c14-ab708ae8f2a5.png) -->
 
 
 This CBOW is a very simple two-layered neural network and if trained on the dataset which we created, at the output this model will return N*v vector. This N*v vector can be used for vectorization. So given a word Wi we will get corresponding Vi. This corresponding Vi will have a whole vector representation of the size of N dimensions.
