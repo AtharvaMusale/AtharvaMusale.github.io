@@ -208,35 +208,32 @@ Lets look at number of weights to be trained- 
 Number of weights = (K+1) (N * v)
 
 Assume N = 200, k=5, V=10k
-It will be 12 million weights. This will be a huge computation for any compute. It will take nearly forever to do this. So how to optimize this?
+It will be 12 million weights. This will be a huge computation for any compute. It will take nearly forever to train these networks. So how to optimize this?
 
 # Word2Vec Optimization -
 
-We saw that both CBOW and Skip-Gram training will be extremely exhaustive for training. So there are two concepts that are used to train these models.
+We saw that both CBOW and Skip-Gram training will be extremely exhaustive for any compute device. So there are two concepts that are used to train these models efficiently.
 
 # Hierarchical Softmax 
 If one takes a look at the SkipGram or CBOW connections they both use multiple softmax functions. Computations of these softmax functions are bit exhaustive. So core idea of the hierarchical softmax is to replace these v -softmax functions with something which is computationally less expensive. Softmax activation is trying to solve V class classification. 
-Let's say we have 8 words, we place 8 words at the leaf node of the binary tree.
+
 
 
 ![image](https://user-images.githubusercontent.com/46114095/134481766-5a2f9026-d7c0-4baf-b6d8-289bb4c41230.png)
  
-![image](https://user-images.githubusercontent.com/46114095/134757227-fa08713e-7c1d-41a5-b6b6-953e7d5e12df.png)
 
 
 
-In the case of linear softmax function, for each word in a sentence, one softmax is needed and softmax calculations are computationally expensive. In the above example since we have 8 words, there will be 8 softmax functions.
+In the case of linear softmax function, for each word in a sentence, one softmax is needed and softmax calculations are computationally expensive. In the above example since we have 8 words, there will be 8 softmax functions. In case of hierarchical softmax, we place 8 words at the leaf node of the binary tree. Hierarchical softmax uses a binary tree to represent all words in the vocabulary. The words themselves are leaves in the tree. For each leaf, there exists a unique path from the root to the leaf, and this path is used to estimate the probability of the word represented by the leaf. This probability is defined as the probability of a random walk starting from the root ending at the leaf in question.
 
-Hierarchical softmax uses a binary tree to represent all words in the vocabulary. The words themselves are leaves in the tree. For each leaf, there exists a unique path from the root to the leaf, and this path is used to estimate the probability of the word represented by the leaf. This probability is defined as the probability of a random walk starting from the root ending at the leaf in question.
-
-The main advantage is that instead of evaluating V output nodes in the neural network to obtain the probability distribution, it is needed to evaluate only about log2(V) words. Typically a binary Huffman tree is used, as it assigns short codes to the frequent words which result in fast training.
+The main advantage is that instead of evaluating v output nodes in the neural network to obtain the probability distribution, it is needed to evaluate only about log<sub>2</sub>(v) words. Typically a binary Huffman tree is used, as it assigns short codes to the frequent words which result in fast training.
 
 # Negative Sampling 
+
 Negative Sampling is simply the idea that we only update a sample of output words per iteration. The target output word should be kept in the sample and it will get updated, and we add to this a few (non-target) words as negative samples. "A probabilistic distribution is needed for the sampling process, and it can be arbitrarily chosen… One can determine a good distribution empirically."
 Each word is discarded with a probability of P(wi) where P(wi ) is,
 
-
-
+![image](https://user-images.githubusercontent.com/46114095/134757227-fa08713e-7c1d-41a5-b6b6-953e7d5e12df.png)
 
 Since the negative sampling and the hierarchical softmax are used in the Word2Vec model, it trains much faster and can be used as a vectorization technique with the semantic meaning consideration.
 
