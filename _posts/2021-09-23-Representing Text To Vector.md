@@ -291,12 +291,11 @@ Disadvantages:
    * The model is trained on the co-occurrence matrix of words, which takes a lot of memory for storage. Especially, if you change the hyper-parameters related to the co-occurrence matrix, you have to reconstruct the matrix again, which is very time-consuming. 
 
 
-# **Conclusion** 
+## **Conclusion** 
 
 Out of the four techniques of vectorization, Word2Vec and Glove outperforms BOW and TF-IDF in almost all the cases due to their ability to take semantic meaning into consideration. Even with Word2Vec and Glove vectorizers some challenges still remain, like how to learn the representation for out-of-vocabulary words.
 how to separate some opposite word pairs like "good" or "bad" which are located in the same vector space nearby.
 
-# **Note**
 I tried to explain the vectorization techniques since most people treat this as a blackbox for converting the text to vectors. If you have any questions/suggestions feel free to reach out to me on [LinkedIn](https://www.linkedin.com/in/atharva-musale/).
       
       
