@@ -219,7 +219,7 @@ Let's say we have 8 words, we place 8 words at the leaf node of the binary tree.
 
 ![image](https://user-images.githubusercontent.com/46114095/134481766-5a2f9026-d7c0-4baf-b6d8-289bb4c41230.png)
  
-![image](https://user-images.githubusercontent.com/46114095/134598461-01db476b-543d-464f-8ba8-5a316c6291b0.png)
+![image](https://user-images.githubusercontent.com/46114095/134757227-fa08713e-7c1d-41a5-b6b6-953e7d5e12df.png)
 
 
 
