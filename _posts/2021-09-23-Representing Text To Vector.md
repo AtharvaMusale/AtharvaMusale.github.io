@@ -140,7 +140,7 @@ TF-IDF("How",d2,D) = 0.125 * 1= 0.125
 
 ![image](https://user-images.githubusercontent.com/46114095/134462609-a4a85ba2-e490-42d6-ab7a-d2b827d3539b.png)
 
-Word2Vec is one of the most powerful techniques in converting a text to a vector. This technique actually takes into consideration the semantic meaning of the words unlike the traditionally used techniques like Bag Of Words or TF-IDF. It is almost the state of the art method. Intuitively Word2Vec looks at the neighborhood of the target word to predict the target word. One of the best advantages of the Word2Vec model is that it gives the dense vector as an output, unlike the previous techniques.
+Word2Vec is one of the most powerful techniques in converting a text to a vector. This technique actually takes into consideration the semantic meaning of the words unlike the earlier techniques like Bag Of Words or TF-IDF. It is almost the state of the art method. Intuitively Word2Vec looks at the neighborhood of the target word to predict the target word. One of the best advantages of the Word2Vec model is that it gives the dense vector as an output, unlike the previous techniques.
 
 
 <!-- ![image](https://user-images.githubusercontent.com/46114095/134462684-0006de25-573a-43fe-8efe-83267ce8d386.png) -->
@@ -171,7 +171,7 @@ Let's assume we have,
 1. The V = vocabulary or dictionary of words and v = Length/Size of the Vocabulary.
 2. Using one hot encoding of each word. This will represent each word as a one-hot encoded vector of size v.
 
-Let's assume we have a huge text corpus and we have createed the dataset of the target word and its corresponding context words.
+Let's assume we have a huge text corpus and we have created the dataset of the target word and its corresponding context words.
 
 ![image](https://user-images.githubusercontent.com/46114095/134625193-fc40eded-9124-408c-a28b-0cbf4f32868d.png)
 
@@ -179,31 +179,33 @@ Let's assume we have a huge text corpus and we have createed the dataset of the 
 
 
 
-This CBOW is a very simple two-layered neural network and if trained on the dataset which we created, at the output this model will return N*v vector. This N*v vector can be used for vectorization. So given a word Wi we will get corresponding Vi. This corresponding Vi will have a whole vector representation of the size of N dimensions.
+This CBOW is a very simple two-layered neural network and if trained on the dataset which we created, at the output this model will return N * v vector. This N * v vector can be used for vectorization. So given a word W<sub>i</sub> we will get corresponding V<sub>i</sub>. This corresponding V<sub>i</sub> will have a whole vector representation of the size of N dimensions.
 
 # Skip-Gram
-Skip-gram predicts surrounding context words from the given target words (inverse of CBOW). Statistically, skip-gram treats each context-target pair as a new observation, and this tends to do better when we have larger datasets.
+Skip-Gram predicts surrounding context words from the given target words (inverse of CBOW). Statistically, skip-gram treats each context-target pair as a new observation, and this tends to do better when we have larger datasets.
 
 ![image](https://user-images.githubusercontent.com/46114095/134481536-ca1ccc57-6bbb-43a9-8c14-ab708ae8f2a5.png)
 
 
-In this Skip-Gram, the target word is provided as an input and the Context vector is the output. In the case of SkipGram Wv*N matrix can be used to get the words.
+In this Skip-Gram, the target word is provided as an input and the Context vector is the output. In the case of SkipGram W<sub>v*N</sub> matrix can be used to get the words.
 
 # Advantages of CBOW - 
-* Faster than SkipGram
+* Faster than Skip-Gram
 * Better for frequently occurring words.
 
-# Advantages of SkipGram - 
+# Advantages of Skip-Gram - 
 * Can work with a smaller amount of data
 * Well for infrequent words
 
-If you think about this skip-gram is a much harder problem to solve since it is predicting the whole context given a target. Whereas in the case of CBOW whole context is given and it just predicts the target word. It's like filling the blanks problem. But since SkipGram solves the much harder problem it works well and gets more semantic meaning. K is the number of context words. If k increases then more context is seen by CBOW.
+# Problem with training the CBOW / SkipGram
 
-There is one major problem in CBOW and SkipGram
+If you think about this Skip-Gram solves much harder problem since it is predicts the whole context given just a target word. Whereas in the case of CBOW whole context is given and it just predicts the target word. It's like filling the blanks problem. But since Skip-Gram solves the much harder problem it works well on many general cases. K is the total number of context words taken into consideration for each target word. If k increases then more context is seen by CBOW and more context will be predicted by Skip-Gram.
+
+There is one major problem in CBOW and SkipGram- 
 
 Lets look at number of weights to be trained- 
 
-#weights = (K+1) (N*v)
+Number of weights = (K+1) (N * v)
 
 Assume N = 200, k=5, V=10k
 It will be 12 million weights. This will be a huge computation for any compute. It will take nearly forever to do this. So how to optimize this?
