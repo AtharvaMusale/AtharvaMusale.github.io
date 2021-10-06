@@ -32,6 +32,8 @@ This is the reason why a profound knowledge of probability can be a game changer
 
 # **Population And Sample-**
 
+A population is set of similar items or events which are of interest to certain experiment whereas a statistical sample is a set of items selected from the population. For example, there are ~7 Billion people on earth and the experiment is supposed to be conducted to calculate average height of humans on earth. So the population for this experiment would be 7 Billion, but carrying out an experiment on such a large scale is practically impossible. So we take the sample out of this population. Lets say like 5 Million people from all around the globe. So based on this sampled data a predictive model can be built to predict an average height of humans on earth. So to put these concepts simply, we can say that sampled data is a subset of the population and we can say that Sample < Population.
+
 
 
 
