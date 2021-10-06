@@ -9,7 +9,8 @@ github_username:  AtharvaMusale
 
 # Build settings
 # theme: minima
-remote_theme: mmistakes / minimal-mistakes
+theme: minimal-mistakes-jekyll
+# remote_theme: mmistakes / minimal-mistakes
 plugins:
   - jekyll-feed
 
