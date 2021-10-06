@@ -60,6 +60,32 @@ If you take a look at the CDF of a gaussian distribution you can notice that as 
 
 Let's consider an example to understand the bell curve. Let's say our distribution is a normal distribution such that X~(μ,σ²)=X~(0,4). We can say that 50% of the values lie on the left side and 50% of the values on the right side of the bell curve. The best part of the bell curve is that we can tell how many values of a sample lie in between the range between the corresponding standard deviation values. For eg. Here as the variance is 4, so the standard deviation is 2. Since std deviation is 2 we can say that between -σ and +σ we will have 68.2% of the values and between -2σ and +2σ value we will have 95% values of the sample.
 
+# **Skewness-**
+
+Skewness is a measure of asymmetry of pdf.
+![image](https://user-images.githubusercontent.com/46114095/136228157-5235838a-7c09-40f2-a360-3dcca7580b90.png)
+
+![image](https://user-images.githubusercontent.com/46114095/136228829-cba91d6e-b697-4ace-9b42-7620e3057efc.png)
+
+
+Here x_bar is the sample mean and s is the sample standard deviation, m3 is a sample third central moment. Skewness can be used to approximate probabilities and quantiles of distributions.
+
+# **Kurtosis-**
+
+Kurtosis tells us about the tailedness of a distribution. It tells us how heavily the tails of a distribution differed from the tails of a normal distribution. In other words, kurtosis identifies whether the tails of a given distribution contain extreme values.
+
+![image](https://user-images.githubusercontent.com/46114095/136228914-545417f0-8938-4883-aac6-134ea37b3149.png)
+
+* It is a good measure of detecting if there are outliers in the dataset or not.
+* A larger value of kurtosis indicates a serious outlier problem which is a good indication for the researchers to choose an alternative statistical model.
+* The excess kurtosis is defined as kurtosis minus 3.
+
+
+# **Standard Normal Variate-**
+It is the distribution that occurs when a normal random variable has a mean of zero and a standard deviation of one. The normal random variable of a standard normal distribution is called a standard score or a z score. Every normal random variable X can be transformed into a z score via the following equation:  z = (X - μ) / σ.
+
+where X is a normal random variable, μ is the mean, and σ is the standard deviation. It is an extremely helpful way to get rid of the problem of difference in the scales used while measuring. It brings all the values in the range of 0 to 1 so that we can compare the variable values easily. This is just like the standardization of a variable.
+
 
 # **References -**
 * https://machinelearningmastery.com/probability-for-machine-learning/ 
