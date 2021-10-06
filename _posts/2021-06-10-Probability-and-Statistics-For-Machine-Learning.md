@@ -86,6 +86,22 @@ It is the distribution that occurs when a normal random variable has a mean of z
 
 where X is a normal random variable, μ is the mean, and σ is the standard deviation. It is an extremely helpful way to get rid of the problem of difference in the scales used while measuring. It brings all the values in the range of 0 to 1 so that we can compare the variable values easily. This is just like the standardization of a variable.
 
+# **Kernel Density Estimation-**
+
+It is a non-parametric way to estimate the pdf of a random variable. Kernel density estimation is a fundamental data smoothing problem where inferences about the population are made, based on a finite data sample.
+
+![image](https://user-images.githubusercontent.com/46114095/136229228-4348f9f0-6b50-4f68-a054-e1e025bd6bb1.png)
+
+Variance in this case is called bandwidth. If we take bandwidth value too large then we get wide pdf, if bandwidth value is too small then we get the jagged estimation of a curve. For a smooth curved approximation, bandwidth must be chosen with proper care.
+
+![image](https://user-images.githubusercontent.com/46114095/136229299-29402524-2e98-4a2e-be04-a0cfde7632a0.png)
+
+# **Sampling Distribution-**
+Let's say that we have a distribution of variable X which is not necessarily a gaussian, So now let's say we take n samples from that population, Lets call those S1, S2,…, Sn(Assume the size of each sample<population size). For each sample, we calculate the mean of that sample, and let's call these x1, x2, x3,…, xn (such that x1,x2,…xn are sample means of each sample S1, S2,…, Sn). Now, x1,x2,x3,…, xn will also have a distribution of their own? So the distribution of xi's is called the sample distribution of sample means.
+steps-
+* Take S1, S2, S3,…, Sn samples out of the population.
+* Calculate means of each of the samples x1,x2,x3,…, xn 
+* And the distribution of x1,x2,…., xn will be called the sampling distribution of sample means.
 
 # **References -**
 * https://machinelearningmastery.com/probability-for-machine-learning/ 
