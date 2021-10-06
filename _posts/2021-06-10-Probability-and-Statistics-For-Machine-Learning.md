@@ -38,11 +38,28 @@ A population is set of similar items or events which are of interest to certain 
 
 # **Gaussian Distribution / Normal Distribution-**
 
-![image](https://user-images.githubusercontent.com/46114095/136209715-ab13adac-9e7c-4f07-9a0b-cd209dd5fef3.png)
-
 ![image](https://user-images.githubusercontent.com/46114095/136209625-95f4611a-e23a-4624-849d-9e9197e30c6c.png)
 
-This is one of the most widely used distribution in the field of Machine Learning. 
+This is one of the most widely used distribution in the field of Machine Learning. The reason why this distribution plays important role in ML is because lots and lots of things in the real world follow this bell curve-like distribution. Eg. Distribution of weights of people in the world of the same age range (let's consider for people of age 25, Very few people will have a weight lower than 35 kgs and Very few will have a weight above 120kg and many people will have the weight near to the value of let's say 60–90). The mean of the distribution is 0 so there are many values that belong to mean 0 but as you go away from the mean value the value of the distribution will go on decreasing.
+
+The formula for Probability Density Function(PDF) of a normal distribution is,
+
+![image](https://user-images.githubusercontent.com/46114095/136209715-ab13adac-9e7c-4f07-9a0b-cd209dd5fef3.png)
+
+Here sigma σ is nothing but the standard deviation and σ² is the variance. μ is the mean.
+
+* You can observe that as the value of variance increase the curve gets flatter and widespread. Whereas you can observe that the pdf value is maximum at the mean value.
+* Normal Distribution has a symmetric PDF.
+* As X value moves away from μ. Pdf decreases exponentially.
+
+![image](https://user-images.githubusercontent.com/46114095/136227558-4b543de9-3cf7-4a03-bfbd-0ce6f013e88e.png)
+
+If you take a look at the CDF of a gaussian distribution you can notice that as the variance is low the CDF line gets closer to the μ and as variance decreases the slope of the CDF becomes less steep.
+
+![image](https://user-images.githubusercontent.com/46114095/136227689-c544ddae-b8d3-4e47-8996-ebe459055069.png)
+
+Let's consider an example to understand the bell curve. Let's say our distribution is a normal distribution such that X~(μ,σ²)=X~(0,4). We can say that 50% of the values lie on the left side and 50% of the values on the right side of the bell curve. The best part of the bell curve is that we can tell how many values of a sample lie in between the range between the corresponding standard deviation values. For eg. Here as the variance is 4, so the standard deviation is 2. Since std deviation is 2 we can say that between -σ and +σ we will have 68.2% of the values and between -2σ and +2σ value we will have 95% values of the sample.
+
 
 # **References -**
 * https://machinelearningmastery.com/probability-for-machine-learning/ 
