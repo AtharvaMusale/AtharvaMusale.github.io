@@ -30,7 +30,8 @@ Probability is all about handling the uncertainty. Uncertainty involves making d
 
 This is the reason why a profound knowledge of probability can be a game changer to understand the machine learning models in depth. So there are lots of thing to cover in this blog so lets dive in with some simple concepts - 
 
-# Population And Sample-
+# **Population And Sample-**
+
 
 
 
