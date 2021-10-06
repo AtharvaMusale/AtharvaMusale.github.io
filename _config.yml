@@ -8,7 +8,8 @@ twitter_username: AtharvaMusale
 github_username:  AtharvaMusale
 
 # Build settings
-theme: minima
+# theme: minima
+remote_theme: mmistakes / minimal-mistakes
 plugins:
   - jekyll-feed
 
