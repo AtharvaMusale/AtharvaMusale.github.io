@@ -2,7 +2,7 @@
 layout: post
 title: "Representing Text To Vector"
 date: 2021-09-23
-image: /assets/images/text-vector.jpg
+image: /assets/images/vision.jpg
 excerpt: "Explores the essential process of converting text into numerical vectors to facilitate machine learning and deep learning models."
 ---
 

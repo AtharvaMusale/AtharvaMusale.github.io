@@ -2,7 +2,7 @@
 layout: post
 title: "Probability And Statistics For Machine Learning"
 date: 2021-06-10
-image: /assets/images/probability.jpg
+image: /assets/images/vision.jpg
 excerpt: "Understanding probability is crucial in machine learning as it aids in handling uncertainty with incomplete data."
 ---
 Understanding probability is crucial in machine learning as it aids in handling uncertainty with incomplete data...
