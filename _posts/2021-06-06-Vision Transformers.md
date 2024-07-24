@@ -7,9 +7,6 @@ excerpt:
 "Vision Transformers (ViT) are redefining computer vision, leveraging the power of NLP-style transformers to outperform traditional CNNs on large datasets. ViT processes images by breaking them into patches, linearly embedding them, and using transformer encoders. While lacking some of CNNs' inductive biases, ViTs excel on large datasets, showing promising results in accuracy and efficiency. Their potential extends beyond classification to broader applications like segmentation and detection."
 ---
 
-Here starts the full content of your post...
-
-
 
 # **Introduction** -
 
