@@ -1,6 +1,15 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
 layout: home
 ---
+
+# Welcome to My Website
+
+## Recent Posts
+{% for post in site.posts limit:5 %}
+- [{{ Representing text to vector }}]({{ https://atharvamusale.github.io/2021/09/23/Representing-Text-To-Vector.html | https://atharvamusale.github.io/2021/09/23/Representing-Text-To-Vector.html }})
+{% endfor %}
+
+<!-- ## Projects
+{% for project in site.projects limit:3 %}
+- [{{ project.name }}]({{ project.url | relative_url }})
+{% endfor %} -->
