@@ -2,7 +2,7 @@
 layout: post
 title: "Vision Transformer"
 date: 2021-06-06
-image: /assets/images/vision.jpg
+image: assets/images/vision.jpg
 excerpt: "Vision Transformers are setting new benchmarks in computer vision, showing that models trained on large datasets can outperform traditional CNNs."
 ---
 # **Introduction** -    
