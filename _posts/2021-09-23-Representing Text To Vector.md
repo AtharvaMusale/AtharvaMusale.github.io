@@ -1,9 +1,11 @@
-<!-- ---
+---
 layout: post
-title: "Representing text to vector"
+title: "Representing Text To Vector"
 date: 2021-09-23
-image: /assets/images/vision.jpg
---- -->
+image: /assets/images/text-vector.jpg
+excerpt: "Explores the essential process of converting text into numerical vectors to facilitate machine learning and deep learning models."
+---
+
 ![word representation](https://user-images.githubusercontent.com/46114095/134459818-7e858caa-7782-4a4b-92c3-b3f4c75ea11c.png)
 
    Any Deep Learning model trains on a numeric features present in N dimensional space. In order to perform a language modeling on text, a text must be transformed into its vector representation so that machine learning or deep learning models can be used on the text data. This process of converting a text to a vector is called the Vectorization. In this post, I will discuss about the most widely used vectorization techiniques and mathematical intuition behind all those techniques. So lets dive in!

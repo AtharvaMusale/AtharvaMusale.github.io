@@ -1,10 +1,11 @@
-<!-- ---
+---
 layout: post
 title: "Vision Transformer"
 date: 2021-06-06
 image: /assets/images/vision.jpg
---- -->
-# **Introduction** -
+excerpt: "Vision Transformers are setting new benchmarks in computer vision, showing that models trained on large datasets can outperform traditional CNNs."
+---
+# **Introduction** -    
 
 Transformers in the latest natural language processing research has become a defacto for the models to give the best results. Its applications in computer vision are still not widely known. Some work has been done to replace certain portion of CNN using self-attention, but the basic building structure of the CNN architecture remained intact. However, the Vision Transformers are now set to revolutionize the computer vision field. The Vision Transformer paper explains that the reliance on CNNs is no longer needed and transformers can outperform traditional CNN architectures when applied on patches of images. When trained on substantially large data and fine-tuned on smaller data or transferred onto mid or small-sized datasets like CIFAR-100, Imagenet, transformers give excellent results as compared to traditional CNNs state of the art architectures with fewer computational resources needed. This blog will be referring to [Vision Transformers](https://arxiv.org/pdf/2010.11929v2.pdf) paper. 
  
