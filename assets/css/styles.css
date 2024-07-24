@@ -1,0 +1,18 @@
+.post {
+    margin-bottom: 20px;
+  }
+  
+  .post img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .post h2 {
+    margin: 10px 0 5px;
+  }
+  
+  .post p {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
