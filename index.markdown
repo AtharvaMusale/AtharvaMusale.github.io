@@ -9,9 +9,6 @@ layout: home
 - [Representing text to vector](https://atharvamusale.github.io/2021/09/23/Representing-Text-To-Vector.html) - Explores the essential process of converting text into numerical vectors to facilitate machine learning and deep learning models, a technique known as vectorization. We delve into the most prevalent text vectorization methods including Bag of Words, TF-IDF, Word2Vec, and GloVe. Each technique's fundamental mechanics, advantages, and disadvantages are discussed, highlighting how methods like Word2Vec and GloVe not only capture the frequency of word occurrences but also consider the semantic relationships between words, significantly enhancing the model's ability to understand and process language data effectively. This exploration underscores the importance of these techniques in building robust language models that can interpret the nuanced meanings of words within various contexts.
  -->
 
----
-layout: home
----
 
 # Recent Posts
 

@@ -1,3 +1,10 @@
+---
+layout: post
+title: "Probability And Statistics For Machine Learning"
+date: 2021-06-10
+image: /assets/images/vision.jpg
+---
+
 # **Table Of Content -** 
 * Introduction
 * Population and Sample
