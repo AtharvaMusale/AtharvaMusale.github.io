@@ -1,7 +1,9 @@
 ---
 layout: home
+title: About Me
+permalink: /home/
+published: true
 ---
-
 # Recent Posts
 
 {% for post in site.posts limit:5 %}
