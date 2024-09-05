@@ -8,6 +8,9 @@ However, the integration of AI in trading is not without its challenges. This di
 
 Through this comprehensive exploration, our aim is to provide a clearer understanding of how AI is shaping algorithmic trading today and what it means for the future of the financial markets.
 
+![Conceptual Model of Algorithmic Trading]([URL_TO_IMAGE](https://www.google.com/imgres?q=algotrading%20using%20ai&imgurl=http%3A%2F%2Fturingfinance.com%2Fwp-content%2Fuploads%2F2013%2F11%2FAlgorithmic-Trading-Systems-Conceptual.png&imgrefurl=https%3A%2F%2Fwww.turingfinance.com%2Fdissecting-algorithmic-trading%2F&docid=Xe19OIfxoiQEAM&tbnid=bydbTaOtMIqmTM&vet=12ahUKEwjEnZ6q-aqIAxX4FmIAHVdEA30QM3oECBcQAA..i&w=744&h=405&hcb=2&ved=2ahUKEwjEnZ6q-aqIAxX4FmIAHVdEA30QM3oECBcQAA))
+
+
 ## **Algotrading using Artificial Intelligence**
 
 ### **What is Algorithmic Trading?**
