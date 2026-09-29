@@ -1,3 +1,9 @@
+---
+layout: post
+title: "Federated Learning"
+date: 2024-08-20
+excerpt: "How federated learning trains models across decentralized devices without centralizing sensitive data."
+---
 
 ## Introduction
 In today's digital era, where our digital footprints are vast and potentially vulnerable, the importance of securing personal information cannot be overstated. Each day, we share significant amounts of sensitive data across various platforms—from social media to online banking—often without knowing how this data is used or protected. The rapid evolution of artificial intelligence (AI) and machine learning (ML) technologies has heightened the urgency to develop solutions that ensure privacy without sacrificing the benefits of innovation. One such solution is federated learning, a revolutionary approach that changes the traditional landscape of model building and deployment. Unlike conventional methods that require centralizing data, federated learning enables the collaborative training of machine learning models across multiple decentralized devices, enhancing data privacy and security significantly.

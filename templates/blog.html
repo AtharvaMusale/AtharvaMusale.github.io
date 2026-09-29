@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% from "_macros.html" import post_row %}
+{% block content %}
+<section class="wrap narrow section page-top">
+  <div class="section-head">
+    <h1>Writing</h1>
+    <p>Notes on machine learning — written to learn, shared in case they help. Older posts are also on <a href="https://atharvamusale.medium.com/">Medium</a>.</p>
+  </div>
+  <div class="post-list">
+    {% for post in posts %}{{ post_row(post) }}{% endfor %}
+  </div>
+</section>
+{% endblock %}

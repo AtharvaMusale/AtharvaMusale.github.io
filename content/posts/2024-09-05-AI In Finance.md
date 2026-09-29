@@ -1,3 +1,9 @@
+---
+layout: post
+title: "AI in Finance: Algorithmic Trading"
+date: 2024-09-05
+excerpt: "How AI is reshaping algorithmic trading — models, benefits, costs, and the regulatory questions it raises."
+---
 
 ## **Introduction**
 Algorithmic trading has significantly reshaped the financial landscape, introducing a level of efficiency and innovation that was hard to imagine just a few decades earlier. Central to this transformative shift is the integration of artificial intelligence (AI), which has revolutionized various aspects of trading. AI technologies have not only streamlined numerous trading processes but have also substantially enhanced decision-making capabilities through advanced predictive analytics. These technologies analyze vast amounts of data to forecast market trends, thereby enabling traders to make more informed decisions swiftly and accurately.

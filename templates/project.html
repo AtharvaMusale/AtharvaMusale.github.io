@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+<article class="wrap narrow case">
+  <a class="back" href="/#work">← All work</a>
+  <p class="eyebrow">{{ page.company }} · {{ page.period }}</p>
+  <h1>{{ page.title }}</h1>
+  <p class="lede">{{ page.summary }}</p>
+  <ul class="tags">{% for t in page.tags %}<li>{{ t }}</li>{% endfor %}</ul>
+
+  {% if page.metrics %}
+  <div class="metrics">
+    {% for m in page.metrics %}<div class="stat"><strong>{{ m.value }}</strong><span>{{ m.label }}</span></div>{% endfor %}
+  </div>
+  {% endif %}
+</article>
+
+{% if page.meta.pipeline %}
+<section class="wrap narrow">
+  <div class="pipeline-head">
+    <h2>{{ page.meta.pipeline_title or "Architecture" }}</h2>
+    <ul class="legend" aria-label="Step types">
+      {% for kind, label in [("agent", "LLM / agent"), ("deterministic", "Deterministic code"), ("parallel", "Parallel fan-out"), ("storage", "State")] %}
+      {% if page.meta.pipeline | selectattr("kind", "equalto", kind) | list %}<li class="k-{{ kind }}">{{ label }}</li>{% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+  <ol class="pipeline">
+    {% for step in page.meta.pipeline %}
+    <li class="k-{{ step.kind }}">
+      <span class="step-n">{{ "%02d" | format(loop.index) }}</span>
+      <div>
+        <h3>{{ step.title }}</h3>
+        <p>{{ step.detail }}</p>
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+{% endif %}
+
+<section class="wrap narrow case-body">
+  <div class="prose">{{ page.html | safe }}</div>
+  {% if page.meta.stack %}
+  <aside class="stack" aria-label="Tech stack">
+    <h2>Stack</h2>
+    {% for group, items in page.meta.stack.items() %}
+    <div><h3>{{ group }}</h3><ul class="tags">{% for i in items %}<li>{{ i }}</li>{% endfor %}</ul></div>
+    {% endfor %}
+  </aside>
+  {% endif %}
+</section>
+
+{% if next_project and next_project.url != page.url %}
+<nav class="wrap narrow next" aria-label="Next project">
+  <a href="{{ next_project.url }}"><span class="eyebrow">Next case study</span><strong>{{ next_project.title }} →</strong></a>
+</nav>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% macro project_card(p, large=false) %}
+<a class="card project-card{% if large %} large{% endif %}" href="{{ p.url }}">
+  <div class="card-top">
+    <span class="eyebrow">{{ p.company }} · {{ p.period }}</span>
+    <span class="arrow" aria-hidden="true">→</span>
+  </div>
+  <h3>{{ p.title }}</h3>
+  <p>{{ p.summary }}</p>
+  {% if p.metrics %}
+  <div class="card-metric"><strong>{{ p.metrics[0].value }}</strong> {{ p.metrics[0].label }}</div>
+  {% endif %}
+  <ul class="tags">{% for t in p.tags %}<li>{{ t }}</li>{% endfor %}</ul>
+</a>
+{% endmacro %}
+
+{% macro post_row(post) %}
+<a class="post-row" href="{{ post.url }}">
+  <time datetime="{{ post.date.isoformat() }}">{{ post.date | date("%b %Y") }}</time>
+  <span class="post-row-title">{{ post.title }}</span>
+  <span class="post-row-meta">{{ post.reading_time }} min</span>
+</a>
+{% endmacro %}

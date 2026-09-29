@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% from "_macros.html" import project_card, post_row %}
+{% block content %}
+{% set p = site.profile %}
+<section class="hero wrap">
+  <div class="hero-text">
+    <p class="status"><span class="dot" aria-hidden="true"></span>{{ p.role }} · {{ p.company }}</p>
+    <h1>{{ p.tagline }}</h1>
+    <p class="lede">{{ p.intro }}</p>
+    <div class="cta">
+      <a class="btn primary" href="#work">See my work</a>
+      <a class="btn" href="{{ site.links[0].url }}">Get in touch</a>
+      {% if site.resume %}<a class="btn" href="{{ site.resume }}">Résumé</a>{% endif %}
+    </div>
+  </div>
+  <figure class="hero-photo">
+    <img src="{{ p.photo }}" alt="Portrait of {{ p.name }}" width="220" height="220">
+  </figure>
+</section>
+
+<section class="wrap highlights" aria-label="Highlights">
+  {% for h in site.highlights %}
+  <div class="stat"><strong>{{ h.value }}</strong><span>{{ h.label }}</span></div>
+  {% endfor %}
+</section>
+
+<section id="work" class="wrap section">
+  <div class="section-head">
+    <h2>Selected work</h2>
+    <p>Case studies from production systems I've designed and shipped.</p>
+  </div>
+  <div class="project-grid">
+    {% for proj in projects %}{{ project_card(proj, large=loop.first) }}{% endfor %}
+  </div>
+</section>
+
+<section id="experience" class="wrap section">
+  <div class="section-head">
+    <h2>Experience</h2>
+  </div>
+  <ol class="timeline">
+    {% for job in site.experience %}
+    <li>
+      <div class="tl-when">{{ job.period }}</div>
+      <div class="tl-body">
+        <h3>{{ job.role }} <span class="at">@ {{ job.company }}</span></h3>
+        <ul>
+          {% for pt in job.points %}
+          <li>{{ pt.text }}{% if pt.project and pt.project in by_slug %} <a class="inline-link" href="{{ by_slug[pt.project].url }}">Case study →</a>{% endif %}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+
+<section class="wrap section two-col">
+  <div>
+    <div class="section-head"><h2>Toolbox</h2></div>
+    <div class="skills">
+      {% for g in site.skills %}
+      <div class="skill-group">
+        <h3>{{ g.group }}</h3>
+        <ul class="tags">{% for s in g['items'] %}<li>{{ s }}</li>{% endfor %}</ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div>
+    <div class="section-head"><h2>Side projects</h2></div>
+    <div class="side-list">
+      {% for sp in site.side_projects %}
+      <div class="side">
+        <h3>{{ sp.title }}</h3>
+        <p>{{ sp.text }}</p>
+        <ul class="tags">{% for t in sp.tags %}<li>{{ t }}</li>{% endfor %}</ul>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="section-head edu-head"><h2>Education</h2></div>
+    {% for e in site.education %}
+    <div class="edu"><strong>{{ e.school }}</strong><span>{{ e.degree }}</span><time>{{ e.period }}</time></div>
+    {% endfor %}
+  </div>
+</section>
+
+{% if posts %}
+<section class="wrap section">
+  <div class="section-head row">
+    <h2>Writing</h2>
+    <a class="inline-link" href="/blog/">All posts →</a>
+  </div>
+  <div class="post-list">
+    {% for post in posts[:4] %}{{ post_row(post) }}{% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<section id="contact" class="wrap section contact">
+  <h2>Let's build something.</h2>
+  <p>Open to conversations about agentic AI, ML platforms, and production GenAI systems.</p>
+  <div class="contact-links">
+    {% for link in site.links %}
+    <a href="{{ link.url }}"><span>{{ link.label }}</span><code>{{ link.handle }}</code></a>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

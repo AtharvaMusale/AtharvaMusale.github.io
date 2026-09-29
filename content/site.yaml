@@ -1,0 +1,133 @@
+# Site-wide settings and résumé data. Edit this file to update the homepage.
+
+title: Atharva Musale
+url: https://atharvamusale.github.io
+description: >-
+  Senior Machine Learning Engineer building production agentic AI systems on
+  Google Cloud — multi-agent orchestration, document AI, and scalable inference.
+google_analytics: G-9L4GJKS44G
+# Drop a PDF at static/resume.pdf and set this to "/assets/resume.pdf" to show a résumé button.
+resume: ""
+
+profile:
+  name: Atharva Musale
+  role: Senior Machine Learning Engineer
+  company: Quantiphi
+  location: Buffalo, NY
+  tagline: I build agentic AI systems that ship to production.
+  intro: >-
+    I design multi-agent workflows and cloud-native ML pipelines — using LLM
+    reasoning where judgment is needed and deterministic code where it isn't.
+    Currently at Quantiphi, building agentic underwriting, document AI, and
+    model-serving platforms on Google Cloud.
+  photo: https://user-images.githubusercontent.com/46114095/135372725-014f4bb2-bfad-4484-a464-efd230428678.jpeg
+
+links:
+  - label: Email
+    url: mailto:atharva.musale@gmail.com
+    handle: atharva.musale@gmail.com
+  - label: GitHub
+    url: https://github.com/AtharvaMusale
+    handle: AtharvaMusale
+  - label: LinkedIn
+    url: https://www.linkedin.com/in/atharva-musale/
+    handle: atharva-musale
+  - label: Medium
+    url: https://atharvamusale.medium.com/
+    handle: "@atharvamusale"
+
+highlights:
+  - value: "97%"
+    label: faster underwriting evaluations (1.5 h → 3 min)
+  - value: "2,000+"
+    label: concurrent documents with zero duplicate executions
+  - value: "20+"
+    label: internal teams adopting an agentic AI platform
+  - value: "4 / 3"
+    label: chemistry models deployed vs. scope
+
+experience:
+  - role: Senior Machine Learning Engineer
+    company: Quantiphi Inc.
+    period: Nov 2025 — Present
+    points:
+      - text: >-
+          Built a multi-agent underwriting evaluation system with Google ADK that cuts
+          high-value home evaluations from 1.5 hours to 3 minutes, extracting 62
+          underwriting attributes from property imagery.
+        project: agentic-underwriting-evaluation
+      - text: >-
+          Architected a serverless, event-driven Medicaid document AI pipeline on GCP
+          handling 2,000+ concurrent documents with zero duplicate executions.
+        project: medicaid-document-ai-pipeline
+      - text: >-
+          Turned open-source chemistry synthesis and retrosynthesis models into
+          production microservices on Vertex AI — 4 models deployed against a scope of 3.
+        project: chemistry-model-deployment
+  - role: Machine Learning Engineer
+    company: Grid Dynamics Holdings, Inc.
+    period: Mar 2025 — Nov 2025
+    points:
+      - text: >-
+          Implemented core components of a unified agentic AI platform for the world's
+          largest mobile manufacturer — A2A communication, human-in-the-loop, memory,
+          LangGraph apps — adopted by 20+ internal teams.
+        project: unified-agentic-ai-platform
+      - text: >-
+          Integrated LangSmith tracing to monitor and debug deployed models, cutting
+          downtime by 20%.
+      - text: >-
+          Built semantic and image similarity search and championed Milvus as the vector
+          store, improving retrieval efficiency by 10%.
+  - role: Machine Learning Engineer
+    company: Quantiphi Analytic Solutions
+    period: Apr 2021 — Apr 2023
+    points:
+      - text: >-
+          Built a theme-park ride safety system (YOLOv5 + UNet on live camera feeds)
+          detecting guest-out-of-ride events with under 2 s inference.
+        project: theme-park-safety-system
+      - text: >-
+          Improved image-quality classification accuracy by 10% using GAN-generated
+          training data alongside CNN classifiers.
+      - text: >-
+          Orchestrated an end-to-end CI/CD MLOps pipeline on Azure (Kubernetes, Docker),
+          reducing infrastructure cost by 25%.
+      - text: >-
+          Rebuilt TensorFlow input pipelines with parallelism and memory optimizations,
+          cutting training time by 35%.
+
+side_projects:
+  - title: Vehicle Detection & Tracking
+    text: >-
+      YOLOv3 detection with DeepSORT tracking (IoU 0.77) and lane masking for
+      targeted highway monitoring.
+    tags: [Computer Vision, YOLOv3, DeepSORT]
+  - title: Fine-tuning Llama 2
+    text: >-
+      Parameter- and memory-efficient fine-tuning of Llama 2 for text generation
+      across large datasets.
+    tags: [LLMs, PEFT, GenAI]
+  - title: Friend Recommendation via Graph Mining
+    text: >-
+      Link prediction on the Facebook graph with Random Forest and XGBoost using
+      preferential attachment and SVD features; +0.15 F1 after tuning.
+    tags: [Graph ML, XGBoost]
+
+skills:
+  - group: Agentic & GenAI
+    items: [Google ADK, LangGraph, LangChain, LangSmith, ReAct agents, A2A, Human-in-the-loop, RAG, Gemini, LLM fine-tuning]
+  - group: Cloud & MLOps
+    items: [Vertex AI, Document AI, Cloud Run, Pub/Sub, Eventarc, Firestore, GCS, Docker, Kubernetes, AWS, Azure, CI/CD]
+  - group: ML & Deep Learning
+    items: [PyTorch, TensorFlow, Keras, Transformers, CNNs, GANs, Object detection, Segmentation, Reinforcement learning]
+  - group: Engineering
+    items: [Python, C++, Java, FastAPI, Flask, Streamlit, Playwright, SQL, PostgreSQL, Spark, Milvus]
+
+education:
+  - school: University at Buffalo
+    degree: M.S. Computer Science & Engineering
+    period: 2023 — 2024
+  - school: University of Mumbai
+    degree: B.E. Electronics & Telecommunication
+    period: 2016 — 2020
