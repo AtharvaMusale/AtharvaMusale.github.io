@@ -98,8 +98,11 @@ experience:
           Rebuilt TensorFlow input pipelines with parallelism and memory optimizations,
           cutting training time by 35%.
 
+# Optional per project: `url` (GitHub link) and `year`.
 side_projects:
   - title: Vehicle Detection & Tracking
+    url: https://github.com/AtharvaMusale/Vehicle-Detection-and-Tracking-using-YOLOv3-and-Deep-Sort
+    year: 2021
     text: >-
       YOLOv3 detection with DeepSORT tracking (IoU 0.77) and lane masking for
       targeted highway monitoring.

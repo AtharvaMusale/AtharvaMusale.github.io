@@ -4,8 +4,7 @@ const finePointer = matchMedia("(hover: hover) and (pointer: fine)").matches;
 
 // ---------- Theme toggle ----------
 document.querySelector(".theme-toggle")?.addEventListener("click", () => {
-  const current = root.dataset.theme ||
-    (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  const current = root.dataset.theme || "dark";  // dark is the default theme
   const next = current === "dark" ? "light" : "dark";
   root.dataset.theme = next;
   try { localStorage.setItem("theme", next); } catch (e) {}

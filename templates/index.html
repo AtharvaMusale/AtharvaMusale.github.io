@@ -83,7 +83,10 @@
     <div class="side-list">
       {% for sp in site.side_projects %}
       <div class="side">
-        <h3>{{ sp.title }}</h3>
+        <h3>
+          {% if sp.url %}<a href="{{ sp.url }}" target="_blank" rel="noopener">{{ sp.title }} <span class="arrow" aria-hidden="true">↗</span></a>{% else %}{{ sp.title }}{% endif %}
+          {% if sp.year %}<time>{{ sp.year }}</time>{% endif %}
+        </h3>
         <p>{{ sp.text }}</p>
         <ul class="tags">{% for t in sp.tags %}<li>{{ t }}</li>{% endfor %}</ul>
       </div>
@@ -99,7 +102,7 @@
 {% if posts %}
 <section class="band">
   <div class="section-row">
-    {{ section_head("05", "Writing", "Notes on machine learning") }}
+    {{ section_head("05", "Writing", "Blogs on ML") }}
     <a class="btn small" href="/blog/">All posts →</a>
   </div>
   <div class="post-list">

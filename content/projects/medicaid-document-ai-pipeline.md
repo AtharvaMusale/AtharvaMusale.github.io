@@ -4,7 +4,7 @@ summary: >-
   A serverless, event-driven pipeline that classifies, extracts, and validates
   multi-page Medicaid forms at scale on Google Cloud.
 company: Quantiphi
-period: 2025 — Present
+period: Feb 2026
 order: 2
 video: /assets/videos/medicaid-document-ai.mp4   # shown once the file exists in static/videos/
 tags: [Document AI, Vertex AI, Event-driven, Cloud Run, Pub/Sub]

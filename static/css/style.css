@@ -24,15 +24,6 @@
   --pad: 48px;
   color-scheme: dark;
 }
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) {
-    --bg: #fff; --bg-2: #fafafa; --bg-3: #f2f2f2; --text: #171717; --muted: #5c5c5c; --faint: #707070;
-    --line: #ebebeb; --line-2: #dedede; --plus: #a3a3a3; --link: #0068d6;
-    --k-agent: #8e4ec6; --k-deterministic: #1a8f3a; --k-parallel: #b35900; --k-storage: #6e6e6e;
-    --grid-line: rgb(0 0 0 / .06);
-    color-scheme: light;
-  }
-}
 :root[data-theme="light"] {
   --bg: #fff; --bg-2: #fafafa; --bg-3: #f2f2f2; --text: #171717; --muted: #5c5c5c; --faint: #707070;
   --line: #ebebeb; --line-2: #dedede; --plus: #a3a3a3; --link: #0068d6;
@@ -562,3 +553,10 @@ code { font-family: var(--font-mono); font-size: .88em; }
   border: 1px solid var(--line-2); background: #000;
   box-shadow: 0 30px 80px -40px color-mix(in srgb, var(--k-agent) 60%, transparent);
 }
+
+/* Side project title row: linked title on the left, year on the right */
+.side h3 { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+.side h3 a { color: var(--text); }
+.side h3 a:hover { text-decoration: none; }
+.side h3 a:hover .arrow { transform: translate(2px, -2px); color: var(--text); }
+.side h3 time { font: 400 13px var(--font-mono); color: var(--faint); flex: none; }
