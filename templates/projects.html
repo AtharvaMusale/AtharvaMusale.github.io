@@ -1,13 +1,17 @@
 {% extends "base.html" %}
 {% from "_macros.html" import project_card %}
 {% block content %}
-<section class="wrap section page-top">
-  <div class="section-head">
+<section class="band case-hero">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="narrow">
+    <p class="label"><span>Work</span>{{ projects | length }} case studies</p>
     <h1>Projects</h1>
-    <p>Production systems I've designed and shipped.</p>
+    <p class="lede">Production systems I've designed and shipped.</p>
   </div>
-  <div class="project-grid">
-    {% for proj in projects %}{{ project_card(proj) }}{% endfor %}
+</section>
+<section class="band flush" aria-label="Projects">
+  <div class="bento">
+    {% for proj in projects %}{{ project_card(proj, large=loop.first) }}{% endfor %}
   </div>
 </section>
 {% endblock %}

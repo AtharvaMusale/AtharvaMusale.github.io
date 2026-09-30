@@ -9,10 +9,10 @@
   <meta property="og:description" content="{{ description or site.description }}">
   <meta property="og:type" content="website">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="/feed.xml">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%235b4bff'/><text x='16' y='22' font-family='monospace' font-size='16' font-weight='700' fill='white' text-anchor='middle'>AM</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='black'/><text x='16' y='22' font-family='monospace' font-size='16' font-weight='700' fill='white' text-anchor='middle'>AM</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css">
   <script>
     try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
@@ -29,8 +29,8 @@
 <body>
   <a class="skip" href="#main">Skip to content</a>
   <header class="nav">
-    <div class="wrap nav-inner">
-      <a class="brand" href="/"><span class="brand-mark">AM</span><span class="brand-name">{{ site.profile.name }}</span></a>
+    <div class="nav-inner">
+      <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">{{ site.profile.name }}</span></a>
       <nav aria-label="Primary">
         <a href="/#work" {% if nav == "projects" %}aria-current="page"{% endif %}>Work</a>
         <a href="/#experience">Experience</a>
@@ -39,16 +39,18 @@
         <button class="theme-toggle" type="button" aria-label="Toggle color theme">
           <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9A7 7 0 0 1 12 3z"/></svg>
         </button>
+        <a class="btn primary small nav-cta" href="{{ site.links[0].url }}">Get in touch</a>
       </nav>
     </div>
+    {% if page is defined %}<div class="read-progress" aria-hidden="true"></div>{% endif %}
   </header>
 
-  <main id="main">
+  <main id="main" class="frame">
     {% block content %}{% endblock %}
   </main>
 
-  <footer class="footer">
-    <div class="wrap footer-inner">
+  <footer class="footer frame">
+    <div class="band footer-inner">
       <span>© {{ site.year }} {{ site.profile.name }}</span>
       <span class="footer-links">
         {% for link in site.links %}<a href="{{ link.url }}">{{ link.label }}</a>{% endfor %}

@@ -1,12 +1,16 @@
 {% extends "base.html" %}
 {% from "_macros.html" import post_row %}
 {% block content %}
-<section class="wrap narrow section page-top">
-  <div class="section-head">
+<section class="band case-hero">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="narrow">
+    <p class="label"><span>Blog</span>{{ posts | length }} posts</p>
     <h1>Writing</h1>
-    <p>Notes on machine learning — written to learn, shared in case they help. Older posts are also on <a href="https://atharvamusale.medium.com/">Medium</a>.</p>
+    <p class="lede">Notes on machine learning — written to learn, shared in case they help. Older posts are also on <a href="https://atharvamusale.medium.com/">Medium</a>.</p>
   </div>
-  <div class="post-list">
+</section>
+<section class="band">
+  <div class="narrow post-list">
     {% for post in posts %}{{ post_row(post) }}{% endfor %}
   </div>
 </section>

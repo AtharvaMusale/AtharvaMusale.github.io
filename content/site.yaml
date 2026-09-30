@@ -15,6 +15,7 @@ profile:
   company: Quantiphi
   location: Buffalo, NY
   tagline: I build agentic AI systems that ship to production.
+  highlight: agentic AI   # words in the tagline painted with the spectrum gradient
   intro: >-
     I design multi-agent workflows and cloud-native ML pipelines — using LLM
     reasoning where judgment is needed and deterministic code where it isn't.

@@ -1,11 +1,21 @@
 {% extends "base.html" %}
-{% from "_macros.html" import project_card, post_row %}
+{% from "_macros.html" import project_card, post_row, section_head %}
 {% block content %}
 {% set p = site.profile %}
-<section class="hero wrap">
+<section class="band hero">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <canvas class="hero-net" aria-hidden="true"></canvas>
+  <div class="hero-glow" aria-hidden="true"></div>
   <div class="hero-text">
-    <p class="status"><span class="dot" aria-hidden="true"></span>{{ p.role }} · {{ p.company }}</p>
-    <h1>{{ p.tagline }}</h1>
+    <p class="badge">
+      <img src="{{ p.photo }}" alt="" width="24" height="24">
+      <span>{{ p.role }} at {{ p.company }}</span>
+      <span class="dot" aria-hidden="true"></span>
+    </p>
+    {% set hl = p.highlight or "" %}
+    {% if hl and hl in p.tagline %}{% set parts = p.tagline.split(hl, 1) %}
+    <h1>{{ parts[0] }}<span class="spectrum-text">{{ hl }}</span>{{ parts[1] }}</h1>
+    {% else %}<h1>{{ p.tagline }}</h1>{% endif %}
     <p class="lede">{{ p.intro }}</p>
     <div class="cta">
       <a class="btn primary" href="#work">See my work</a>
@@ -13,51 +23,49 @@
       {% if site.resume %}<a class="btn" href="{{ site.resume }}">Résumé</a>{% endif %}
     </div>
   </div>
-  <figure class="hero-photo">
-    <img src="{{ p.photo }}" alt="Portrait of {{ p.name }}" width="220" height="220">
-  </figure>
 </section>
 
-<section class="wrap highlights" aria-label="Highlights">
+<section class="band flush stats" aria-label="Highlights">
   {% for h in site.highlights %}
   <div class="stat"><strong>{{ h.value }}</strong><span>{{ h.label }}</span></div>
   {% endfor %}
 </section>
 
-<section id="work" class="wrap section">
-  <div class="section-head">
-    <h2>Selected work</h2>
-    <p>Case studies from production systems I've designed and shipped.</p>
-  </div>
-  <div class="project-grid">
+<section id="work" class="band">
+  {{ section_head("01", "Work", "Selected work", "Case studies from production systems I've designed and shipped.") }}
+</section>
+<section class="band flush" aria-label="Projects">
+  <div class="bento">
     {% for proj in projects %}{{ project_card(proj, large=loop.first) }}{% endfor %}
   </div>
 </section>
 
-<section id="experience" class="wrap section">
-  <div class="section-head">
-    <h2>Experience</h2>
+<section id="experience" class="band">
+  {{ section_head("02", "Experience", "Where I've built") }}
+  <div class="tl">
+    <div class="tl-rail" aria-hidden="true"><div class="tl-fill"></div></div>
+    <ol class="timeline">
+      {% for job in site.experience %}
+      <li{% if loop.first %} class="current"{% endif %}>
+        <div class="tl-when">{{ job.period }}</div>
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-body">
+          <h3>{{ job.role }} <span class="at">{{ job.company }}</span></h3>
+          <ul>
+            {% for pt in job.points %}
+            <li>{{ pt.text }}{% if pt.project and pt.project in by_slug %} <a class="inline-link" href="{{ by_slug[pt.project].url }}">Case study →</a>{% endif %}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
   </div>
-  <ol class="timeline">
-    {% for job in site.experience %}
-    <li>
-      <div class="tl-when">{{ job.period }}</div>
-      <div class="tl-body">
-        <h3>{{ job.role }} <span class="at">@ {{ job.company }}</span></h3>
-        <ul>
-          {% for pt in job.points %}
-          <li>{{ pt.text }}{% if pt.project and pt.project in by_slug %} <a class="inline-link" href="{{ by_slug[pt.project].url }}">Case study →</a>{% endif %}</li>
-          {% endfor %}
-        </ul>
-      </div>
-    </li>
-    {% endfor %}
-  </ol>
 </section>
 
-<section class="wrap section two-col">
-  <div>
-    <div class="section-head"><h2>Toolbox</h2></div>
+<section class="band flush split">
+  <div class="split-col">
+    {{ section_head("03", "Toolbox", "Stack I reach for") }}
     <div class="skills">
       {% for g in site.skills %}
       <div class="skill-group">
@@ -67,8 +75,8 @@
       {% endfor %}
     </div>
   </div>
-  <div>
-    <div class="section-head"><h2>Side projects</h2></div>
+  <div class="split-col">
+    {{ section_head("04", "Side projects", "Things I explore") }}
     <div class="side-list">
       {% for sp in site.side_projects %}
       <div class="side">
@@ -78,7 +86,7 @@
       </div>
       {% endfor %}
     </div>
-    <div class="section-head edu-head"><h2>Education</h2></div>
+    <h3 class="edu-head">Education</h3>
     {% for e in site.education %}
     <div class="edu"><strong>{{ e.school }}</strong><span>{{ e.degree }}</span><time>{{ e.period }}</time></div>
     {% endfor %}
@@ -86,10 +94,10 @@
 </section>
 
 {% if posts %}
-<section class="wrap section">
-  <div class="section-head row">
-    <h2>Writing</h2>
-    <a class="inline-link" href="/blog/">All posts →</a>
+<section class="band">
+  <div class="section-row">
+    {{ section_head("05", "Writing", "Notes on machine learning") }}
+    <a class="btn small" href="/blog/">All posts →</a>
   </div>
   <div class="post-list">
     {% for post in posts[:4] %}{{ post_row(post) }}{% endfor %}
@@ -97,13 +105,22 @@
 </section>
 {% endif %}
 
-<section id="contact" class="wrap section contact">
-  <h2>Let's build something.</h2>
-  <p>Open to conversations about agentic AI, ML platforms, and production GenAI systems.</p>
-  <div class="contact-links">
-    {% for link in site.links %}
-    <a href="{{ link.url }}"><span>{{ link.label }}</span><code>{{ link.handle }}</code></a>
-    {% endfor %}
+<section id="contact" class="band contact">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="contact-glow" aria-hidden="true"></div>
+  <div class="contact-inner">
+    <p class="label"><span>06</span>Contact</p>
+    <h2>Let's build something <span class="spectrum-text">intelligent</span>.</h2>
+    <p class="sub">Open to conversations about agentic AI, ML platforms, and production GenAI systems.</p>
+    <div class="cta center">
+      <a class="btn primary" href="{{ site.links[0].url }}">Email me</a>
+      <a class="btn" href="{{ site.links[2].url }}">Connect on LinkedIn</a>
+    </div>
   </div>
+</section>
+<section class="band flush contact-links" aria-label="Links">
+  {% for link in site.links %}
+  <a href="{{ link.url }}"><span>{{ link.label }} <span class="arrow" aria-hidden="true">↗</span></span><code>{{ link.handle }}</code></a>
+  {% endfor %}
 </section>
 {% endblock %}
