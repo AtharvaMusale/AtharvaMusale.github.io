@@ -7,9 +7,12 @@
   <canvas class="hero-net" aria-hidden="true"></canvas>
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="hero-text">
+    <figure class="portrait">
+      <span class="portrait-ring" aria-hidden="true"></span>
+      <img src="{{ p.photo }}" alt="Portrait of {{ p.name }}" width="160" height="160">
+    </figure>
     <p class="badge">
-      <img src="{{ p.photo }}" alt="" width="24" height="24">
-      <span>{{ p.role }} at {{ p.company }}</span>
+      <span><span class="role-long">{{ p.role }}</span><span class="role-short">{{ p.role | replace("Machine Learning", "ML") }}</span> at {{ p.company }}</span>
       <span class="dot" aria-hidden="true"></span>
     </p>
     {% set hl = p.highlight or "" %}

@@ -153,7 +153,7 @@ code { font-family: var(--font-mono); font-size: .88em; }
 /* =========================================================
    Hero
    ========================================================= */
-.hero { overflow: hidden; padding: 120px var(--pad) 112px; text-align: center; }
+.hero { overflow: hidden; padding: 88px var(--pad) 104px; text-align: center; }
 .hero-grid {
   position: absolute; inset: 0; pointer-events: none;
   background-image:
@@ -179,12 +179,28 @@ code { font-family: var(--font-mono); font-size: .88em; }
   to { transform: scaleX(1.15) rotate(4deg); filter: blur(110px) hue-rotate(40deg); }
 }
 .hero-text { position: relative; z-index: 2; max-width: 860px; margin-inline: auto; }
+.portrait { position: relative; width: 160px; height: 160px; margin: 0 auto 28px; }
+.portrait::before {
+  content: ""; position: absolute; inset: -40px; border-radius: 50%; background: var(--spectrum);
+  filter: blur(40px); opacity: .35; z-index: -1;
+}
+.portrait-ring {
+  position: absolute; inset: -4px; border-radius: 50%;
+  background: conic-gradient(from var(--angle, 0deg), #22d3ee, #a855f7, #f43f5e, #f59e0b, #10b981, #22d3ee);
+  animation: ring-spin 6s linear infinite;
+}
+.portrait img {
+  position: relative; display: block; width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
+  object-position: 50% 30%; border: 4px solid var(--bg); background: var(--bg-2);
+}
+@property --angle { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+@keyframes ring-spin { to { --angle: 360deg; } }
 .badge {
-  display: inline-flex; align-items: center; gap: 10px; margin: 0 0 28px; padding: 4px 14px 4px 4px;
+  display: inline-flex; align-items: center; gap: 10px; margin: 0 0 28px; padding: 6px 14px;
   font-size: 14px; color: var(--muted); border: 1px solid var(--line-2); border-radius: 999px;
   background: color-mix(in srgb, var(--bg-2) 80%, transparent); backdrop-filter: blur(6px);
 }
-.badge img { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; }
+.role-short { display: none; }
 .dot {
   width: 7px; height: 7px; border-radius: 50%; background: var(--k-deterministic);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--k-deterministic) 25%, transparent);
@@ -490,7 +506,7 @@ code { font-family: var(--font-mono); font-size: .88em; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; translate: none; transition: none; }
-  .flow::after, .flow-node, .viz::after, .viz .flow-node, .viz-label, .packet, .hero-glow, .spectrum-text,
+  .flow::after, .flow-node, .viz::after, .viz .flow-node, .viz-label, .packet, .hero-glow, .spectrum-text, .portrait-ring,
   .live-dot, .timeline > li.current .tl-dot::after { animation: none; }
   .packet, .flow::after, .viz::after { display: none; }
 }
@@ -517,7 +533,11 @@ code { font-family: var(--font-mono); font-size: .88em; }
   .nav-inner { padding-inline: 4px; }
   .nav nav > a:not(.btn) { padding: 8px 9px; font-size: 13px; }
   .nav nav > a[href="/#experience"] { display: none; }
-  .badge { font-size: 12px; }
+  .badge { font-size: 13px; white-space: nowrap; }
+  .role-long { display: none; }
+  .role-short { display: inline; }
+  .portrait { width: 108px; height: 108px; margin-bottom: 22px; }
+  .hero { padding-top: 56px; }
   .lede { font-size: 17px; }
   .bento { grid-template-columns: 1fr; }
   .card { padding: 32px var(--pad); }

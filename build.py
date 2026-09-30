@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import functools
+import hashlib
 import http.server
 import re
 import shutil
@@ -87,6 +88,15 @@ def load_posts() -> list[Page]:
     return sorted(posts, key=lambda p: p.meta["date"], reverse=True)
 
 
+def asset_version() -> str:
+    """Short hash of static files, appended as ?v= so browsers never pair new HTML with stale CSS/JS."""
+    digest = hashlib.sha1()
+    for path in sorted(STATIC.rglob("*")):
+        if path.is_file():
+            digest.update(path.read_bytes())
+    return digest.hexdigest()[:10]
+
+
 def write(rel: str, content: str) -> None:
     rel = rel.lstrip("/")
     target = OUT / (rel + "index.html" if rel.endswith("/") or not rel else rel)
@@ -105,7 +115,7 @@ def build() -> None:
                       trim_blocks=True, lstrip_blocks=True)
     env.filters["date"] = lambda d, f="%b %d, %Y": d.strftime(f)
     env.filters["rfc822"] = lambda d: format_datetime(dt.datetime.combine(d, dt.time(), dt.timezone.utc))
-    env.globals.update(site=site, projects=projects, posts=posts, by_slug=by_slug)
+    env.globals.update(site=site, projects=projects, posts=posts, by_slug=by_slug, asset_version=asset_version())
 
     def render(template: str, **ctx) -> str:
         return env.get_template(template).render(**ctx)
