@@ -9,13 +9,6 @@ period: 2026
 order: 6
 side: true   # shown under Side projects, not Work
 tags: [Agentic RAG, LangGraph, MCP, A2A, Pinecone, Claude Haiku 4.5]
-metrics:
-  - value: "91 → 51"
-    label: verifier-flagged issues after one revision (32 live questions)
-  - value: "2,967"
-    label: filing chunks indexed from 43 SEC filings, plus 19,033 XBRL facts
-  - value: "242"
-    label: offline tests, with lint and tests on every push
 pipeline_title: Answer flow
 pipeline:
   - title: Ingest SEC filings
@@ -70,6 +63,14 @@ stack:
   Serving: [FastAPI, Python 3.11, uv]
   Quality: [pytest, ruff, GitHub Actions, golden eval set, JSONL tracing]
 ---
+
+## What it achieved
+
+- **Answers you can audit.** Every claim in a response points to the filing passage or database row behind it, so a reader can check any statement in seconds.
+- **Numbers that never come from the model.** Figures are read from structured filing data or computed by a calculator, which removes a whole class of invented-number errors.
+- **A checker between the model and the reader.** A separate verification pass tests the draft against its evidence, and anything it can't support is flagged instead of presented as fact.
+- **One system, three front doors.** The same analyst is reachable over HTTP, through MCP from Claude, and as cooperating A2A agents, with no duplicated logic.
+- **Honest about its limits.** Retrieval quality, verifier bias and security gaps are measured and written down rather than hidden.
 
 ## The problem
 
