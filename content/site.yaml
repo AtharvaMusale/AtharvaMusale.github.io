@@ -5,6 +5,7 @@ url: https://atharvamusale.github.io
 description: >-
   Senior Machine Learning Engineer building production agentic AI systems on
   Google Cloud — multi-agent orchestration, document AI, and scalable inference.
+blog: false   # set to true to publish content/posts/ (blog page, homepage section, nav link, RSS)
 google_analytics: G-9L4GJKS44G
 # Drop a PDF at static/resume.pdf and set this to "/assets/resume.pdf" to show a résumé button.
 resume: ""

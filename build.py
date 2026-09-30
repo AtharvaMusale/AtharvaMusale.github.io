@@ -108,7 +108,8 @@ def build() -> None:
     started = time.perf_counter()
     site = yaml.safe_load((CONTENT / "site.yaml").read_text(encoding="utf-8"))
     site["year"] = dt.date.today().year
-    projects, posts = load_projects(), load_posts()
+    projects = load_projects()
+    posts = load_posts() if site.get("blog") else []  # blog is opt-in: set `blog: true` in site.yaml
     by_slug = {p.slug: p for p in projects}
 
     env = Environment(loader=FileSystemLoader(TEMPLATES), autoescape=select_autoescape(["html", "xml"]),
@@ -131,12 +132,13 @@ def build() -> None:
         nxt = projects[(i + 1) % len(projects)]
         write(project.url, render("project.html", nav="projects", page=project, next_project=nxt,
                                   title=project.title, description=project.summary))
-    write("/blog/", render("blog.html", nav="blog", title="Writing"))
+    if posts:
+        write("/blog/", render("blog.html", nav="blog", title="Writing"))
+        write("/feed.xml", render("feed.xml"))
     for post in posts:
         write(post.url, render("post.html", nav="blog", page=post, title=post.title,
                                description=post.meta.get("excerpt", "")))
     write("/404.html", render("404.html", title="Not found"))
-    write("/feed.xml", render("feed.xml"))
     write("/sitemap.xml", render("sitemap.xml"))
     (OUT / ".nojekyll").touch()  # tell GitHub Pages not to run Jekyll on the output
 
