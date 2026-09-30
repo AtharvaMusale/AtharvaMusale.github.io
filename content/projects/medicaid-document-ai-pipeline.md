@@ -6,6 +6,7 @@ summary: >-
 company: Quantiphi
 period: 2025 — Present
 order: 2
+video: /assets/videos/medicaid-document-ai.mp4   # shown once the file exists in static/videos/
 tags: [Document AI, Vertex AI, Event-driven, Cloud Run, Pub/Sub]
 metrics:
   - value: "2,000+"
