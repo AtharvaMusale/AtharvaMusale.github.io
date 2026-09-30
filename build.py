@@ -113,7 +113,8 @@ def build() -> None:
 
     env = Environment(loader=FileSystemLoader(TEMPLATES), autoescape=select_autoescape(["html", "xml"]),
                       trim_blocks=True, lstrip_blocks=True)
-    env.filters["date"] = lambda d, f="%b %d, %Y": d.strftime(f)
+    env.globals["asset_exists"] = lambda url: bool(url) and (STATIC / url.removeprefix("/assets/")).is_file()
+    env.filters["date"] =lambda d, f="%b %d, %Y": d.strftime(f)
     env.filters["rfc822"] = lambda d: format_datetime(dt.datetime.combine(d, dt.time(), dt.timezone.utc))
     env.globals.update(site=site, projects=projects, posts=posts, by_slug=by_slug, asset_version=asset_version())
 

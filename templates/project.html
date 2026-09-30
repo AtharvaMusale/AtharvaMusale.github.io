@@ -18,6 +18,20 @@
 </section>
 {% endif %}
 
+{% if asset_exists(page.meta.video) %}
+<section class="band">
+  <div class="narrow">
+    <p class="label"><span>Video</span>Explainer</p>
+    <h2 class="video-title">See how it works</h2>
+    <video class="explainer" controls preload="metadata" playsinline
+           {% if page.meta.video_poster %}poster="{{ page.meta.video_poster }}"{% endif %}>
+      <source src="{{ page.meta.video }}" type="video/mp4">
+      Your browser can't play this video. <a href="{{ page.meta.video }}">Download it instead</a>.
+    </video>
+  </div>
+</section>
+{% endif %}
+
 {% if page.meta.pipeline %}
 <section class="band">
   <div class="narrow">

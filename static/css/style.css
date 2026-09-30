@@ -554,3 +554,11 @@ code { font-family: var(--font-mono); font-size: .88em; }
   .contact-links { grid-template-columns: 1fr; }
   .viz-label { font-size: 12px; }
 }
+
+/* Explainer video on case studies */
+.video-title { font-size: clamp(28px, 3.6vw, 36px); letter-spacing: -.04em; margin-bottom: 28px; }
+.explainer {
+  display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: 12px;
+  border: 1px solid var(--line-2); background: #000;
+  box-shadow: 0 30px 80px -40px color-mix(in srgb, var(--k-agent) 60%, transparent);
+}

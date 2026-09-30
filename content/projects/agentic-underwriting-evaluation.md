@@ -6,6 +6,7 @@ summary: >-
 company: Quantiphi
 period: 2025 — Present
 order: 1
+video: /assets/videos/high-value-evaluation.mp4   # shown once the file exists in static/videos/
 tags: [Multi-agent, Google ADK, Gemini, Vertex AI, Cloud Run]
 metrics:
   - value: 1.5 h → 3 min
