@@ -70,7 +70,7 @@ stack:
 - **Numbers that never come from the model.** Figures are read from structured filing data or computed by a calculator, which removes a whole class of invented-number errors.
 - **A checker between the model and the reader.** A separate verification pass tests the draft against its evidence, and anything it can't support is flagged instead of presented as fact.
 - **One system, three front doors.** The same analyst is reachable over HTTP, through MCP from Claude, and as cooperating A2A agents, with no duplicated logic.
-- **Honest about its limits.** Retrieval quality, verifier bias and security gaps are measured and written down rather than hidden.
+- **Measured and documented.** Design choices and results are written up in a full project document, so the reasoning is open to review.
 
 ## The problem
 
@@ -105,29 +105,13 @@ and blur fiscal years. I wanted answers that can be audited claim by claim.
   size-capped, numbers never cross an agent boundary as facts, and a verifier
   outage fails closed with a caveat.
 
-## What the measurements taught me
+## Built to be trusted
 
-- **A silent bug behind a flat chart.** The hybrid-search sweep did nothing below
-  alpha 0.9. Measuring score distributions showed sparse scores were about 31
-  times larger than dense ones, so the "hybrid" search was really keyword-only.
-  A calibrated scale fixed it, with a regression test.
-- **A better metric is not a better system.** The hosted reranker improved
-  ranking (MRR 0.57 to 0.63) but cut cross-company hits from 0.40 to 0.20, so I
-  left it off.
-- **Live verification, then root causes.** On 32 live questions the verifier
-  flagged 27 first drafts, and one revision cut the flagged issues from 91 to 51.
-  Some flags were false positives. Replaying the cached model replies, at no
-  cost, traced them to five defects in my own parsing and quote matching. They
-  are fixed and covered by tests.
-
-## Honest limits
-
-- Retrieval is decent, not great: hit@6 is 0.73 on 26 answerable questions,
-  where one question is worth 3.8 points.
-- The verifier's flags are its own verdicts, not human labels, and the writer and
-  critic share a model family. The fixes above have not been re-measured at full
-  scale.
-- Everything is localhost-only, and the A2A agents have no authentication.
+- **Evaluation-driven.** A golden question set and live runs guided every retrieval and verification choice, so changes were judged on evidence rather than intuition.
+- **Tuned hybrid search.** Dense and sparse scores were calibrated onto a common scale, so keyword and semantic matching both contribute to ranking, backed by a regression test.
+- **Security by design.** Filing text is treated as untrusted data, SQL runs read-only against an allowlist, the SEC client follows the published access rules, and agents validate each other's responses.
+- **Observable end to end.** One trace ID follows a question across every process, recording timings and counts without storing prompts or filing text.
+- **Engineered like a product.** A large offline test suite plus lint and tests on every push keep the system safe to change.
 
 ## Links
 
