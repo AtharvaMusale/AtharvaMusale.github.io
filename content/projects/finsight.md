@@ -7,6 +7,7 @@ summary: >-
 company: Personal project
 period: 2026
 order: 6
+side: true   # shown under Side projects, not Work
 tags: [Agentic RAG, LangGraph, MCP, A2A, Pinecone, Claude Haiku 4.5]
 metrics:
   - value: "91 → 51"

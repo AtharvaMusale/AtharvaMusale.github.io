@@ -102,7 +102,7 @@ experience:
 # Optional per project: `url` (GitHub link) and `year`.
 side_projects:
   - title: FinSight
-    url: https://github.com/AtharvaMusale/finsight
+    project: finsight   # opens the case study page; its GitHub link is on that page
     year: 2026
     text: >-
       Agentic RAG analyst over SEC 10-K/10-Q filings. Every claim is cited, every

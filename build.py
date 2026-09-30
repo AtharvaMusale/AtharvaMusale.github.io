@@ -108,9 +108,10 @@ def build() -> None:
     started = time.perf_counter()
     site = yaml.safe_load((CONTENT / "site.yaml").read_text(encoding="utf-8"))
     site["year"] = dt.date.today().year
-    projects = load_projects()
+    everything = load_projects()
+    projects = [p for p in everything if not p.meta.get("side")]  # case studies shown under Work
     posts = load_posts() if site.get("blog") else []  # blog is opt-in: set `blog: true` in site.yaml
-    by_slug = {p.slug: p for p in projects}
+    by_slug = {p.slug: p for p in everything}
 
     env = Environment(loader=FileSystemLoader(TEMPLATES), autoescape=select_autoescape(["html", "xml"]),
                       trim_blocks=True, lstrip_blocks=True)
@@ -128,8 +129,11 @@ def build() -> None:
 
     write("/", render("index.html", nav="home"))
     write("/projects/", render("projects.html", nav="projects", title="Projects"))
-    for i, project in enumerate(projects):
-        nxt = projects[(i + 1) % len(projects)]
+    for project in everything:
+        if project in projects:
+            nxt = projects[(projects.index(project) + 1) % len(projects)]
+        else:
+            nxt = None  # side-project case studies sit outside the Work carousel
         write(project.url, render("project.html", nav="projects", page=project, next_project=nxt,
                                   title=project.title, description=project.summary))
     if posts:
@@ -142,7 +146,7 @@ def build() -> None:
     write("/sitemap.xml", render("sitemap.xml"))
     (OUT / ".nojekyll").touch()  # tell GitHub Pages not to run Jekyll on the output
 
-    print(f"Built {len(projects)} projects, {len(posts)} posts in {time.perf_counter() - started:.2f}s -> {OUT}")
+    print(f"Built {len(everything)} projects, {len(posts)} posts in {time.perf_counter() - started:.2f}s -> {OUT}")
 
 
 def snapshot() -> dict[Path, float]:

@@ -78,13 +78,13 @@
       {% endfor %}
     </div>
   </div>
-  <div class="split-col">
+  <div class="split-col" id="side-projects">
     {{ section_head("04", "Side projects", "Things I explore") }}
     <div class="side-list">
       {% for sp in site.side_projects %}
       <div class="side">
         <h3>
-          {% if sp.url %}<a href="{{ sp.url }}" target="_blank" rel="noopener">{{ sp.title }} <span class="arrow" aria-hidden="true">↗</span></a>{% else %}{{ sp.title }}{% endif %}
+          {% if sp.project %}<a href="{{ by_slug[sp.project].url }}">{{ sp.title }} <span class="arrow" aria-hidden="true">→</span></a>{% elif sp.url %}<a href="{{ sp.url }}" target="_blank" rel="noopener">{{ sp.title }} <span class="arrow" aria-hidden="true">↗</span></a>{% else %}{{ sp.title }}{% endif %}
           {% if sp.year %}<time>{{ sp.year }}</time>{% endif %}
         </h3>
         <p>{{ sp.text }}</p>

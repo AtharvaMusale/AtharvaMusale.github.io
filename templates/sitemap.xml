@@ -3,7 +3,7 @@
   <url><loc>{{ site.url }}/</loc></url>
   <url><loc>{{ site.url }}/projects/</loc></url>
   {% if posts %}<url><loc>{{ site.url }}/blog/</loc></url>{% endif %}
-  {% for p in projects %}<url><loc>{{ site.url }}{{ p.url }}</loc></url>
+  {% for p in by_slug.values() %}<url><loc>{{ site.url }}{{ p.url }}</loc></url>
   {% endfor %}
   {% for p in posts %}<url><loc>{{ site.url }}{{ p.url }}</loc><lastmod>{{ p.date.isoformat() }}</lastmod></url>
   {% endfor %}
