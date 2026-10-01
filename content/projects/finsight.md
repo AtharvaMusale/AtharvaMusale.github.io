@@ -8,6 +8,7 @@ company: Personal project
 period: 2026
 order: 6
 side: true   # shown under Side projects, not Work
+video: /assets/videos/finsight.mp4
 tags: [Agentic RAG, LangGraph, MCP, A2A, Pinecone, Claude Haiku 4.5]
 pipeline_title: Answer flow
 pipeline:
