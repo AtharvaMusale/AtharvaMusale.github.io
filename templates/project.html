@@ -32,6 +32,16 @@
 </section>
 {% endif %}
 
+{% if page.meta.demo_image %}
+<section class="band">
+  <div class="narrow">
+    <p class="label"><span>Demo</span>In action</p>
+    <h2 class="video-title">See it work</h2>
+    <img class="explainer demo-gif" src="{{ page.meta.demo_image }}" alt="{{ page.meta.demo_alt or page.title }}" loading="lazy" width="560" height="315">
+  </div>
+</section>
+{% endif %}
+
 {% if page.meta.pipeline %}
 <section class="band">
   <div class="narrow">

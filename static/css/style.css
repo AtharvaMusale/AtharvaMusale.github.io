@@ -554,6 +554,8 @@ code { font-family: var(--font-mono); font-size: .88em; }
   box-shadow: 0 30px 80px -40px color-mix(in srgb, var(--k-agent) 60%, transparent);
 }
 
+img.demo-gif { max-width: 720px; height: auto; }
+
 /* Side project title row: linked title on the left, year on the right */
 .side h3 { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
 .side h3 a { color: var(--text); }

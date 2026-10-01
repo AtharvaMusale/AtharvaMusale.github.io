@@ -110,7 +110,7 @@ side_projects:
       before it is shown. Served over HTTP, MCP and A2A.
     tags: [Agentic RAG, LangGraph, MCP, A2A]
   - title: Vehicle Detection & Tracking
-    url: https://github.com/AtharvaMusale/Vehicle-Detection-and-Tracking-using-YOLOv3-and-Deep-Sort
+    project: vehicle-detection-tracking   # opens the case study; GitHub link is on that page
     year: 2021
     text: >-
       YOLOv3 detection with DeepSORT tracking (IoU 0.77) and lane masking for
