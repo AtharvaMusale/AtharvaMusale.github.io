@@ -101,6 +101,14 @@ experience:
 
 # Optional per project: `url` (GitHub link) and `year`.
 side_projects:
+  - title: AI Market Intelligence Platform
+    project: ai-market-intelligence   # opens the case study; GitHub link is on that page
+    year: 2026
+    text: >-
+      Daily market briefing and Q&A where every number is computed in code and
+      every claim is cited to a data field or SEC filing, then independently
+      checked by an evaluation harness.
+    tags: [LangGraph, RAG, Evaluation, Streamlit]
   - title: FinSight
     project: finsight   # opens the case study page; its GitHub link is on that page
     year: 2026
